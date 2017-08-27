@@ -37,6 +37,7 @@ EXTRA_DIST = \
 	kdf.exp \
 	keygen.exp \
 	kx.exp \
+	misuse.exp \
 	onetimeauth.exp \
 	onetimeauth2.exp \
 	onetimeauth7.exp \
@@ -56,6 +57,7 @@ EXTRA_DIST = \
 	secretbox8.exp \
 	secretbox_easy.exp \
 	secretbox_easy2.exp \
+	secretstream.exp \
 	shorthash.exp \
 	sign.exp \
 	siphashx24.exp \
@@ -106,6 +108,7 @@ DISTCLEANFILES = \
 	kdf.res \
 	keygen.res \
 	kx.res \
+	misuse.res \
 	onetimeauth.res \
 	onetimeauth2.res \
 	onetimeauth7.res \
@@ -125,6 +128,7 @@ DISTCLEANFILES = \
 	secretbox8.res \
 	secretbox_easy.res \
 	secretbox_easy2.res \
+	secretstream.res \
 	shorthash.res \
 	sign.res \
 	siphashx24.res \
@@ -176,6 +180,7 @@ CLEANFILES = \
 	kdf.final \
 	keygen.final \
 	kx.final \
+	misuse.final \
 	onetimeauth.final \
 	onetimeauth2.final \
 	onetimeauth7.final \
@@ -195,6 +200,7 @@ CLEANFILES = \
 	secretbox8.final \
 	secretbox_easy.final \
 	secretbox_easy2.final \
+	secretstream.final \
 	shorthash.final \
 	sign.final \
 	siphashx24.final \
@@ -241,6 +247,7 @@ CLEANFILES = \
 	kdf.nexe \
 	keygen.nexe \
 	kx.nexe \
+	misuse.nexe \
 	onetimeauth.nexe \
 	onetimeauth2.nexe \
 	onetimeauth7.nexe \
@@ -260,6 +267,7 @@ CLEANFILES = \
 	secretbox8.nexe \
 	secretbox_easy.nexe \
 	secretbox_easy2.nexe \
+	secretstream.nexe \
 	shorthash.nexe \
 	sign.nexe \
 	siphashx24.nexe \
@@ -318,6 +326,7 @@ TESTS_TARGETS = \
 	kdf \
 	keygen \
 	kx \
+	misuse \
 	onetimeauth \
 	onetimeauth2 \
 	onetimeauth7 \
@@ -335,6 +344,7 @@ TESTS_TARGETS = \
 	secretbox8 \
 	secretbox_easy \
 	secretbox_easy2 \
+	secretstream \
 	shorthash \
 	sign \
 	sodium_core \
@@ -460,6 +470,9 @@ keygen_LDADD              = $(TESTS_LDADD)
 kx_SOURCE                 = cmptest.h kx.c
 kx_LDADD                  = $(TESTS_LDADD)
 
+misuse_SOURCE             = cmptest.h misuse.c
+misuse_LDADD              = $(TESTS_LDADD)
+
 onetimeauth_SOURCE        = cmptest.h onetimeauth.c
 onetimeauth_LDADD         = $(TESTS_LDADD)
 
@@ -516,6 +529,9 @@ secretbox_easy_LDADD      = $(TESTS_LDADD)
 
 secretbox_easy2_SOURCE    = cmptest.h secretbox_easy2.c
 secretbox_easy2_LDADD     = $(TESTS_LDADD)
+
+secretstream_SOURCE       = cmptest.h secretstream.c
+secretstream_LDADD        = $(TESTS_LDADD)
 
 shorthash_SOURCE          = cmptest.h shorthash.c
 shorthash_LDADD           = $(TESTS_LDADD)

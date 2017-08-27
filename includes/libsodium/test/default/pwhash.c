@@ -157,6 +157,10 @@ tv2(void)
                       1ULL << 12, 0) != -1) {
         printf("[tv2] pwhash should have failed (0)\n");
     }
+    if (crypto_pwhash_argon2i(out, sizeof out, "password", strlen("password"), salt, 3,
+                              1ULL << 12, 0) != -1) {
+        printf("[tv2] pwhash should have failed (0')\n");
+    }
     if (crypto_pwhash(out, sizeof out, "password", strlen("password"), salt, 3,
                       1, crypto_pwhash_alg_default()) != -1) {
         printf("[tv2] pwhash should have failed (1)\n");
@@ -333,6 +337,26 @@ main(void)
             "password", strlen("password")) != -1 || errno != EINVAL) {
         printf("pwhash_str_verify(invalid(9)) failure\n");
     }
+    if (crypto_pwhash_str_verify(
+            "$argon2i$v=1$m=4096,t=3,p=2$b2RpZHVla~=mRpc29kaXNrdw"
+            "$TNnWIwlu1061JHrnCqIAmjs3huSxYIU+0jWipu7Kc9M",
+            "password", strlen("password")) != -1 || errno != EINVAL) {
+        printf("pwhash_str_verify(invalid(10)) failure\n");
+    }
+    if (crypto_pwhash_str_verify(
+            "$argon2i$v=1$m=4096,t=3,p=2$b2RpZHVlamRpc29kaXNrdw"
+            "$TNnWIwlu1061JHrnCqIAmjs3huSxYI~=U+0jWipu7Kc9M",
+            "password", strlen("password")) != -1 || errno != EINVAL) {
+        printf("pwhash_str_verify(invalid(11)) failure\n");
+    }
+
+    assert(crypto_pwhash_str_alg(str_out, "test", 4, OPSLIMIT, MEMLIMIT,
+                                 crypto_pwhash_ALG_ARGON2I13) == 0);
+    assert(crypto_pwhash_argon2i_str_verify(str_out, "test", 4) == 0);
+    assert(crypto_pwhash_str_alg(str_out, "test", 4, OPSLIMIT, MEMLIMIT,
+                                 crypto_pwhash_ALG_ARGON2ID13) == 0);
+    assert(crypto_pwhash_argon2id_str_verify(str_out, "test", 4) == 0);
+
     assert(crypto_pwhash_bytes_min() > 0U);
     assert(crypto_pwhash_bytes_max() > crypto_pwhash_bytes_min());
     assert(crypto_pwhash_passwd_max() > crypto_pwhash_passwd_min());
@@ -408,6 +432,9 @@ main(void)
            crypto_pwhash_argon2i_alg_argon2i13());
     assert(crypto_pwhash_alg_argon2i13() == crypto_pwhash_ALG_ARGON2I13);
     assert(crypto_pwhash_alg_argon2i13() == crypto_pwhash_alg_default());
+    assert(crypto_pwhash_alg_argon2id13() == crypto_pwhash_ALG_ARGON2ID13);
+    assert(crypto_pwhash_alg_argon2id13() != crypto_pwhash_alg_argon2i13());
+    assert(crypto_pwhash_alg_argon2id13() != crypto_pwhash_alg_default());
 
     sodium_free(salt);
     sodium_free(str_out);

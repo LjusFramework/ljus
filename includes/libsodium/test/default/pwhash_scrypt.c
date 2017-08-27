@@ -10,9 +10,9 @@ static void
 tv(void)
 {
     static struct {
-        const char *       passwd_hex;
+        const char        *passwd_hex;
         size_t             passwdlen;
-        const char *       salt_hex;
+        const char        *salt_hex;
         size_t             outlen;
         unsigned long long opslimit;
         size_t             memlimit;
@@ -117,9 +117,9 @@ static void
 tv2(void)
 {
     static struct {
-        const char *       passwd_hex;
+        const char        *passwd_hex;
         size_t             passwdlen;
-        const char *       salt_hex;
+        const char        *salt_hex;
         size_t             outlen;
         unsigned long long opslimit;
         size_t             memlimit;
@@ -260,8 +260,19 @@ tv3(void)
         { "Y0!?iQa9M%5ekffW(`", "$7$" },
         { "Y0!?iQa9M%5ekffW(`", "" },
         { "Y0!?iQa9M%5ekffW(`",
-          "$7$A6....1....TrXs5Zk6s8sWHpQgWDIXTR8kUU3s6Jc3s.DtdS8M2i4$"
-          "" },
+          "$7$A6....1....TrXs5Zk6s8sWHpQgWDIXTR8kUU3s6Jc3s.DtdS8M2i4$" },
+        { "test",
+          "$7$.6..../.....lgPchkGHqbeONR/xtuXyjCrt9kUSg6NlKFQO0OSxo/$.DbajbPYH9T7sg3fOtcgxvJzzfIgJBIxMkeQ8b24YQ." },
+        { "test",
+          "$7$z6..../.....lgPchkGHqbeONR/xtuXyjCrt9kUSg6NlKFQO0OSxo/$.DbajbPYH9T7sg3fOtcgxvJzzfIgJBIxMkeQ8b24YQ." },
+        { "test",
+          "$7$8zzzzz/.....lgPchkGHqbeONR/xtuXyjCrt9kUSg6NlKFQO0OSxo/$.DbajbPYH9T7sg3fOtcgxvJzzfIgJBIxMkeQ8b24YQ." },
+        { "test",
+          "$7$8zzzzzzzzzz.lgPchkGHqbeONR/xtuXyjCrt9kUSg6NlKFQO0OSxo/$.DbajbPYH9T7sg3fOtcgxvJzzfIgJBIxMkeQ8b24YQ." },
+        { "test",
+          "$7$8.....zzzzz.lgPchkGHqbeONR/xtuXyjCrt9kUSg6NlKFQO0OSxo/$.DbajbPYH9T7sg3fOtcgxvJzzfIgJBIxMkeQ8b24YQ." },
+        { "test",
+          "$7$86..../..../lgPchkGHqbeONR/xtuXyjCrt9kUSg6NlKFQO0OSxo/$.DbajbPYH9T7sg3fOtcgxvJzzfIgJBIxMkeQ8b24YQ." }
     };
     char * out;
     char * passwd;
@@ -286,9 +297,9 @@ tv3(void)
 int
 main(void)
 {
-    char *      str_out;
-    char *      str_out2;
-    char *      salt;
+    char       *str_out;
+    char       *str_out2;
+    char       *salt;
     const char *passwd = "Correct Horse Battery Staple";
 
     tv();
