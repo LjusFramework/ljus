@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 gppflags= -Wall -pthread -std=c++17 -Ofast
 hashfiles= ljus/hash/Hash.cpp ljus/hash/Hash.h
 libraries= -lpistache -lyaml-cpp -largon2 -lsodium
