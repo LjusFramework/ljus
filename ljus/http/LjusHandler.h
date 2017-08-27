@@ -6,6 +6,7 @@
 #define LJUS_HANDLER_H
 
 #include <pistache/http.h>
+#include "../encryption/Crypt.h"
 
 using namespace Pistache;
 
@@ -15,7 +16,8 @@ public:
     HTTP_PROTOTYPE(LjusHandler)
 
     void onRequest(const Http::Request& request, Http::ResponseWriter response) {
-      response.send(Http::Code::Ok, "Hello world");
+      std::string enc = Crypt::make((std::string) std::string("Hello world"));
+      response.send(Http::Code::Ok, enc);
     }
 
 };

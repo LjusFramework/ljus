@@ -6,20 +6,20 @@
 #define CRYPT_H
 
 #include <string>
+#include "../../config.h"
+#include <string.h>
 
-extern "C"{
-  #include <sodium.h>
+extern "C" {
+    #include <sodium.h>
 }
-using namespace std;
+
 
 class Crypt {
 
 public:
-    static std::string make(string value);
-    static std::string check(string plain, string hashed);
+    static std::string make(std::string value);
+    static std::string decrypt(std::string ciphertext);
 
-private:
-    static int init();
 };
 
 

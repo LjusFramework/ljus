@@ -3,29 +3,29 @@
 //
 
 #include "Hash.h"
-#include <stdio.h>
 #include <string.h>
-
+#include "argon2.h"
+#include <fcntl.h>
+#include <unistd.h>
+#include <sstream>
 using namespace std;
 
-string Hash::make(string value) {
-  if(sodium_init() == -1){
-    //TODO ERROR
-  }
-  char *result = new char[crypto_pwhash_STRBYTES];
-  //Use sensible defaults, can be reduced to sensitive or increased if need be
-  if(crypto_pwhash_str(result, value.c_str(), (unsigned) strlen(value.c_str()),
-    crypto_pwhash_opslimit_moderate(), crypto_pwhash_memlimit_moderate()) != 0){
-      //Handle out of memory error
-  }
-  string str_result = string(result);
-  delete[] result;
-  return str_result;
+string Hash::make(string pwd) {
+  const char* value = pwd.c_str();
+  uint8_t salt[SALTLEN];
+  int fd = open("/dev/random", O_RDONLY);
+  int size = read(fd, salt, sizeof salt);
+  close(fd);
+  uint32_t pwdlen = strlen(value);
+  uint32_t m_cost = (1<<16);
+  char encoded[97];
+  
+  argon2i_hash_encoded(T_COST, m_cost, PARALLELISM, value, pwdlen, salt, SALTLEN,HASHLEN, encoded, 97);
+  return string(strdup(encoded));
 }
 
-string Hash::check(string plain, string hashed) {
-  if(sodium_init() == -1){
-    //TODO Error
-  }
-  return crypto_pwhash_str_verify(plain.c_str(), hashed.c_str(), (unsigned) strlen(hashed.c_str()));
+int Hash::check(string plain, string hashed) {
+
+  //return strlen(val);
+  return argon2i_verify(hashed.c_str(), plain.c_str(), strlen(plain.c_str()));
 }
