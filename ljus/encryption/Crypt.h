@@ -5,14 +5,15 @@
 #ifndef CRYPT_H
 #define CRYPT_H
 
-#include <string>
 #include "../../config.h"
 #include <string.h>
+#include "crypto_secretbox_xsalsa20poly1305.h"
+#include "../../includes/json.hpp"
+#include <fcntl.h>
+#include <unistd.h>
+#include "../../includes/cppcodec/cppcodec/base64_rfc4648.hpp"
 
-extern "C" {
-    #include <sodium.h>
-}
-
+using base64 = cppcodec::base64_rfc4648;
 
 class Crypt {
 

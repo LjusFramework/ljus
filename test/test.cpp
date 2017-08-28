@@ -6,12 +6,11 @@
 using namespace std;
 
 TEST_CASE("encryption can be performed", "[crypt]"){
-    string foo = "foo";
+    string foo = "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffoooooooooooooooooooooooooooo";
 
     string enc = Crypt::make(foo);
-    cout << "ENC: " << enc << endl;
-    cout << " DEC: " << Crypt::decrypt(enc) << endl;
-    REQUIRE(strcmp(foo.c_str(), Crypt::decrypt(enc).c_str()) == 0);
+    string dec = Crypt::decrypt(enc);
+    REQUIRE(foo == dec);
 }
 
 TEST_CASE("hashes can be computed and checked", "[hash]"){
@@ -32,7 +31,7 @@ TEST_CASE("hashes can be computed and checked", "[hash]"){
     string result3 = Hash::make(passwd3);
     res = Hash::check(passwd3, result3);
     REQUIRE(res == 0);
-    
+
     string result4 = string(Hash::make(passwd4.c_str()));
     res = Hash::check(passwd4.c_str(), result4.c_str());
     REQUIRE(res == 0);

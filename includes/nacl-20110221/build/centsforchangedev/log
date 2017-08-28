@@ -1,0 +1,1069 @@
+=== Sat Aug 26 22:34:55 EDT 2017 === starting
+=== Sat Aug 26 22:34:55 EDT 2017 === hostname
+centsforchange-dev
+=== Sat Aug 26 22:34:55 EDT 2017 === uname -a
+Linux centsforchange-dev 4.10.0-32-generic #36~16.04.1-Ubuntu SMP Wed Aug 9 09:19:02 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux
+=== Sat Aug 26 22:34:55 EDT 2017 === uname -M
+uname: invalid option -- 'M'
+Try 'uname --help' for more information.
+=== Sat Aug 26 22:34:55 EDT 2017 === uname -F
+uname: invalid option -- 'F'
+Try 'uname --help' for more information.
+=== Sat Aug 26 22:34:55 EDT 2017 === /usr/sbin/lscfg | grep proc
+./do: 57: ./do: /usr/sbin/lscfg: not found
+=== Sat Aug 26 22:34:55 EDT 2017 === /usr/sbin/lsattr -El proc0
+./do: 59: ./do: /usr/sbin/lsattr: not found
+=== Sat Aug 26 22:34:55 EDT 2017 === cat /proc/cpuinfo
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 60
+model name	: Intel(R) Core(TM) i7-4790K CPU @ 4.00GHz
+stepping	: 3
+cpu MHz		: 3990.764
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 4
+core id		: 0
+cpu cores	: 4
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc pni pclmulqdq ssse3 cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx rdrand hypervisor lahf_lm abm
+bugs		:
+bogomips	: 7981.52
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 60
+model name	: Intel(R) Core(TM) i7-4790K CPU @ 4.00GHz
+stepping	: 3
+cpu MHz		: 3990.764
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 4
+core id		: 1
+cpu cores	: 4
+apicid		: 1
+initial apicid	: 1
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc pni pclmulqdq ssse3 cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx rdrand hypervisor lahf_lm abm
+bugs		:
+bogomips	: 7981.52
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 2
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 60
+model name	: Intel(R) Core(TM) i7-4790K CPU @ 4.00GHz
+stepping	: 3
+cpu MHz		: 3990.764
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 4
+core id		: 2
+cpu cores	: 4
+apicid		: 2
+initial apicid	: 2
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc pni pclmulqdq ssse3 cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx rdrand hypervisor lahf_lm abm
+bugs		:
+bogomips	: 7981.52
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 3
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 60
+model name	: Intel(R) Core(TM) i7-4790K CPU @ 4.00GHz
+stepping	: 3
+cpu MHz		: 3990.764
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 4
+core id		: 3
+cpu cores	: 4
+apicid		: 3
+initial apicid	: 3
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc pni pclmulqdq ssse3 cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx rdrand hypervisor lahf_lm abm
+bugs		:
+bogomips	: 7981.52
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+=== Sat Aug 26 22:34:55 EDT 2017 === cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq
+cat: /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq: No such file or directory
+=== Sat Aug 26 22:34:55 EDT 2017 === cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+cat: /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq: No such file or directory
+=== Sat Aug 26 22:34:55 EDT 2017 === cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+cat: /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq: No such file or directory
+=== Sat Aug 26 22:34:55 EDT 2017 === cat /sys/devices/system/cpu/cpu0/clock_tick
+cat: /sys/devices/system/cpu/cpu0/clock_tick: No such file or directory
+=== Sat Aug 26 22:34:55 EDT 2017 === sysctl hw.model
+sysctl: cannot stat /proc/sys/hw/model: No such file or directory
+=== Sat Aug 26 22:34:55 EDT 2017 === sysctl machdep.tsc_freq
+sysctl: cannot stat /proc/sys/machdep/tsc_freq: No such file or directory
+=== Sat Aug 26 22:34:55 EDT 2017 === /usr/sbin/psrinfo -v
+./do: 75: ./do: /usr/sbin/psrinfo: not found
+=== Sat Aug 26 22:34:55 EDT 2017 === building okcompilers
+=== Sat Aug 26 22:34:55 EDT 2017 === checking gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:34:55 EDT 2017 === success: gcc -m64 -O3 -fomit-frame-pointer -funroll-loops is ok
+=== Sat Aug 26 22:34:55 EDT 2017 === checking gcc -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:34:55 EDT 2017 === success: gcc -m64 -O -fomit-frame-pointer is ok
+=== Sat Aug 26 22:34:55 EDT 2017 === checking gcc -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:34:55 EDT 2017 === success: gcc -m64 -fomit-frame-pointer is ok
+=== Sat Aug 26 22:34:55 EDT 2017 === checking gcc -m32 -O3 -fomit-frame-pointer -funroll-loops
+/usr/bin/ld: cannot find crt1.o: No such file or directory
+/usr/bin/ld: cannot find crti.o: No such file or directory
+/usr/bin/ld: skipping incompatible /usr/lib/gcc/x86_64-linux-gnu/5/libgcc.a when searching for -lgcc
+/usr/bin/ld: cannot find -lgcc
+/usr/bin/ld: skipping incompatible /usr/lib/gcc/x86_64-linux-gnu/5/libgcc_s.so when searching for -lgcc_s
+/usr/bin/ld: cannot find -lgcc_s
+/usr/bin/ld: cannot find -lc
+/usr/bin/ld: skipping incompatible /usr/lib/gcc/x86_64-linux-gnu/5/libgcc.a when searching for -lgcc
+/usr/bin/ld: cannot find -lgcc
+/usr/bin/ld: skipping incompatible /usr/lib/gcc/x86_64-linux-gnu/5/libgcc_s.so when searching for -lgcc_s
+/usr/bin/ld: cannot find -lgcc_s
+/usr/bin/ld: cannot find crtn.o: No such file or directory
+collect2: error: ld returned 1 exit status
+=== Sat Aug 26 22:34:55 EDT 2017 === checking gcc -m32 -O -fomit-frame-pointer
+/usr/bin/ld: cannot find crt1.o: No such file or directory
+/usr/bin/ld: cannot find crti.o: No such file or directory
+/usr/bin/ld: skipping incompatible /usr/lib/gcc/x86_64-linux-gnu/5/libgcc.a when searching for -lgcc
+/usr/bin/ld: cannot find -lgcc
+/usr/bin/ld: skipping incompatible /usr/lib/gcc/x86_64-linux-gnu/5/libgcc_s.so when searching for -lgcc_s
+/usr/bin/ld: cannot find -lgcc_s
+/usr/bin/ld: cannot find -lc
+/usr/bin/ld: skipping incompatible /usr/lib/gcc/x86_64-linux-gnu/5/libgcc.a when searching for -lgcc
+/usr/bin/ld: cannot find -lgcc
+/usr/bin/ld: skipping incompatible /usr/lib/gcc/x86_64-linux-gnu/5/libgcc_s.so when searching for -lgcc_s
+/usr/bin/ld: cannot find -lgcc_s
+/usr/bin/ld: cannot find crtn.o: No such file or directory
+collect2: error: ld returned 1 exit status
+=== Sat Aug 26 22:34:55 EDT 2017 === checking gcc -m32 -fomit-frame-pointer
+/usr/bin/ld: cannot find crt1.o: No such file or directory
+/usr/bin/ld: cannot find crti.o: No such file or directory
+/usr/bin/ld: skipping incompatible /usr/lib/gcc/x86_64-linux-gnu/5/libgcc.a when searching for -lgcc
+/usr/bin/ld: cannot find -lgcc
+/usr/bin/ld: skipping incompatible /usr/lib/gcc/x86_64-linux-gnu/5/libgcc_s.so when searching for -lgcc_s
+/usr/bin/ld: cannot find -lgcc_s
+/usr/bin/ld: cannot find -lc
+/usr/bin/ld: skipping incompatible /usr/lib/gcc/x86_64-linux-gnu/5/libgcc.a when searching for -lgcc
+/usr/bin/ld: cannot find -lgcc
+/usr/bin/ld: skipping incompatible /usr/lib/gcc/x86_64-linux-gnu/5/libgcc_s.so when searching for -lgcc_s
+/usr/bin/ld: cannot find -lgcc_s
+/usr/bin/ld: cannot find crtn.o: No such file or directory
+collect2: error: ld returned 1 exit status
+=== Sat Aug 26 22:34:55 EDT 2017 === checking spu-gcc -mstdmain -march=cell -O3 -funroll-loops -fomit-frame-pointer -Drandom=rand -Dsrandom=srand
+./test-okc: 4: ./test-okc: spu-gcc: not found
+=== Sat Aug 26 22:34:55 EDT 2017 === checking spu-gcc -mstdmain -march=cell -O -fomit-frame-pointer -Drandom=rand -Dsrandom=srand
+./test-okc: 4: ./test-okc: spu-gcc: not found
+=== Sat Aug 26 22:34:55 EDT 2017 === checking g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:34:55 EDT 2017 === success: g++ -m64 -O3 -fomit-frame-pointer -funroll-loops is ok
+=== Sat Aug 26 22:34:55 EDT 2017 === checking g++ -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:34:55 EDT 2017 === success: g++ -m64 -O -fomit-frame-pointer is ok
+=== Sat Aug 26 22:34:55 EDT 2017 === checking g++ -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:34:56 EDT 2017 === success: g++ -m64 -fomit-frame-pointer is ok
+=== Sat Aug 26 22:34:56 EDT 2017 === checking g++ -m32 -O3 -fomit-frame-pointer -funroll-loops
+/usr/bin/ld: cannot find crt1.o: No such file or directory
+/usr/bin/ld: cannot find crti.o: No such file or directory
+/usr/bin/ld: skipping incompatible /usr/lib/gcc/x86_64-linux-gnu/5/libstdc++.so when searching for -lstdc++
+/usr/bin/ld: skipping incompatible /usr/lib/gcc/x86_64-linux-gnu/5/libstdc++.a when searching for -lstdc++
+/usr/bin/ld: cannot find -lstdc++
+/usr/bin/ld: cannot find -lm
+/usr/bin/ld: skipping incompatible /usr/lib/gcc/x86_64-linux-gnu/5/libgcc_s.so when searching for -lgcc_s
+/usr/bin/ld: cannot find -lgcc_s
+/usr/bin/ld: skipping incompatible /usr/lib/gcc/x86_64-linux-gnu/5/libgcc.a when searching for -lgcc
+/usr/bin/ld: cannot find -lgcc
+/usr/bin/ld: cannot find -lc
+/usr/bin/ld: skipping incompatible /usr/lib/gcc/x86_64-linux-gnu/5/libgcc_s.so when searching for -lgcc_s
+/usr/bin/ld: cannot find -lgcc_s
+/usr/bin/ld: skipping incompatible /usr/lib/gcc/x86_64-linux-gnu/5/libgcc.a when searching for -lgcc
+/usr/bin/ld: cannot find -lgcc
+/usr/bin/ld: cannot find crtn.o: No such file or directory
+collect2: error: ld returned 1 exit status
+=== Sat Aug 26 22:34:56 EDT 2017 === checking g++ -m32 -O -fomit-frame-pointer
+/usr/bin/ld: cannot find crt1.o: No such file or directory
+/usr/bin/ld: cannot find crti.o: No such file or directory
+/usr/bin/ld: skipping incompatible /usr/lib/gcc/x86_64-linux-gnu/5/libstdc++.so when searching for -lstdc++
+/usr/bin/ld: skipping incompatible /usr/lib/gcc/x86_64-linux-gnu/5/libstdc++.a when searching for -lstdc++
+/usr/bin/ld: cannot find -lstdc++
+/usr/bin/ld: cannot find -lm
+/usr/bin/ld: skipping incompatible /usr/lib/gcc/x86_64-linux-gnu/5/libgcc_s.so when searching for -lgcc_s
+/usr/bin/ld: cannot find -lgcc_s
+/usr/bin/ld: skipping incompatible /usr/lib/gcc/x86_64-linux-gnu/5/libgcc.a when searching for -lgcc
+/usr/bin/ld: cannot find -lgcc
+/usr/bin/ld: cannot find -lc
+/usr/bin/ld: skipping incompatible /usr/lib/gcc/x86_64-linux-gnu/5/libgcc_s.so when searching for -lgcc_s
+/usr/bin/ld: cannot find -lgcc_s
+/usr/bin/ld: skipping incompatible /usr/lib/gcc/x86_64-linux-gnu/5/libgcc.a when searching for -lgcc
+/usr/bin/ld: cannot find -lgcc
+/usr/bin/ld: cannot find crtn.o: No such file or directory
+collect2: error: ld returned 1 exit status
+=== Sat Aug 26 22:34:56 EDT 2017 === checking g++ -m32 -fomit-frame-pointer
+/usr/bin/ld: cannot find crt1.o: No such file or directory
+/usr/bin/ld: cannot find crti.o: No such file or directory
+/usr/bin/ld: skipping incompatible /usr/lib/gcc/x86_64-linux-gnu/5/libstdc++.so when searching for -lstdc++
+/usr/bin/ld: skipping incompatible /usr/lib/gcc/x86_64-linux-gnu/5/libstdc++.a when searching for -lstdc++
+/usr/bin/ld: cannot find -lstdc++
+/usr/bin/ld: cannot find -lm
+/usr/bin/ld: skipping incompatible /usr/lib/gcc/x86_64-linux-gnu/5/libgcc_s.so when searching for -lgcc_s
+/usr/bin/ld: cannot find -lgcc_s
+/usr/bin/ld: skipping incompatible /usr/lib/gcc/x86_64-linux-gnu/5/libgcc.a when searching for -lgcc
+/usr/bin/ld: cannot find -lgcc
+/usr/bin/ld: cannot find -lc
+/usr/bin/ld: skipping incompatible /usr/lib/gcc/x86_64-linux-gnu/5/libgcc_s.so when searching for -lgcc_s
+/usr/bin/ld: cannot find -lgcc_s
+/usr/bin/ld: skipping incompatible /usr/lib/gcc/x86_64-linux-gnu/5/libgcc.a when searching for -lgcc
+/usr/bin/ld: cannot find -lgcc
+/usr/bin/ld: cannot find crtn.o: No such file or directory
+collect2: error: ld returned 1 exit status
+=== Sat Aug 26 22:34:56 EDT 2017 === checking spu-g++ -mstdmain -march=cell -O3 -funroll-loops -fomit-frame-pointer -Drandom=rand -Dsrandom=srand
+./test-okc: 4: ./test-okc: spu-g++: not found
+=== Sat Aug 26 22:34:56 EDT 2017 === checking spu-g++ -mstdmain -march=cell -O -fomit-frame-pointer -Drandom=rand -Dsrandom=srand
+./test-okc: 4: ./test-okc: spu-g++: not found
+=== Sat Aug 26 22:34:56 EDT 2017 === checking compatibility with gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:34:56 EDT 2017 === checking gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:34:56 EDT 2017 === success: gcc -m64 -O3 -fomit-frame-pointer -funroll-loops is compatible
+=== Sat Aug 26 22:34:56 EDT 2017 === checking gcc -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:34:56 EDT 2017 === success: gcc -m64 -O -fomit-frame-pointer is compatible
+=== Sat Aug 26 22:34:56 EDT 2017 === checking gcc -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:34:56 EDT 2017 === success: gcc -m64 -fomit-frame-pointer is compatible
+=== Sat Aug 26 22:34:56 EDT 2017 === checking compatibility with gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:34:56 EDT 2017 === checking g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:34:56 EDT 2017 === success: g++ -m64 -O3 -fomit-frame-pointer -funroll-loops is compatible
+=== Sat Aug 26 22:34:56 EDT 2017 === checking g++ -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:34:56 EDT 2017 === success: g++ -m64 -O -fomit-frame-pointer is compatible
+=== Sat Aug 26 22:34:56 EDT 2017 === checking g++ -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:34:56 EDT 2017 === success: g++ -m64 -fomit-frame-pointer is compatible
+=== Sat Aug 26 22:34:56 EDT 2017 === checking -lm
+=== Sat Aug 26 22:34:56 EDT 2017 === checking -lnsl
+=== Sat Aug 26 22:34:56 EDT 2017 === checking -lsocket
+/usr/bin/ld: cannot find -lsocket
+collect2: error: ld returned 1 exit status
+=== Sat Aug 26 22:34:56 EDT 2017 === checking -lrt
+=== Sat Aug 26 22:34:56 EDT 2017 === checking archiver ar
+=== Sat Aug 26 22:34:56 EDT 2017 === success: archiver ar is ok
+=== Sat Aug 26 22:34:56 EDT 2017 === building cpuid
+=== Sat Aug 26 22:34:56 EDT 2017 === Trying x86.c with gcc -m64 -O3 -fomit-frame-pointer -funroll-loops...
+GenuineIntel-000306c3-178bfbff
+=== Sat Aug 26 22:34:56 EDT 2017 === building inttypes
+=== Sat Aug 26 22:34:56 EDT 2017 === amd64 trying signed char as int8 under gcc -m64 -O3 -fomit-frame-pointer -funroll-loops...
+=== Sat Aug 26 22:34:56 EDT 2017 === amd64 trying short as int16 under gcc -m64 -O3 -fomit-frame-pointer -funroll-loops...
+=== Sat Aug 26 22:34:56 EDT 2017 === amd64 trying int as int32 under gcc -m64 -O3 -fomit-frame-pointer -funroll-loops...
+=== Sat Aug 26 22:34:56 EDT 2017 === amd64 trying int as int32 under gcc -m64 -O -fomit-frame-pointer...
+=== Sat Aug 26 22:34:56 EDT 2017 === amd64 trying long long as int64 under gcc -m64 -O3 -fomit-frame-pointer -funroll-loops...
+=== Sat Aug 26 22:34:56 EDT 2017 === amd64 trying long long as int64 under gcc -m64 -O -fomit-frame-pointer...
+=== Sat Aug 26 22:34:56 EDT 2017 === amd64 trying unsigned char as uint8 under gcc -m64 -O3 -fomit-frame-pointer -funroll-loops...
+=== Sat Aug 26 22:34:56 EDT 2017 === amd64 trying unsigned short as uint16 under gcc -m64 -O3 -fomit-frame-pointer -funroll-loops...
+=== Sat Aug 26 22:34:57 EDT 2017 === amd64 trying unsigned int as uint32 under gcc -m64 -O3 -fomit-frame-pointer -funroll-loops...
+=== Sat Aug 26 22:34:57 EDT 2017 === amd64 trying unsigned long long as uint64 under gcc -m64 -O3 -fomit-frame-pointer -funroll-loops...
+=== Sat Aug 26 22:34:57 EDT 2017 === building cpucycles
+=== Sat Aug 26 22:34:57 EDT 2017 === Trying amd64tscfreq.c with gcc -m64 -O3 -fomit-frame-pointer -funroll-loops...
+cpucycles-impl.c: In function 'cpucycles_amd64tscfreq_persecond':
+cpucycles-impl.c:16:3: warning: implicit declaration of function 'sysctlbyname' [-Wimplicit-function-declaration]
+   sysctlbyname("machdep.tsc_freq",&result,&resultlen,0,0);
+   ^
+cpucycles-impl.o: In function `cpucycles_amd64tscfreq_persecond':
+cpucycles-impl.c:(.text+0x4b): undefined reference to `sysctlbyname'
+collect2: error: ld returned 1 exit status
+=== Sat Aug 26 22:34:57 EDT 2017 === Trying amd64tscfreq.c with gcc -m64 -O -fomit-frame-pointer...
+cpucycles-impl.c: In function 'cpucycles_amd64tscfreq_persecond':
+cpucycles-impl.c:16:3: warning: implicit declaration of function 'sysctlbyname' [-Wimplicit-function-declaration]
+   sysctlbyname("machdep.tsc_freq",&result,&resultlen,0,0);
+   ^
+cpucycles-impl.o: In function `cpucycles_amd64tscfreq_persecond':
+cpucycles-impl.c:(.text+0x4b): undefined reference to `sysctlbyname'
+collect2: error: ld returned 1 exit status
+=== Sat Aug 26 22:34:57 EDT 2017 === Trying amd64tscfreq.c with gcc -m64 -fomit-frame-pointer...
+cpucycles-impl.c: In function 'cpucycles_amd64tscfreq_persecond':
+cpucycles-impl.c:16:3: warning: implicit declaration of function 'sysctlbyname' [-Wimplicit-function-declaration]
+   sysctlbyname("machdep.tsc_freq",&result,&resultlen,0,0);
+   ^
+cpucycles-impl.o: In function `cpucycles_amd64tscfreq_persecond':
+cpucycles-impl.c:(.text+0x5d): undefined reference to `sysctlbyname'
+collect2: error: ld returned 1 exit status
+=== Sat Aug 26 22:34:57 EDT 2017 === Trying amd64cpuinfo.c with gcc -m64 -O3 -fomit-frame-pointer -funroll-loops...
+amd64cpuinfo 3990764000 3990489510 128 24 24 24 24 24 24 24 36 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24
+=== Sat Aug 26 22:34:57 EDT 2017 === Success. Using amd64cpuinfo.c.
+=== Sat Aug 26 22:34:57 EDT 2017 === building randombytes
+=== Sat Aug 26 22:34:57 EDT 2017 === Trying devurandom.c with gcc -m64 -O3 -fomit-frame-pointer -funroll-loops...
+=== Sat Aug 26 22:34:57 EDT 2017 === Success. Using devurandom.c.
+=== Sat Aug 26 22:34:57 EDT 2017 === amd64 crypto_verify/16
+=== Sat Aug 26 22:34:57 EDT 2017 === amd64 crypto_verify/16/ref
+=== Sat Aug 26 22:34:57 EDT 2017 === amd64 crypto_verify/16/ref gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:34:57 EDT 2017 === amd64 crypto_verify/16/ref g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:34:57 EDT 2017 === amd64 crypto_verify/16/ref gcc -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:34:57 EDT 2017 === amd64 crypto_verify/16/ref gcc -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:34:58 EDT 2017 === amd64 crypto_verify/16 measuring
+=== Sat Aug 26 22:34:58 EDT 2017 === amd64 crypto_verify/32
+=== Sat Aug 26 22:34:58 EDT 2017 === amd64 crypto_verify/32/ref
+=== Sat Aug 26 22:34:58 EDT 2017 === amd64 crypto_verify/32/ref gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:34:58 EDT 2017 === amd64 crypto_verify/32/ref g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:34:58 EDT 2017 === amd64 crypto_verify/32/ref gcc -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:34:58 EDT 2017 === amd64 crypto_verify/32/ref gcc -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:34:58 EDT 2017 === amd64 crypto_verify/32 measuring
+=== Sat Aug 26 22:34:58 EDT 2017 === amd64 crypto_core/hsalsa20
+=== Sat Aug 26 22:34:58 EDT 2017 === amd64 crypto_core/hsalsa20/ref
+=== Sat Aug 26 22:34:58 EDT 2017 === amd64 crypto_core/hsalsa20/ref gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:34:59 EDT 2017 === amd64 crypto_core/hsalsa20/ref g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:34:59 EDT 2017 === amd64 crypto_core/hsalsa20/ref gcc -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:34:59 EDT 2017 === amd64 crypto_core/hsalsa20/ref gcc -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:34:59 EDT 2017 === amd64 crypto_core/hsalsa20/ref2
+=== Sat Aug 26 22:34:59 EDT 2017 === amd64 crypto_core/hsalsa20/ref2 gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:34:59 EDT 2017 === amd64 crypto_core/hsalsa20/ref2 gcc -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:35:00 EDT 2017 === amd64 crypto_core/hsalsa20/ref2 gcc -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:35:00 EDT 2017 === amd64 crypto_core/hsalsa20 measuring
+=== Sat Aug 26 22:35:00 EDT 2017 === amd64 crypto_core/salsa20
+=== Sat Aug 26 22:35:00 EDT 2017 === amd64 crypto_core/salsa20/ref
+=== Sat Aug 26 22:35:00 EDT 2017 === amd64 crypto_core/salsa20/ref gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:00 EDT 2017 === amd64 crypto_core/salsa20/ref g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:00 EDT 2017 === amd64 crypto_core/salsa20/ref gcc -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:35:00 EDT 2017 === amd64 crypto_core/salsa20/ref gcc -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:35:00 EDT 2017 === amd64 crypto_core/salsa20 measuring
+=== Sat Aug 26 22:35:00 EDT 2017 === amd64 crypto_core/salsa2012
+=== Sat Aug 26 22:35:00 EDT 2017 === amd64 crypto_core/salsa2012/ref
+=== Sat Aug 26 22:35:00 EDT 2017 === amd64 crypto_core/salsa2012/ref gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:01 EDT 2017 === amd64 crypto_core/salsa2012/ref g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:01 EDT 2017 === amd64 crypto_core/salsa2012/ref gcc -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:35:01 EDT 2017 === amd64 crypto_core/salsa2012/ref gcc -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:35:01 EDT 2017 === amd64 crypto_core/salsa2012 measuring
+=== Sat Aug 26 22:35:01 EDT 2017 === amd64 crypto_core/salsa208
+=== Sat Aug 26 22:35:01 EDT 2017 === amd64 crypto_core/salsa208/ref
+=== Sat Aug 26 22:35:01 EDT 2017 === amd64 crypto_core/salsa208/ref gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:02 EDT 2017 === amd64 crypto_core/salsa208/ref g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:02 EDT 2017 === amd64 crypto_core/salsa208/ref gcc -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:35:02 EDT 2017 === amd64 crypto_core/salsa208/ref gcc -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:35:02 EDT 2017 === amd64 crypto_core/salsa208 measuring
+=== Sat Aug 26 22:35:02 EDT 2017 === amd64 crypto_hashblocks/sha256
+=== Sat Aug 26 22:35:02 EDT 2017 === amd64 crypto_hashblocks/sha256/inplace
+=== Sat Aug 26 22:35:02 EDT 2017 === amd64 crypto_hashblocks/sha256/inplace gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:03 EDT 2017 === amd64 crypto_hashblocks/sha256/inplace g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:03 EDT 2017 === amd64 crypto_hashblocks/sha256/inplace gcc -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:35:03 EDT 2017 === amd64 crypto_hashblocks/sha256/inplace gcc -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:35:03 EDT 2017 === amd64 crypto_hashblocks/sha256/ref
+=== Sat Aug 26 22:35:03 EDT 2017 === amd64 crypto_hashblocks/sha256/ref gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:04 EDT 2017 === amd64 crypto_hashblocks/sha256/ref gcc -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:35:04 EDT 2017 === amd64 crypto_hashblocks/sha256/ref gcc -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:35:05 EDT 2017 === amd64 crypto_hashblocks/sha256 measuring
+=== Sat Aug 26 22:35:05 EDT 2017 === amd64 crypto_hashblocks/sha512
+=== Sat Aug 26 22:35:05 EDT 2017 === amd64 crypto_hashblocks/sha512/inplace
+=== Sat Aug 26 22:35:05 EDT 2017 === amd64 crypto_hashblocks/sha512/inplace gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:05 EDT 2017 === amd64 crypto_hashblocks/sha512/inplace g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:05 EDT 2017 === amd64 crypto_hashblocks/sha512/inplace gcc -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:35:06 EDT 2017 === amd64 crypto_hashblocks/sha512/inplace gcc -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:35:06 EDT 2017 === amd64 crypto_hashblocks/sha512/ref
+=== Sat Aug 26 22:35:06 EDT 2017 === amd64 crypto_hashblocks/sha512/ref gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:07 EDT 2017 === amd64 crypto_hashblocks/sha512/ref g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:07 EDT 2017 === amd64 crypto_hashblocks/sha512/ref gcc -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:35:07 EDT 2017 === amd64 crypto_hashblocks/sha512/ref gcc -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:35:08 EDT 2017 === amd64 crypto_hashblocks/sha512 measuring
+=== Sat Aug 26 22:35:08 EDT 2017 === amd64 crypto_hash/sha256
+=== Sat Aug 26 22:35:08 EDT 2017 === amd64 crypto_hash/sha256/ref
+=== Sat Aug 26 22:35:08 EDT 2017 === amd64 crypto_hash/sha256/ref gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:08 EDT 2017 === amd64 crypto_hash/sha256/ref g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:08 EDT 2017 === amd64 crypto_hash/sha256/ref gcc -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:35:08 EDT 2017 === amd64 crypto_hash/sha256/ref gcc -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:35:09 EDT 2017 === amd64 crypto_hash/sha256 measuring
+=== Sat Aug 26 22:35:09 EDT 2017 === amd64 crypto_hash/sha512
+=== Sat Aug 26 22:35:09 EDT 2017 === amd64 crypto_hash/sha512/ref
+=== Sat Aug 26 22:35:09 EDT 2017 === amd64 crypto_hash/sha512/ref gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:09 EDT 2017 === amd64 crypto_hash/sha512/ref g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:09 EDT 2017 === amd64 crypto_hash/sha512/ref gcc -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:35:09 EDT 2017 === amd64 crypto_hash/sha512/ref gcc -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:35:10 EDT 2017 === amd64 crypto_hash/sha512 measuring
+=== Sat Aug 26 22:35:10 EDT 2017 === amd64 crypto_stream/aes128ctr
+=== Sat Aug 26 22:35:10 EDT 2017 === amd64 crypto_stream/aes128ctr/core2
+=== Sat Aug 26 22:35:10 EDT 2017 === amd64 crypto_stream/aes128ctr/core2 gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:10 EDT 2017 === amd64 crypto_stream/aes128ctr/core2 g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:10 EDT 2017 === amd64 crypto_stream/aes128ctr/core2 g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:10 EDT 2017 === amd64 crypto_stream/aes128ctr/core2 gcc -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:35:11 EDT 2017 === amd64 crypto_stream/aes128ctr/core2 g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:11 EDT 2017 === amd64 crypto_stream/aes128ctr/core2 g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:11 EDT 2017 === amd64 crypto_stream/aes128ctr/core2 gcc -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:35:11 EDT 2017 === amd64 crypto_stream/aes128ctr/portable
+=== Sat Aug 26 22:35:12 EDT 2017 === amd64 crypto_stream/aes128ctr/portable gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:17 EDT 2017 === amd64 crypto_stream/aes128ctr/portable gcc -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:35:21 EDT 2017 === amd64 crypto_stream/aes128ctr/portable gcc -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:35:26 EDT 2017 === amd64 crypto_stream/aes128ctr measuring
+=== Sat Aug 26 22:35:26 EDT 2017 === amd64 crypto_stream/salsa20
+=== Sat Aug 26 22:35:26 EDT 2017 === amd64 crypto_stream/salsa20/amd64_xmm6
+=== Sat Aug 26 22:35:26 EDT 2017 === amd64 crypto_stream/salsa20/amd64_xmm6 gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:27 EDT 2017 === amd64 crypto_stream/salsa20/amd64_xmm6 g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:27 EDT 2017 === amd64 crypto_stream/salsa20/amd64_xmm6 g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:27 EDT 2017 === amd64 crypto_stream/salsa20/amd64_xmm6 gcc -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:35:27 EDT 2017 === amd64 crypto_stream/salsa20/amd64_xmm6 gcc -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:35:27 EDT 2017 === amd64 crypto_stream/salsa20/ref
+=== Sat Aug 26 22:35:27 EDT 2017 === amd64 crypto_stream/salsa20/ref gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:28 EDT 2017 === amd64 crypto_stream/salsa20/ref gcc -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:35:28 EDT 2017 === amd64 crypto_stream/salsa20/ref gcc -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:35:29 EDT 2017 === amd64 crypto_stream/salsa20/x86_xmm5
+=== Sat Aug 26 22:35:29 EDT 2017 === amd64 crypto_stream/salsa20/x86_xmm5 gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:29 EDT 2017 === amd64 crypto_stream/salsa20/x86_xmm5 gcc -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:35:30 EDT 2017 === amd64 crypto_stream/salsa20/x86_xmm5 gcc -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:35:30 EDT 2017 === amd64 crypto_stream/salsa20 measuring
+=== Sat Aug 26 22:35:30 EDT 2017 === amd64 crypto_stream/salsa2012
+=== Sat Aug 26 22:35:30 EDT 2017 === amd64 crypto_stream/salsa2012/amd64_xmm6
+=== Sat Aug 26 22:35:30 EDT 2017 === amd64 crypto_stream/salsa2012/amd64_xmm6 gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:30 EDT 2017 === amd64 crypto_stream/salsa2012/amd64_xmm6 g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:30 EDT 2017 === amd64 crypto_stream/salsa2012/amd64_xmm6 g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:30 EDT 2017 === amd64 crypto_stream/salsa2012/amd64_xmm6 gcc -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:35:31 EDT 2017 === amd64 crypto_stream/salsa2012/amd64_xmm6 gcc -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:35:31 EDT 2017 === amd64 crypto_stream/salsa2012/ref
+=== Sat Aug 26 22:35:31 EDT 2017 === amd64 crypto_stream/salsa2012/ref gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:32 EDT 2017 === amd64 crypto_stream/salsa2012/ref gcc -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:35:32 EDT 2017 === amd64 crypto_stream/salsa2012/ref gcc -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:35:32 EDT 2017 === amd64 crypto_stream/salsa2012/x86_xmm5
+=== Sat Aug 26 22:35:32 EDT 2017 === amd64 crypto_stream/salsa2012/x86_xmm5 gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:33 EDT 2017 === amd64 crypto_stream/salsa2012/x86_xmm5 gcc -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:35:33 EDT 2017 === amd64 crypto_stream/salsa2012/x86_xmm5 gcc -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:35:33 EDT 2017 === amd64 crypto_stream/salsa2012 measuring
+=== Sat Aug 26 22:35:33 EDT 2017 === amd64 crypto_stream/salsa208
+=== Sat Aug 26 22:35:33 EDT 2017 === amd64 crypto_stream/salsa208/amd64_xmm6
+=== Sat Aug 26 22:35:33 EDT 2017 === amd64 crypto_stream/salsa208/amd64_xmm6 gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:34 EDT 2017 === amd64 crypto_stream/salsa208/amd64_xmm6 g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:34 EDT 2017 === amd64 crypto_stream/salsa208/amd64_xmm6 g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:34 EDT 2017 === amd64 crypto_stream/salsa208/amd64_xmm6 gcc -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:35:34 EDT 2017 === amd64 crypto_stream/salsa208/amd64_xmm6 g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:34 EDT 2017 === amd64 crypto_stream/salsa208/amd64_xmm6 g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:34 EDT 2017 === amd64 crypto_stream/salsa208/amd64_xmm6 gcc -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:35:35 EDT 2017 === amd64 crypto_stream/salsa208/amd64_xmm6 g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:35 EDT 2017 === amd64 crypto_stream/salsa208/amd64_xmm6 g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:35 EDT 2017 === amd64 crypto_stream/salsa208/ref
+=== Sat Aug 26 22:35:35 EDT 2017 === amd64 crypto_stream/salsa208/ref gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:36 EDT 2017 === amd64 crypto_stream/salsa208/ref gcc -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:35:36 EDT 2017 === amd64 crypto_stream/salsa208/ref gcc -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:35:36 EDT 2017 === amd64 crypto_stream/salsa208/x86_xmm5
+=== Sat Aug 26 22:35:36 EDT 2017 === amd64 crypto_stream/salsa208/x86_xmm5 gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:37 EDT 2017 === amd64 crypto_stream/salsa208/x86_xmm5 gcc -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:35:37 EDT 2017 === amd64 crypto_stream/salsa208/x86_xmm5 gcc -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:35:37 EDT 2017 === amd64 crypto_stream/salsa208 measuring
+=== Sat Aug 26 22:35:37 EDT 2017 === amd64 crypto_stream/xsalsa20
+=== Sat Aug 26 22:35:37 EDT 2017 === amd64 crypto_stream/xsalsa20/ref
+=== Sat Aug 26 22:35:37 EDT 2017 === amd64 crypto_stream/xsalsa20/ref gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:38 EDT 2017 === amd64 crypto_stream/xsalsa20/ref g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:38 EDT 2017 === amd64 crypto_stream/xsalsa20/ref g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:38 EDT 2017 === amd64 crypto_stream/xsalsa20/ref gcc -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:35:38 EDT 2017 === amd64 crypto_stream/xsalsa20/ref gcc -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:35:39 EDT 2017 === amd64 crypto_stream/xsalsa20 measuring
+=== Sat Aug 26 22:35:39 EDT 2017 === amd64 crypto_onetimeauth/poly1305
+=== Sat Aug 26 22:35:39 EDT 2017 === amd64 crypto_onetimeauth/poly1305/53
+=== Sat Aug 26 22:35:39 EDT 2017 === amd64 crypto_onetimeauth/poly1305/53 gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:39 EDT 2017 === amd64 crypto_onetimeauth/poly1305/53 g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:39 EDT 2017 === amd64 crypto_onetimeauth/poly1305/53 g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:39 EDT 2017 === amd64 crypto_onetimeauth/poly1305/53 gcc -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:35:40 EDT 2017 === amd64 crypto_onetimeauth/poly1305/53 gcc -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:35:40 EDT 2017 === amd64 crypto_onetimeauth/poly1305/amd64
+=== Sat Aug 26 22:35:40 EDT 2017 === amd64 crypto_onetimeauth/poly1305/amd64 gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:41 EDT 2017 === amd64 crypto_onetimeauth/poly1305/amd64 g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:41 EDT 2017 === amd64 crypto_onetimeauth/poly1305/amd64 g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:41 EDT 2017 === amd64 crypto_onetimeauth/poly1305/amd64 gcc -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:35:41 EDT 2017 === amd64 crypto_onetimeauth/poly1305/amd64 g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:41 EDT 2017 === amd64 crypto_onetimeauth/poly1305/amd64 g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:41 EDT 2017 === amd64 crypto_onetimeauth/poly1305/amd64 gcc -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:35:41 EDT 2017 === amd64 crypto_onetimeauth/poly1305/ref
+=== Sat Aug 26 22:35:41 EDT 2017 === amd64 crypto_onetimeauth/poly1305/ref gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:42 EDT 2017 === amd64 crypto_onetimeauth/poly1305/ref gcc -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:35:43 EDT 2017 === amd64 crypto_onetimeauth/poly1305/ref gcc -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:35:47 EDT 2017 === amd64 crypto_onetimeauth/poly1305/x86
+=== Sat Aug 26 22:35:47 EDT 2017 === amd64 crypto_onetimeauth/poly1305/x86 gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:47 EDT 2017 === amd64 crypto_onetimeauth/poly1305/x86 gcc -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:35:47 EDT 2017 === amd64 crypto_onetimeauth/poly1305/x86 gcc -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:35:47 EDT 2017 === amd64 crypto_onetimeauth/poly1305 measuring
+=== Sat Aug 26 22:35:48 EDT 2017 === amd64 crypto_auth/hmacsha256
+=== Sat Aug 26 22:35:48 EDT 2017 === amd64 crypto_auth/hmacsha256/ref
+=== Sat Aug 26 22:35:48 EDT 2017 === amd64 crypto_auth/hmacsha256/ref gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:48 EDT 2017 === amd64 crypto_auth/hmacsha256/ref g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:48 EDT 2017 === amd64 crypto_auth/hmacsha256/ref g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:48 EDT 2017 === amd64 crypto_auth/hmacsha256/ref gcc -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:35:49 EDT 2017 === amd64 crypto_auth/hmacsha256/ref gcc -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:35:49 EDT 2017 === amd64 crypto_auth/hmacsha256 measuring
+=== Sat Aug 26 22:35:49 EDT 2017 === amd64 crypto_auth/hmacsha512256
+=== Sat Aug 26 22:35:49 EDT 2017 === amd64 crypto_auth/hmacsha512256/ref
+=== Sat Aug 26 22:35:49 EDT 2017 === amd64 crypto_auth/hmacsha512256/ref gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:50 EDT 2017 === amd64 crypto_auth/hmacsha512256/ref g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:50 EDT 2017 === amd64 crypto_auth/hmacsha512256/ref g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:50 EDT 2017 === amd64 crypto_auth/hmacsha512256/ref gcc -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:35:50 EDT 2017 === amd64 crypto_auth/hmacsha512256/ref gcc -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:35:51 EDT 2017 === amd64 crypto_auth/hmacsha512256 measuring
+=== Sat Aug 26 22:35:51 EDT 2017 === amd64 crypto_secretbox/xsalsa20poly1305
+=== Sat Aug 26 22:35:51 EDT 2017 === amd64 crypto_secretbox/xsalsa20poly1305/ref
+=== Sat Aug 26 22:35:51 EDT 2017 === amd64 crypto_secretbox/xsalsa20poly1305/ref gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:52 EDT 2017 === amd64 crypto_secretbox/xsalsa20poly1305/ref g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:52 EDT 2017 === amd64 crypto_secretbox/xsalsa20poly1305/ref g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:52 EDT 2017 === amd64 crypto_secretbox/xsalsa20poly1305/ref gcc -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:35:52 EDT 2017 === amd64 crypto_secretbox/xsalsa20poly1305/ref gcc -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:35:53 EDT 2017 === amd64 crypto_secretbox/xsalsa20poly1305 measuring
+=== Sat Aug 26 22:35:53 EDT 2017 === amd64 crypto_scalarmult/curve25519
+=== Sat Aug 26 22:35:53 EDT 2017 === amd64 crypto_scalarmult/curve25519/athlon
+=== Sat Aug 26 22:35:53 EDT 2017 === amd64 crypto_scalarmult/curve25519/athlon gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:53 EDT 2017 === amd64 crypto_scalarmult/curve25519/athlon gcc -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:35:53 EDT 2017 === amd64 crypto_scalarmult/curve25519/athlon gcc -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:35:54 EDT 2017 === amd64 crypto_scalarmult/curve25519/donna_c64
+=== Sat Aug 26 22:35:54 EDT 2017 === amd64 crypto_scalarmult/curve25519/donna_c64 gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:54 EDT 2017 === amd64 crypto_scalarmult/curve25519/donna_c64 g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:54 EDT 2017 === amd64 crypto_scalarmult/curve25519/donna_c64 g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:55 EDT 2017 === amd64 crypto_scalarmult/curve25519/donna_c64 gcc -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:35:55 EDT 2017 === amd64 crypto_scalarmult/curve25519/donna_c64 g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:55 EDT 2017 === amd64 crypto_scalarmult/curve25519/donna_c64 g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:55 EDT 2017 === amd64 crypto_scalarmult/curve25519/donna_c64 gcc -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:35:55 EDT 2017 === amd64 crypto_scalarmult/curve25519/ref
+=== Sat Aug 26 22:35:55 EDT 2017 === amd64 crypto_scalarmult/curve25519/ref gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:35:57 EDT 2017 === amd64 crypto_scalarmult/curve25519/ref gcc -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:35:58 EDT 2017 === amd64 crypto_scalarmult/curve25519/ref gcc -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:36:03 EDT 2017 === amd64 crypto_scalarmult/curve25519 measuring
+=== Sat Aug 26 22:36:03 EDT 2017 === amd64 crypto_box/curve25519xsalsa20poly1305
+=== Sat Aug 26 22:36:03 EDT 2017 === amd64 crypto_box/curve25519xsalsa20poly1305/ref
+=== Sat Aug 26 22:36:03 EDT 2017 === amd64 crypto_box/curve25519xsalsa20poly1305/ref gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:36:05 EDT 2017 === amd64 crypto_box/curve25519xsalsa20poly1305/ref g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:36:05 EDT 2017 === amd64 crypto_box/curve25519xsalsa20poly1305/ref g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:36:05 EDT 2017 === amd64 crypto_box/curve25519xsalsa20poly1305/ref g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:36:05 EDT 2017 === amd64 crypto_box/curve25519xsalsa20poly1305/ref gcc -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:36:07 EDT 2017 === amd64 crypto_box/curve25519xsalsa20poly1305/ref g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:36:07 EDT 2017 === amd64 crypto_box/curve25519xsalsa20poly1305/ref g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:36:07 EDT 2017 === amd64 crypto_box/curve25519xsalsa20poly1305/ref g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:36:07 EDT 2017 === amd64 crypto_box/curve25519xsalsa20poly1305/ref gcc -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:36:09 EDT 2017 === amd64 crypto_box/curve25519xsalsa20poly1305/ref g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:36:09 EDT 2017 === amd64 crypto_box/curve25519xsalsa20poly1305/ref g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:36:09 EDT 2017 === amd64 crypto_box/curve25519xsalsa20poly1305/ref g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:36:09 EDT 2017 === amd64 crypto_box/curve25519xsalsa20poly1305 measuring
+=== Sat Aug 26 22:36:09 EDT 2017 === amd64 crypto_sign/edwards25519sha512batch
+=== Sat Aug 26 22:36:10 EDT 2017 === amd64 crypto_sign/edwards25519sha512batch/ref
+=== Sat Aug 26 22:36:10 EDT 2017 === amd64 crypto_sign/edwards25519sha512batch/ref gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:36:12 EDT 2017 === amd64 crypto_sign/edwards25519sha512batch/ref g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:36:12 EDT 2017 === amd64 crypto_sign/edwards25519sha512batch/ref g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:36:12 EDT 2017 === amd64 crypto_sign/edwards25519sha512batch/ref g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:36:12 EDT 2017 === amd64 crypto_sign/edwards25519sha512batch/ref gcc -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:36:15 EDT 2017 === amd64 crypto_sign/edwards25519sha512batch/ref gcc -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:36:27 EDT 2017 === amd64 crypto_sign/edwards25519sha512batch measuring
+=== Sat Aug 26 22:36:36 EDT 2017 === starting commandline/nacl-sha256
+=== Sat Aug 26 22:36:36 EDT 2017 === commandline/nacl-sha256 amd64 gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:36:36 EDT 2017 === starting commandline/nacl-sha512
+=== Sat Aug 26 22:36:36 EDT 2017 === commandline/nacl-sha512 amd64 gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:36:36 EDT 2017 === starting tests/auth
+=== Sat Aug 26 22:36:36 EDT 2017 === tests/auth amd64 gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+auth.c:10:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:37 EDT 2017 === tests/auth amd64 gcc -m64 -O -fomit-frame-pointer
+auth.c:10:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:37 EDT 2017 === tests/auth amd64 gcc -m64 -fomit-frame-pointer
+auth.c:10:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:37 EDT 2017 === starting tests/auth2
+=== Sat Aug 26 22:36:37 EDT 2017 === tests/auth2 amd64 gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+auth2.c:25:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:37 EDT 2017 === tests/auth2 amd64 gcc -m64 -O -fomit-frame-pointer
+auth2.c:25:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:37 EDT 2017 === tests/auth2 amd64 gcc -m64 -fomit-frame-pointer
+auth2.c:25:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:37 EDT 2017 === starting tests/auth3
+=== Sat Aug 26 22:36:37 EDT 2017 === tests/auth3 amd64 gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+auth3.c:30:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:37 EDT 2017 === tests/auth3 amd64 gcc -m64 -O -fomit-frame-pointer
+auth3.c:30:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:37 EDT 2017 === tests/auth3 amd64 gcc -m64 -fomit-frame-pointer
+auth3.c:30:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:37 EDT 2017 === starting tests/auth5
+=== Sat Aug 26 22:36:37 EDT 2017 === tests/auth5 amd64 gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+auth5.c:10:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:38 EDT 2017 === tests/auth5 amd64 gcc -m64 -O -fomit-frame-pointer
+auth5.c:10:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:38 EDT 2017 === tests/auth5 amd64 gcc -m64 -fomit-frame-pointer
+auth5.c:10:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:39 EDT 2017 === starting tests/box
+=== Sat Aug 26 22:36:39 EDT 2017 === tests/box amd64 gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+box.c:51:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:39 EDT 2017 === tests/box amd64 gcc -m64 -O -fomit-frame-pointer
+box.c:51:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:39 EDT 2017 === tests/box amd64 gcc -m64 -fomit-frame-pointer
+box.c:51:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:39 EDT 2017 === starting tests/box2
+=== Sat Aug 26 22:36:39 EDT 2017 === tests/box2 amd64 gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+box2.c:51:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:39 EDT 2017 === tests/box2 amd64 gcc -m64 -O -fomit-frame-pointer
+box2.c:51:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:40 EDT 2017 === tests/box2 amd64 gcc -m64 -fomit-frame-pointer
+box2.c:51:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:40 EDT 2017 === starting tests/box7
+=== Sat Aug 26 22:36:40 EDT 2017 === tests/box7 amd64 gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+box7.c:14:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:40 EDT 2017 === tests/box7 amd64 gcc -m64 -O -fomit-frame-pointer
+box7.c:14:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:40 EDT 2017 === tests/box7 amd64 gcc -m64 -fomit-frame-pointer
+box7.c:14:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:40 EDT 2017 === starting tests/box8
+=== Sat Aug 26 22:36:40 EDT 2017 === tests/box8 amd64 gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+box8.c:14:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+box8.c: In function 'main':
+box8.c:28:9: warning: implicit declaration of function 'random' [-Wimplicit-function-declaration]
+       c[random() % (mlen + crypto_box_ZEROBYTES)] = random();
+         ^
+=== Sat Aug 26 22:36:41 EDT 2017 === tests/box8 amd64 gcc -m64 -O -fomit-frame-pointer
+box8.c:14:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+box8.c: In function 'main':
+box8.c:28:9: warning: implicit declaration of function 'random' [-Wimplicit-function-declaration]
+       c[random() % (mlen + crypto_box_ZEROBYTES)] = random();
+         ^
+=== Sat Aug 26 22:36:42 EDT 2017 === tests/box8 amd64 gcc -m64 -fomit-frame-pointer
+box8.c:14:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+box8.c: In function 'main':
+box8.c:28:9: warning: implicit declaration of function 'random' [-Wimplicit-function-declaration]
+       c[random() % (mlen + crypto_box_ZEROBYTES)] = random();
+         ^
+=== Sat Aug 26 22:36:43 EDT 2017 === starting tests/core1
+=== Sat Aug 26 22:36:43 EDT 2017 === tests/core1 amd64 gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+core1.c:20:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:43 EDT 2017 === tests/core1 amd64 gcc -m64 -O -fomit-frame-pointer
+core1.c:20:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:43 EDT 2017 === tests/core1 amd64 gcc -m64 -fomit-frame-pointer
+core1.c:20:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:43 EDT 2017 === starting tests/core2
+=== Sat Aug 26 22:36:43 EDT 2017 === tests/core2 amd64 gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+core2.c:23:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:43 EDT 2017 === tests/core2 amd64 gcc -m64 -O -fomit-frame-pointer
+core2.c:23:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:43 EDT 2017 === tests/core2 amd64 gcc -m64 -fomit-frame-pointer
+core2.c:23:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:43 EDT 2017 === starting tests/core3
+=== Sat Aug 26 22:36:43 EDT 2017 === tests/core3 amd64 gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+core3.c:27:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:44 EDT 2017 === tests/core3 amd64 gcc -m64 -O -fomit-frame-pointer
+core3.c:27:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:44 EDT 2017 === tests/core3 amd64 gcc -m64 -fomit-frame-pointer
+core3.c:27:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:44 EDT 2017 === starting tests/core4
+=== Sat Aug 26 22:36:44 EDT 2017 === tests/core4 amd64 gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+core4.c:23:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:44 EDT 2017 === tests/core4 amd64 gcc -m64 -O -fomit-frame-pointer
+core4.c:23:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:44 EDT 2017 === tests/core4 amd64 gcc -m64 -fomit-frame-pointer
+core4.c:23:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:44 EDT 2017 === starting tests/core5
+=== Sat Aug 26 22:36:44 EDT 2017 === tests/core5 amd64 gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+core5.c:23:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:44 EDT 2017 === tests/core5 amd64 gcc -m64 -O -fomit-frame-pointer
+core5.c:23:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:44 EDT 2017 === tests/core5 amd64 gcc -m64 -fomit-frame-pointer
+core5.c:23:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:44 EDT 2017 === starting tests/core6
+=== Sat Aug 26 22:36:44 EDT 2017 === tests/core6 amd64 gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+core6.c:35:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:44 EDT 2017 === tests/core6 amd64 gcc -m64 -O -fomit-frame-pointer
+core6.c:35:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:44 EDT 2017 === tests/core6 amd64 gcc -m64 -fomit-frame-pointer
+core6.c:35:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:44 EDT 2017 === starting tests/hash
+=== Sat Aug 26 22:36:44 EDT 2017 === tests/hash amd64 gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:36:44 EDT 2017 === tests/hash amd64 gcc -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:36:44 EDT 2017 === tests/hash amd64 gcc -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:36:44 EDT 2017 === starting tests/hash3
+=== Sat Aug 26 22:36:44 EDT 2017 === tests/hash3 amd64 gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:36:44 EDT 2017 === tests/hash3 amd64 gcc -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:36:44 EDT 2017 === tests/hash3 amd64 gcc -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:36:44 EDT 2017 === starting tests/onetimeauth
+=== Sat Aug 26 22:36:44 EDT 2017 === tests/onetimeauth amd64 gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+onetimeauth.c:33:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:44 EDT 2017 === tests/onetimeauth amd64 gcc -m64 -O -fomit-frame-pointer
+onetimeauth.c:33:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:44 EDT 2017 === tests/onetimeauth amd64 gcc -m64 -fomit-frame-pointer
+onetimeauth.c:33:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:44 EDT 2017 === starting tests/onetimeauth2
+=== Sat Aug 26 22:36:44 EDT 2017 === tests/onetimeauth2 amd64 gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+onetimeauth2.c:36:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:44 EDT 2017 === tests/onetimeauth2 amd64 gcc -m64 -O -fomit-frame-pointer
+onetimeauth2.c:36:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:44 EDT 2017 === tests/onetimeauth2 amd64 gcc -m64 -fomit-frame-pointer
+onetimeauth2.c:36:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:44 EDT 2017 === starting tests/onetimeauth7
+=== Sat Aug 26 22:36:44 EDT 2017 === tests/onetimeauth7 amd64 gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+onetimeauth7.c:10:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:45 EDT 2017 === tests/onetimeauth7 amd64 gcc -m64 -O -fomit-frame-pointer
+onetimeauth7.c:10:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:45 EDT 2017 === tests/onetimeauth7 amd64 gcc -m64 -fomit-frame-pointer
+onetimeauth7.c:10:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:45 EDT 2017 === starting tests/scalarmult
+=== Sat Aug 26 22:36:45 EDT 2017 === tests/scalarmult amd64 gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+scalarmult.c:13:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:46 EDT 2017 === tests/scalarmult amd64 gcc -m64 -O -fomit-frame-pointer
+scalarmult.c:13:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:46 EDT 2017 === tests/scalarmult amd64 gcc -m64 -fomit-frame-pointer
+scalarmult.c:13:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:46 EDT 2017 === starting tests/scalarmult2
+=== Sat Aug 26 22:36:46 EDT 2017 === tests/scalarmult2 amd64 gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+scalarmult2.c:13:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:46 EDT 2017 === tests/scalarmult2 amd64 gcc -m64 -O -fomit-frame-pointer
+scalarmult2.c:13:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:46 EDT 2017 === tests/scalarmult2 amd64 gcc -m64 -fomit-frame-pointer
+scalarmult2.c:13:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:46 EDT 2017 === starting tests/scalarmult5
+=== Sat Aug 26 22:36:46 EDT 2017 === tests/scalarmult5 amd64 gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+scalarmult5.c:20:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:46 EDT 2017 === tests/scalarmult5 amd64 gcc -m64 -O -fomit-frame-pointer
+scalarmult5.c:20:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:46 EDT 2017 === tests/scalarmult5 amd64 gcc -m64 -fomit-frame-pointer
+scalarmult5.c:20:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:46 EDT 2017 === starting tests/scalarmult6
+=== Sat Aug 26 22:36:46 EDT 2017 === tests/scalarmult6 amd64 gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+scalarmult6.c:20:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:46 EDT 2017 === tests/scalarmult6 amd64 gcc -m64 -O -fomit-frame-pointer
+scalarmult6.c:20:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:46 EDT 2017 === tests/scalarmult6 amd64 gcc -m64 -fomit-frame-pointer
+scalarmult6.c:20:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:46 EDT 2017 === starting tests/secretbox
+=== Sat Aug 26 22:36:46 EDT 2017 === tests/secretbox amd64 gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+secretbox.c:44:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:46 EDT 2017 === tests/secretbox amd64 gcc -m64 -O -fomit-frame-pointer
+secretbox.c:44:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:46 EDT 2017 === tests/secretbox amd64 gcc -m64 -fomit-frame-pointer
+secretbox.c:44:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:46 EDT 2017 === starting tests/secretbox2
+=== Sat Aug 26 22:36:46 EDT 2017 === tests/secretbox2 amd64 gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+secretbox2.c:44:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:46 EDT 2017 === tests/secretbox2 amd64 gcc -m64 -O -fomit-frame-pointer
+secretbox2.c:44:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:46 EDT 2017 === tests/secretbox2 amd64 gcc -m64 -fomit-frame-pointer
+secretbox2.c:44:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:46 EDT 2017 === starting tests/secretbox7
+=== Sat Aug 26 22:36:46 EDT 2017 === tests/secretbox7 amd64 gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+secretbox7.c:11:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:46 EDT 2017 === tests/secretbox7 amd64 gcc -m64 -O -fomit-frame-pointer
+secretbox7.c:11:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:46 EDT 2017 === tests/secretbox7 amd64 gcc -m64 -fomit-frame-pointer
+secretbox7.c:11:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:46 EDT 2017 === starting tests/secretbox8
+=== Sat Aug 26 22:36:46 EDT 2017 === tests/secretbox8 amd64 gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+secretbox8.c:11:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+secretbox8.c: In function 'main':
+secretbox8.c:24:9: warning: implicit declaration of function 'random' [-Wimplicit-function-declaration]
+       c[random() % (mlen + crypto_secretbox_ZEROBYTES)] = random();
+         ^
+=== Sat Aug 26 22:36:46 EDT 2017 === tests/secretbox8 amd64 gcc -m64 -O -fomit-frame-pointer
+secretbox8.c:11:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+secretbox8.c: In function 'main':
+secretbox8.c:24:9: warning: implicit declaration of function 'random' [-Wimplicit-function-declaration]
+       c[random() % (mlen + crypto_secretbox_ZEROBYTES)] = random();
+         ^
+=== Sat Aug 26 22:36:46 EDT 2017 === tests/secretbox8 amd64 gcc -m64 -fomit-frame-pointer
+secretbox8.c:11:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+secretbox8.c: In function 'main':
+secretbox8.c:24:9: warning: implicit declaration of function 'random' [-Wimplicit-function-declaration]
+       c[random() % (mlen + crypto_secretbox_ZEROBYTES)] = random();
+         ^
+=== Sat Aug 26 22:36:46 EDT 2017 === starting tests/stream
+=== Sat Aug 26 22:36:46 EDT 2017 === tests/stream amd64 gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+stream.c:22:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:47 EDT 2017 === tests/stream amd64 gcc -m64 -O -fomit-frame-pointer
+stream.c:22:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:47 EDT 2017 === tests/stream amd64 gcc -m64 -fomit-frame-pointer
+stream.c:22:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:47 EDT 2017 === starting tests/stream2
+=== Sat Aug 26 22:36:47 EDT 2017 === tests/stream2 amd64 gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+stream2.c:20:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:47 EDT 2017 === tests/stream2 amd64 gcc -m64 -O -fomit-frame-pointer
+stream2.c:20:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:47 EDT 2017 === tests/stream2 amd64 gcc -m64 -fomit-frame-pointer
+stream2.c:20:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:47 EDT 2017 === starting tests/stream3
+=== Sat Aug 26 22:36:47 EDT 2017 === tests/stream3 amd64 gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+stream3.c:19:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:47 EDT 2017 === tests/stream3 amd64 gcc -m64 -O -fomit-frame-pointer
+stream3.c:19:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:47 EDT 2017 === tests/stream3 amd64 gcc -m64 -fomit-frame-pointer
+stream3.c:19:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:47 EDT 2017 === starting tests/stream4
+=== Sat Aug 26 22:36:47 EDT 2017 === tests/stream4 amd64 gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+stream4.c:43:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:47 EDT 2017 === tests/stream4 amd64 gcc -m64 -O -fomit-frame-pointer
+stream4.c:43:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:47 EDT 2017 === tests/stream4 amd64 gcc -m64 -fomit-frame-pointer
+stream4.c:43:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main()
+ ^
+=== Sat Aug 26 22:36:47 EDT 2017 === starting tests/auth4
+=== Sat Aug 26 22:36:47 EDT 2017 === tests/auth4 amd64 g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:36:47 EDT 2017 === tests/auth4 amd64 g++ -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:36:47 EDT 2017 === tests/auth4 amd64 g++ -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:36:47 EDT 2017 === starting tests/auth6
+=== Sat Aug 26 22:36:47 EDT 2017 === tests/auth6 amd64 g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:36:48 EDT 2017 === tests/auth6 amd64 g++ -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:36:49 EDT 2017 === tests/auth6 amd64 g++ -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:36:50 EDT 2017 === starting tests/box3
+=== Sat Aug 26 22:36:50 EDT 2017 === tests/box3 amd64 g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:36:50 EDT 2017 === tests/box3 amd64 g++ -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:36:50 EDT 2017 === tests/box3 amd64 g++ -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:36:51 EDT 2017 === starting tests/box4
+=== Sat Aug 26 22:36:51 EDT 2017 === tests/box4 amd64 g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:36:51 EDT 2017 === tests/box4 amd64 g++ -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:36:51 EDT 2017 === tests/box4 amd64 g++ -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:36:51 EDT 2017 === starting tests/box5
+=== Sat Aug 26 22:36:51 EDT 2017 === tests/box5 amd64 g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:36:51 EDT 2017 === tests/box5 amd64 g++ -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:36:52 EDT 2017 === tests/box5 amd64 g++ -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:36:52 EDT 2017 === starting tests/box6
+=== Sat Aug 26 22:36:52 EDT 2017 === tests/box6 amd64 g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:36:53 EDT 2017 === tests/box6 amd64 g++ -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:36:54 EDT 2017 === tests/box6 amd64 g++ -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:36:55 EDT 2017 === starting tests/hash2
+=== Sat Aug 26 22:36:55 EDT 2017 === tests/hash2 amd64 g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:36:55 EDT 2017 === tests/hash2 amd64 g++ -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:36:55 EDT 2017 === tests/hash2 amd64 g++ -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:36:55 EDT 2017 === starting tests/hash4
+=== Sat Aug 26 22:36:55 EDT 2017 === tests/hash4 amd64 g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:36:56 EDT 2017 === tests/hash4 amd64 g++ -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:36:56 EDT 2017 === tests/hash4 amd64 g++ -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:36:56 EDT 2017 === starting tests/onetimeauth5
+=== Sat Aug 26 22:36:56 EDT 2017 === tests/onetimeauth5 amd64 g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:36:56 EDT 2017 === tests/onetimeauth5 amd64 g++ -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:36:56 EDT 2017 === tests/onetimeauth5 amd64 g++ -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:36:56 EDT 2017 === starting tests/onetimeauth6
+=== Sat Aug 26 22:36:56 EDT 2017 === tests/onetimeauth6 amd64 g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:36:56 EDT 2017 === tests/onetimeauth6 amd64 g++ -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:36:56 EDT 2017 === tests/onetimeauth6 amd64 g++ -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:36:56 EDT 2017 === starting tests/onetimeauth8
+=== Sat Aug 26 22:36:56 EDT 2017 === tests/onetimeauth8 amd64 g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:36:57 EDT 2017 === tests/onetimeauth8 amd64 g++ -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:36:57 EDT 2017 === tests/onetimeauth8 amd64 g++ -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:36:58 EDT 2017 === starting tests/scalarmult3
+=== Sat Aug 26 22:36:58 EDT 2017 === tests/scalarmult3 amd64 g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:36:58 EDT 2017 === tests/scalarmult3 amd64 g++ -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:36:58 EDT 2017 === tests/scalarmult3 amd64 g++ -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:36:58 EDT 2017 === starting tests/scalarmult4
+=== Sat Aug 26 22:36:58 EDT 2017 === tests/scalarmult4 amd64 g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:36:58 EDT 2017 === tests/scalarmult4 amd64 g++ -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:36:59 EDT 2017 === tests/scalarmult4 amd64 g++ -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:36:59 EDT 2017 === starting tests/scalarmult7
+=== Sat Aug 26 22:36:59 EDT 2017 === tests/scalarmult7 amd64 g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:36:59 EDT 2017 === tests/scalarmult7 amd64 g++ -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:36:59 EDT 2017 === tests/scalarmult7 amd64 g++ -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:36:59 EDT 2017 === starting tests/secretbox3
+=== Sat Aug 26 22:36:59 EDT 2017 === tests/secretbox3 amd64 g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:36:59 EDT 2017 === tests/secretbox3 amd64 g++ -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:36:59 EDT 2017 === tests/secretbox3 amd64 g++ -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:36:59 EDT 2017 === starting tests/secretbox4
+=== Sat Aug 26 22:36:59 EDT 2017 === tests/secretbox4 amd64 g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:36:59 EDT 2017 === tests/secretbox4 amd64 g++ -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:37:00 EDT 2017 === tests/secretbox4 amd64 g++ -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:37:00 EDT 2017 === starting tests/secretbox5
+=== Sat Aug 26 22:37:00 EDT 2017 === tests/secretbox5 amd64 g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:37:00 EDT 2017 === tests/secretbox5 amd64 g++ -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:37:00 EDT 2017 === tests/secretbox5 amd64 g++ -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:37:00 EDT 2017 === starting tests/secretbox6
+=== Sat Aug 26 22:37:00 EDT 2017 === tests/secretbox6 amd64 g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:37:00 EDT 2017 === tests/secretbox6 amd64 g++ -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:37:00 EDT 2017 === tests/secretbox6 amd64 g++ -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:37:00 EDT 2017 === starting tests/stream5
+=== Sat Aug 26 22:37:00 EDT 2017 === tests/stream5 amd64 g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:37:00 EDT 2017 === tests/stream5 amd64 g++ -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:37:01 EDT 2017 === tests/stream5 amd64 g++ -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:37:01 EDT 2017 === starting tests/stream6
+=== Sat Aug 26 22:37:01 EDT 2017 === tests/stream6 amd64 g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:37:01 EDT 2017 === tests/stream6 amd64 g++ -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:37:01 EDT 2017 === tests/stream6 amd64 g++ -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:37:01 EDT 2017 === starting tests/stream7
+=== Sat Aug 26 22:37:01 EDT 2017 === tests/stream7 amd64 g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:37:01 EDT 2017 === tests/stream7 amd64 g++ -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:37:01 EDT 2017 === tests/stream7 amd64 g++ -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:37:01 EDT 2017 === starting tests/stream8
+=== Sat Aug 26 22:37:01 EDT 2017 === tests/stream8 amd64 g++ -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:37:02 EDT 2017 === tests/stream8 amd64 g++ -m64 -O -fomit-frame-pointer
+=== Sat Aug 26 22:37:02 EDT 2017 === tests/stream8 amd64 g++ -m64 -fomit-frame-pointer
+=== Sat Aug 26 22:37:02 EDT 2017 === starting curvecp
+=== Sat Aug 26 22:37:02 EDT 2017 === curvecp amd64 gcc -m64 -O3 -fomit-frame-pointer -funroll-loops
+=== Sat Aug 26 22:37:03 EDT 2017 === finishing
