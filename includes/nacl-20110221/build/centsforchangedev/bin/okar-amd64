@@ -1,4 +1,0 @@
-#!/bin/sh
-PATH="/home/cents/ljus/includes/nacl-20110221/build/centsforchangedev/bin:/usr/sfw/bin:/usr/local/bin:/home/cents/.nvm/versions/node/v8.4.0/bin:/home/cents/bin:/home/cents/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/cents/.rvm/bin:/home/cents/.rvm/bin"
-export PATH
-ar "$@"

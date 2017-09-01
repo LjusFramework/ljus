@@ -10,13 +10,22 @@
 #include <sstream>
 using namespace std;
 
+#define HASHLEN 32
+#define SALTLEN 16
+#define T_COST 2
+#define PARALLELISM 2
+
 string Hash::make(string pwd) {
+
   const char* value = pwd.c_str();
+  
   uint8_t salt[SALTLEN];
   int fd = open("/dev/random", O_RDONLY);
   int size = read(fd, salt, sizeof salt);
   close(fd);
+
   uint32_t pwdlen = strlen(value);
+  //1 MiB -- this is roughly the going standard as of Sep 2017
   uint32_t m_cost = (1<<16);
   char encoded[97];
   
@@ -24,8 +33,11 @@ string Hash::make(string pwd) {
   return string(strdup(encoded));
 }
 
-int Hash::check(string plain, string hashed) {
 
-  //return strlen(val);
-  return argon2i_verify(hashed.c_str(), plain.c_str(), strlen(plain.c_str()));
+bool Hash::check(string plain, string hashed) {
+  return argon2i_verify(hashed.c_str(), plain.c_str(), strlen(plain.c_str())) == 0;
+}
+
+bool Hash::needs_rehash(string hashed){
+  
 }
