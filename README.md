@@ -8,7 +8,9 @@ Ljus = light in Swedish
 
 ## Components (Updated as I go)
 
-#### Hashing (Laravel version)[https://laravel.com/docs/5.5/hashing]
+#### Hashing 
+
+(Laravel version)[https://laravel.com/docs/5.5/hashing]
 
 ```c++
 #include ljus/hash/Hash.h
