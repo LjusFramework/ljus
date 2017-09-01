@@ -15,7 +15,9 @@ Ljus = light in Swedish
 ```c++
 #include ljus/hash/Hash.h
 ```
-A component to securely salt and hash most things (including passwords), using (Argon 2)[https://P-H-C/phc-winner-argon2] the algorithm that won the password hashing competition (specifically, Ljus uses Argon2i). This is rapidly becoming the standard for password hashing, and is the default for LibSodium. However, Ljus uses libargon2 for implementation. 
+A component to securely salt and hash most things (including passwords), using [Argon 2](https://P-H-C/phc-winner-argon2) the algorithm that won the password hashing competition (specifically, Ljus uses Argon2i). This is rapidly becoming the standard for password hashing, and is the default for LibSodium. However, Ljus uses libargon2 for implementation.
+
+By default, ljus uses a time cost of 2, parallelism of 2, and a memory cost of 1 MiB.
 
 The api looks almost identical to Laravel's
 ```c++
