@@ -10,7 +10,7 @@ Ljus = light in Swedish
 
 #### Hashing 
 
-(Laravel version)[https://laravel.com/docs/5.5/hashing]
+[Laravel version](https://laravel.com/docs/5.5/hashing)
 
 ```c++
 #include ljus/hash/Hash.h
