@@ -9,13 +9,19 @@
 
 using namespace std;
 
-class Hash {
+namespace Ljus{
 
-public:
-    static string make(string value);
-    static bool check(string plain, string hashed);
-    static bool needs_rehash(string hashed);
-};
+    namespace Hashing {
+        
+        class Hash {
 
+        public:
+            static string make(string value);
+            static bool check(string plain, string hashed);
+            static bool needs_rehash(string hashed);
+        };
+    }
+
+}
 
 #endif //HASH_H

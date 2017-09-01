@@ -4,6 +4,7 @@
 #include <string.h>
 #include <stdio.h>
 using namespace std;
+using namespace Ljus::Hashing;
 
 TEST_CASE("encryption can be performed", "[crypt]"){
     string foo = "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffoooooooooooooooooooooooooooo";
@@ -14,25 +15,19 @@ TEST_CASE("encryption can be performed", "[crypt]"){
 }
 
 TEST_CASE("hashes can be computed and checked", "[hash]"){
-    string passwd1 = "password";
-    string passwd2 = "";
-    string passwd3 = "EXCEEDINGLY Lonadsg aspodfaisdgadsoigjeiowjtoeij jodfajsdokgjasokgjasodjf kjalsdkfjlaksdjf klkjklj\n";
+    string passwd = "password";
+    string result = Hash::make(passwd);
+    REQUIRE(Hash::check(passwd, result));
+}
 
-    string passwd4 = string("password");
-
-    string result1 = Hash::make(passwd1);
-    int res = Hash::check(passwd1, result1);
-    REQUIRE(res == 0);
-
-    string result2 = Hash::make(passwd2);
-    res = Hash::check(passwd2, result2);
-    REQUIRE(res == 0);
-
-    string result3 = Hash::make(passwd3);
-    res = Hash::check(passwd3, result3);
-    REQUIRE(res == 0);
-
-    string result4 = string(Hash::make(passwd4.c_str()));
-    res = Hash::check(passwd4.c_str(), result4.c_str());
-    REQUIRE(res == 0);
+TEST_CASE("hashes status can be checked", "[hash]"){
+    string passwd = "password";
+    string result = Hash::make(passwd);
+    SECTION("valid hash"){
+        REQUIRE(Hash::needs_rehash(result) == false);        
+    }
+    SECTION("invalid hash"){
+        result.replace(result.find(",t=2"), 4, ",t=7");
+        REQUIRE(Hash::needs_rehash(result) == true);    
+    }
 }

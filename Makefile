@@ -1,27 +1,30 @@
+CC=g++
+CFLAGS=-Wall -pthread -std=c++17 -Ofast
 NACL_INCLUDE=/usr/include/nacl
 NACL_LIB=/usr/lib/nacl
-CODEC_INCLUDE=/home/cents/ljus/includes/cppcodec/cppcodec
+
+ROOT_DIR=${PWD}
 gppflags= -Wall -pthread -std=c++17 -Ofast
 hashfiles= ljus/hash/Hash.cpp ljus/hash/Hash.h
-libraries= -lpistache -lyaml-cpp -largon2 -I$(NACL_INCLUDE) -I$(CODEC_INCLUDE)
+DEPENDENCIES= -lpistache -largon2 -I$(NACL_INCLUDE) $(NACL_LIB)/randombytes.o $(NACL_LIB)/libnacl.a
 cryptfiles= ljus/encryption/Crypt.cpp ljus/encryption/Crypt.h
 
 ljusa : main 
 
 main : ljus.cpp ljus.h
-	g++ $(gppflags) ljus.cpp ljus.h $(libraries) $(hashfiles) $(cryptfiles) $(NACL_LIB)/randombytes.o $(NACL_LIB)/libnacl.a -o main
+	$(CC) $(CFLAGS) ljus.cpp ljus.h $(DEPENDENCIES) hash.o crypt.o  -o main
 
-hash.o : ljus/hash/Hash.cpp ljus/hash/Hash.h
-	g++ $(gppflags) ljus/hash/Hash.cpp Hash.h $(libraries)
+test: test/test.cpp test/test.h hash.o crypt.o
+	$(CC) $(CFLAGS) test/test.cpp test/test.h test/catch.hpp hash.o crypt.o $(DEPENDENCIES) -o tests.out
+
+hash.o : ljus/hash/Hash.cpp
+	$(CC) $(CFLAGS) -c ljus/hash/Hash.cpp -o hash.o $(DEPENDENCIES)
 
 config.o : config.h
-	g++ $(gppflags) $(libraries) -o config.o
+	$(CC) $(CFLAGS) $(libraries) -o config.o
 
-encryption.o : ljus/encryption/Crypt.cpp ljus/encryption/Crypt.h
-	g++ $(gppflags) ljus/encryption/Crypt.cpp ljus/encryption/Crypt.h $(libraries)
+crypt.o : ljus/encryption/Crypt.cpp
+	$(CC) $(CFLAGS) -c ljus/encryption/Crypt.cpp $(DEPENDENCIES) -o crypt.o
 
 clean:
-	rm main http.o hash.o config.o encryption.o
-
-test: test/test.cpp test/test.h
-	g++ $(gppflags) test/test.cpp test/test.h test/catch.hpp $(hashfiles) $(cryptfiles) $(libraries) $(NACL_LIB)/randombytes.o $(NACL_LIB)/libnacl.a -o test.ex
+	rm main crypt.o hash.o tests.out
