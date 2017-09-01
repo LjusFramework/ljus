@@ -1,5 +1,6 @@
 # Ljus (yoos)
 C++ web framework inspired by Laravel - in development - **do not use this in production**.
+
 Ljus = light in Swedish
 
 ## Goals of the Project
@@ -7,7 +8,7 @@ Ljus = light in Swedish
 
 ## Components (Updated as I go)
 
-#### Hashing ((Laravel version)[https://laravel.com/docs/5.5/hashing])
+#### Hashing (Laravel version)[https://laravel.com/docs/5.5/hashing]
 
 ```c++
 #include ljus/hash/Hash.h
