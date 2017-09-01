@@ -27,5 +27,23 @@ bool match = Hash::check(password, hashed); // true
 bool needs_rehash = Hash::needs_rehash(hashed); //false
 ```
 
+#### Encryption 
+
+[Laravel version](https://laravel.com/docs/5.5/encryption)
+
+```c++
+#include ljus/encryption/Crypt.h
+```
+A component to encrypt strings (and anything you can turn into a string) (NOT passwords), using [NaCL's](https://nacl.cr.yp.to/) implementation of the XSalsa20Poly1305 algorithm.
+
+The api looks slightly different from Laravel's, and the internals significantly so. Crypt exposes two methods:
+
+```c++
+std::string plain = "encrypt me";
+std::string cipher_text = Crypt::encrypt(plain); //Base64 encoded
+std::string decrypted = Crypt::decrypt(cipher_text);
+bool plain.compare(decrypted) == 0; // true
+```
+
 ## Dependencies
 All dependencies are included in includes/ under their respective licenses as gitsubmodules
