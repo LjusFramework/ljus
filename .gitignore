@@ -6,6 +6,7 @@
 *.lo
 *.o
 *.obj
+build/
 
 # Precompiled Headers
 *.gch
@@ -31,6 +32,7 @@
 *.out
 *.app
 *.ex
+*.gcno
 
 cmake-build-debug/
 .vscode/
