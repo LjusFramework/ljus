@@ -47,6 +47,7 @@
         "iterator": "cpp",
         "codecvt": "cpp",
         "algorithm": "cpp",
-        "filesystem": "cpp"
+        "filesystem": "cpp",
+        "vector": "cpp"
     }
 }

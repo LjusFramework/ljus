@@ -1,5 +1,5 @@
 CC=g++
-CFLAGS=-Wall -pthread -std=c++1z -O0 -g -coverag
+CFLAGS=-Wall -pthread -std=c++1z -Ofast
 NACL_INCLUDE=/usr/include/nacl
 NACL_LIB=/usr/lib/nacl
 
@@ -8,8 +8,11 @@ DEPENDENCIES= -lstdc++fs -lpistache -largon2 -I$(NACL_INCLUDE) $(NACL_LIB)/rando
 
 ljusa : main 
 
+benchmark: benchmark/benchpress.hpp benchmark/base.cpp benchmark/cxxopts.hpp crypt.o hash.o files.o
+	$(CC) $(CFLAGS) benchmark/benchpress.hpp benchmark/base.cpp build/crypt.o build/hash.o build/files.o $(DEPENDENCIES) -o benchmarker
+
 main : ljus.cpp ljus.h
-	$(CC) $(CFLAGS) ljus.cpp ljus.h $(DEPENDENCIES) build/hash.o build/crypt.o  -o main
+	$(CC) $(CFLAGS) ljus.cpp ljus.h build/hash.o build/crypt.o  $(DEPENDENCIES) -o main
 
 test: test/test.cpp hash.o crypt.o files.o
 	$(CC) $(CFLAGS) test/test.cpp test/test.h test/catch.hpp build/hash.o build/crypt.o build/files.o $(DEPENDENCIES) -o tests.out

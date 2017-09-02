@@ -32,7 +32,7 @@ TEST_CASE("hashes status can be checked", "[hash]"){
         REQUIRE(Hash::needs_rehash(result) == false);        
     }
     SECTION("invalid hash"){
-        result.replace(result.find(",t=2"), 4, ",t=7");
+        result.replace(result.find(",t=4"), 4, ",t=7");
         REQUIRE(Hash::needs_rehash(result) == true);    
     }
 }

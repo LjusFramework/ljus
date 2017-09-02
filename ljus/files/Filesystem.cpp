@@ -7,19 +7,12 @@
 using namespace std;
 
 bool Ljus::Filesystem::exists(const string& path) {
-  struct stat buffer;
-  return stat(path.c_str(), &buffer) == 0;
+  return fs::exists(path);
 }
 
 
 string Ljus::Filesystem::get(const string& path){
-    
-    if(!Ljus::Filesystem::exists(path)){
-        throw ENOENT;
-    }
-
-    ifstream in { path };
-    return {istreambuf_iterator<char>(in), istreambuf_iterator<char>()};
+    return fs::path(path).string();
 }
 
 //Returns a SHA-512 hash of the file contents
@@ -74,7 +67,7 @@ void Ljus::Filesystem::chmod(const string& path, fs::perms perms){
 }
 
 void Ljus::Filesystem::remove(const string& path){
-    fs::remove_all(path);
+    fs::remove(path);
 }
 
 void Ljus::Filesystem::remove(std::vector<string> paths){
@@ -82,3 +75,4 @@ void Ljus::Filesystem::remove(std::vector<string> paths){
         Ljus::Filesystem::remove(paths.at(i));
     }
 }
+

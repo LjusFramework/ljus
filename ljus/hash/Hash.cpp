@@ -13,10 +13,11 @@ using namespace std;
 
 #define HASHLEN 32
 #define SALTLEN 16
-#define T_COST 2
+#define T_COST 4
 #define PARALLELISM 2
 //1 MiB -- roughly going standard as of Sep 2017
 #define M_COST 65536
+
 string Ljus::Hash::make(string pwd) {
 
   const char* value = pwd.c_str();
