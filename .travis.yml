@@ -6,8 +6,8 @@ compiler:
 before_install:
   - pip install --user cpp-coveralls
   - git pull --recurse-submodules
-  - cd $TRAVIS_BUILD_DIR/includes/argon2 && make && sudo make install
-  - cd $TRAVIS_BUILD_DIR/includes/nacl && ./do
+  - cd ${TRAVIS_BUILD_DIR}/includes/argon2 && make && sudo make install
+  - cd ${TRAVIS_BUILD_DIR}/includes/nacl && ./do
 
 script:
   - make test -j4
