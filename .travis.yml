@@ -7,8 +7,8 @@ before_install:
   - pip install --user cpp-coveralls
   - sudo apt-get install libcurl-dev
   - git pull --recurse-submodules
-  - cd $TRAVIS_BUILD_DIR/includes/argon2 && make && sudo make install
-  - cd $TRAVIS_BUILD_DIR/includes/nacl && ./do
+  - make -C includes/argon2 && sudo make install -C includes/argon2
+  - cd includes/nacl && ./do
 
 script:
   - make test -j4
