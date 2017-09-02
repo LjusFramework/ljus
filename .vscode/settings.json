@@ -43,6 +43,10 @@
         "tuple": "cpp",
         "typeinfo": "cpp",
         "utility": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "iterator": "cpp",
+        "codecvt": "cpp",
+        "algorithm": "cpp",
+        "filesystem": "cpp"
     }
 }
