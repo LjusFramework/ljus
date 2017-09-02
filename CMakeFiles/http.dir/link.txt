@@ -1,0 +1,2 @@
+/usr/bin/ar qc libhttp.a  CMakeFiles/http.dir/ljus/http/LjusEndpoint.cpp.o CMakeFiles/http.dir/ljus/http/LjusHandler.cpp.o
+/usr/bin/ranlib libhttp.a

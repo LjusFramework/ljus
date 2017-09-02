@@ -23,6 +23,7 @@ before_script:
   - lcov --version
   - gcov --version
   - g++ --version
+  - sudo ./install.sh
   - PARENTDIR=$(pwd)
   - mkdir $PARENTDIR/build && cd $PARENTDIR/build
   - lcov --directory $PARENTDIR/build --zerocounters

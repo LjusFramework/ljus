@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/cents/ljus/ljus/files/Filesystem.cpp
+Filesystem.h
+/home/cents/ljus/ljus/files/Filesystem.h
+
+/home/cents/ljus/ljus/files/Filesystem.h
+string
+-
+iostream
+-
+iterator
+-
+fstream
+-
+experimental/filesystem
+-
+vector
+-
+cerrno
+-
+sys/stat.h
+-
+

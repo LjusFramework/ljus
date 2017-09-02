@@ -12,7 +12,7 @@
 #include "json.hpp"
 #include <fcntl.h>
 #include <unistd.h>
-#include "cppcodec/base64_rfc4648.hpp"
+#include "../../external/cppcodec/cppcodec/base64_rfc4648.hpp"
 
 using base64 = cppcodec::base64_rfc4648;
 

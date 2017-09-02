@@ -1,11 +1,4 @@
 #include "test.h"
-#include "../ljus/hash/Hash.h"
-#include "../ljus/encryption/Crypt.h"
-#include "../ljus/files/Filesystem.h"
-#include <string.h>
-#include <stdio.h>
-#include <cstdlib>
-#include <experimental/filesystem>
 
 namespace fs = std::experimental::filesystem;
 
@@ -30,11 +23,11 @@ TEST_CASE("hashes status can be checked", "[hash]") {
     string passwd = "password";
     string result = Hash::make(passwd);
     SECTION("valid hash") {
-        REQUIRE(Hash::needs_rehash(result) == false);
+        REQUIRE(!Hash::needs_rehash(result));
     }
     SECTION("invalid hash") {
         result.replace(result.find(",t=4"), 4, ",t=7");
-        REQUIRE(Hash::needs_rehash(result) == true);
+        REQUIRE(Hash::needs_rehash(result));
     }
 }
 

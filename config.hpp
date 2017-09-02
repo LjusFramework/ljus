@@ -5,7 +5,7 @@
 #ifndef CONFIG_H
 #define CONFIG_H
 
-#include "includes/json.hpp"
+#include "json.hpp"
 
 using json = nlohmann::json;
 

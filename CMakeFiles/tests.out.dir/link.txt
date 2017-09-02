@@ -1,0 +1,1 @@
+/usr/bin/c++    -std=c++1z -pthread -g -O0 -fprofile-arcs -ftest-coverage   CMakeFiles/tests.out.dir/tests/test.cpp.o  -o tests.out  -L/home/cents/ljus/external libpistache.a libhash.a libcrypt.a libfiles.a libhttp.a libconfig.a -lstdc++fs libargon2.a -lnacl -Wl,-rpath,/home/cents/ljus/external 
