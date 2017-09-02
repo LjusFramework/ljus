@@ -38,3 +38,5 @@ cmake-build-debug/
 .vscode/
 .idea/.name
 .idea/workspace.xml
+
+coverage.info

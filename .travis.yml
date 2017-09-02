@@ -1,18 +1,41 @@
 sudo: required
 language: cpp
+notifications:
+  email: false
 compiler:
   - gcc
 
 before_install:
+  - sudo apt-get update -qq
   - pip install --user cpp-coveralls
   - git submodule update --init --recursive
   - make -C /home/travis/build/ErikPartridge/ljus/includes/argon2
   - sudo make install -C includes/argon2
   - ./includes/nacl/do
 
+install:
+  - gem install coveralls-lcov
+  - wget http://ftp.de.debian.org/debian/pool/main/l/lcov/lcov_1.11.orig.tar.gz
+  - tar xf lcov_1.11.orig.tar.gz
+  - sudo make -C lcov-1.11/ install
+
+before_script:
+  - lcov --version
+  - gcov --version
+  - g++ --version
+  - PARENTDIR=$(pwd)
+  - mkdir $PARENTDIR/build && cd $PARENTDIR/build
+  - lcov --directory $PARENTDIR/build --zerocounters
+
 script:
-  - make test -j4
+  - cd $PARENTDIR/build
+  - cmake -Dcoverage=ON -DCMAKE_CXX_COMPILER=$COMPILER $PARENTDIR
+  - make
+  - make test
   - ./tests.out
 
 after_success:
-  - coveralls --exclude includes --exclude test --gcov-options '\-lp'
+  - lcov --directory $PARENTDIR/build --capture --output-file coverage.info
+  - lcov --remove coverage.info 'tests/*' 'other/*' 'cmake/*' '/usr/*' 'external/*' --output-file coverage.info
+  - lcov --list coverage.info
+  - coveralls-lcov coverage.info

@@ -6,12 +6,13 @@
 #define CRYPT_H
 
 #include "../../config.hpp"
-#include <string.h>
+#include <string>
+#include <vector>
 #include "crypto_secretbox_xsalsa20poly1305.h"
-#include "../../includes/json.hpp"
+#include "json.hpp"
 #include <fcntl.h>
 #include <unistd.h>
-#include "../../includes/cppcodec/cppcodec/base64_rfc4648.hpp"
+#include "cppcodec/base64_rfc4648.hpp"
 
 using base64 = cppcodec::base64_rfc4648;
 

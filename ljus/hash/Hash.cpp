@@ -4,7 +4,7 @@
 
 #include "Hash.h"
 #include <string.h>
-#include "../../includes/argon2/include/argon2.h"
+#include <argon2.h>
 #include <fcntl.h>
 #include <unistd.h>
 #include <sstream>
@@ -24,10 +24,10 @@ string Ljus::Hash::make(string pwd) {
   
   uint8_t salt[SALTLEN];
   int fd = open("/dev/random", O_RDONLY);
-  int size = read(fd, salt, sizeof salt);
+    ssize_t size = read(fd, salt, sizeof salt);
   close(fd);
 
-  uint32_t pwdlen = strlen(value);
+    unsigned long pwdlen = strlen(value);
   char encoded[97];
   
   argon2i_hash_encoded(T_COST, M_COST, PARALLELISM, value, pwdlen, salt, SALTLEN,HASHLEN, encoded, 97);
@@ -42,6 +42,6 @@ bool Ljus::Hash::check(string plain, string hashed) {
 bool Ljus::Hash::needs_rehash(string hashed){
   std::ostringstream settings;
   settings << "$m=" << M_COST << ",t=" << T_COST << ",p=" << PARALLELISM;
-  int index = hashed.find(settings.str());
+    unsigned long index = hashed.find(settings.str());
   return !(index < hashed.length() && index >= 0);
 }

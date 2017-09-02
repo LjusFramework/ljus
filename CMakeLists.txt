@@ -44,7 +44,7 @@ include_directories(
         ${PROJECT_SOURCE_DIR}/ljus
         ${PROJECT_SOURCE_DIR}/app
         ${PROJECT_SOURCE_DIR}/tests
-        ${PROJECT_SOURCE_DIR}/lib
+        ${PROJECT_SOURCE_DIR}/external
         ${PROJECT_SOURCE_DIR}/other
 )
 

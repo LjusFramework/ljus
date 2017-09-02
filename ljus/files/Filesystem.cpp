@@ -7,7 +7,7 @@
 using namespace std;
 
 bool Ljus::Filesystem::exists(const string& path) {
-  return fs::exists(path);
+    return fs::exists(path);
 }
 
 
@@ -58,12 +58,12 @@ void Ljus::Filesystem::append(const string& path, const string& data){
 
 fs::perms Ljus::Filesystem::chmod(const string& path){
     fs::path p(path);
-    fs::file_status s = status(p);
+    fs::file_status s = fs::status(p);
     return s.permissions();
 }
 
 void Ljus::Filesystem::chmod(const string& path, fs::perms perms){
-    fs::permissions(path, perms);
+    fs::permissions(fs::path(path), perms);
 }
 
 void Ljus::Filesystem::remove(const string& path){
@@ -71,8 +71,8 @@ void Ljus::Filesystem::remove(const string& path){
 }
 
 void Ljus::Filesystem::remove(std::vector<string> paths){
-    for(unsigned int i = 0; i < paths.size(); i ++){
-        Ljus::Filesystem::remove(paths.at(i));
+    for (const auto &path : paths) {
+        Ljus::Filesystem::remove(path);
     }
 }
 

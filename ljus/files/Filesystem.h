@@ -12,7 +12,7 @@
 #include <experimental/filesystem>
 #include <vector>
 
-#include <errno.h>
+#include <cerrno>
 #include <sys/stat.h>
 
 using namespace std;
@@ -32,7 +32,8 @@ namespace Ljus{
         static fs::perms chmod(const string& path);
         static void chmod(const string& path, fs::perms perms);
         static void remove(const string& path);
-        static void remove(const vector<string> paths);
+
+        static void remove(vector<string> paths);
     };
 }
 
