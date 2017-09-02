@@ -5,7 +5,7 @@
 #ifndef CRYPT_H
 #define CRYPT_H
 
-#include "../../config.h"
+#include "../../config.hpp"
 #include <string.h>
 #include "crypto_secretbox_xsalsa20poly1305.h"
 #include "../../includes/json.hpp"

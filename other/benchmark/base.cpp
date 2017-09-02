@@ -1,12 +1,12 @@
 #define BENCHPRESS_CONFIG_MAIN
 #include "benchpress.hpp"
-#include "../ljus/encryption/Crypt.h"
-#include "../ljus/hash/Hash.h"
-#include "../ljus/files/Filesystem.h"
+#include "../../ljus/encryption/Crypt.h"
+#include "../../ljus/hash/Hash.h"
+#include "../../ljus/files/Filesystem.h"
 #include <chrono>
 #include <iostream>
 #include <string>
-#include "../includes/cppcodec/cppcodec/base64_rfc4648.hpp"
+#include "../../includes/cppcodec/cppcodec/base64_rfc4648.hpp"
 #include <experimental/filesystem>
 
 using base64 = cppcodec::base64_rfc4648;
