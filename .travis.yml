@@ -27,7 +27,7 @@ before_script:
 
 script:
   - cd $PARENTDIR/build
-  - cmake -DCMAKE_CXX_COMPILER=g++ $PARENTDIR --target tests.out
+  - cmake --target tests.out -j 4
   - make tests.out
   - ./tests.out
 
