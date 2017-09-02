@@ -6,8 +6,9 @@ compiler:
 before_install:
   - pip install --user cpp-coveralls
   - git pull --recurse-submodules
-  - make -C includes/argon2 && sudo make install -C includes/argon2
-  - cd includes/nacl && ./do
+  - make -C includes/argon2
+  - sudo make install -C includes/argon2
+  - ./includes/nacl/do
 
 script:
   - make test -j4
