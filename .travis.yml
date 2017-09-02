@@ -5,7 +5,6 @@ compiler:
 
 before_install:
   - pip install --user cpp-coveralls
-  - sudo apt-get install libcurl-dev
   - git pull --recurse-submodules
   - make -C includes/argon2 && sudo make install -C includes/argon2
   - cd includes/nacl && ./do
