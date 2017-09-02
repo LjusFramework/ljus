@@ -10,18 +10,14 @@
 using namespace std;
 
 namespace Ljus{
-
-    namespace Hashing {
         
-        class Hash {
+    class Hash {
 
-        public:
-            static string make(string value);
-            static bool check(string plain, string hashed);
-            static bool needs_rehash(string hashed);
-        };
-    }
-
+    public:
+        static string make(string value);
+        static bool check(string plain, string hashed);
+        static bool needs_rehash(string hashed);
+    };
 }
 
 #endif //HASH_H

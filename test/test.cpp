@@ -4,12 +4,12 @@
 #include <string.h>
 #include <stdio.h>
 using namespace std;
-using namespace Ljus::Hashing;
+using namespace Ljus;
 
 TEST_CASE("encryption can be performed", "[crypt]"){
     string foo = "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffoooooooooooooooooooooooooooo";
 
-    string enc = Crypt::make(foo);
+    string enc = Crypt::encrypt(foo);
     string dec = Crypt::decrypt(enc);
     REQUIRE(foo == dec);
 }

@@ -17,7 +17,7 @@ using namespace std;
 #define PARALLELISM 2
 //1 MiB -- roughly going standard as of Sep 2017
 #define M_COST 65536
-string Ljus::Hashing::Hash::make(string pwd) {
+string Ljus::Hash::make(string pwd) {
 
   const char* value = pwd.c_str();
   
@@ -34,11 +34,11 @@ string Ljus::Hashing::Hash::make(string pwd) {
 }
 
 
-bool Ljus::Hashing::Hash::check(string plain, string hashed) {
+bool Ljus::Hash::check(string plain, string hashed) {
   return argon2i_verify(hashed.c_str(), plain.c_str(), strlen(plain.c_str())) == 0;
 }
 
-bool Ljus::Hashing::Hash::needs_rehash(string hashed){
+bool Ljus::Hash::needs_rehash(string hashed){
   std::ostringstream settings;
   settings << "$m=" << M_COST << ",t=" << T_COST << ",p=" << PARALLELISM;
   int index = hashed.find(settings.str());

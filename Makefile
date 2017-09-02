@@ -14,17 +14,17 @@ ljusa : main
 main : ljus.cpp ljus.h
 	$(CC) $(CFLAGS) ljus.cpp ljus.h $(DEPENDENCIES) hash.o crypt.o  -o main
 
-test: test/test.cpp test/test.h hash.o crypt.o
+test: test/test.cpp hash.o crypt.o
 	$(CC) $(CFLAGS) test/test.cpp test/test.h test/catch.hpp hash.o crypt.o $(DEPENDENCIES) -o tests.out
 
 hash.o : ljus/hash/Hash.cpp
 	$(CC) $(CFLAGS) -c ljus/hash/Hash.cpp -o hash.o $(DEPENDENCIES)
 
 config.o : config.h
-	$(CC) $(CFLAGS) $(libraries) -o config.o
+	$(CC) $(CFLAGS) config.h -o config.o
 
-crypt.o : ljus/encryption/Crypt.cpp
-	$(CC) $(CFLAGS) -c ljus/encryption/Crypt.cpp $(DEPENDENCIES) -o crypt.o
+crypt.o : ljus/encryption/Crypt.cpp config.o
+	$(CC) $(CFLAGS) -c ljus/encryption/Crypt.cpp config.o $(DEPENDENCIES) -o crypt.o
 
 clean:
 	rm main crypt.o hash.o tests.out

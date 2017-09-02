@@ -2,7 +2,7 @@
 
 using namespace std;
 
-string Crypt::make(string value){
+string Ljus::Crypt::encrypt(string value){
   //Key needs to be 32 chars-- 256 bit for xsalsa
   string key = config["app_key"].get<string>().substr(0,32);
   string nonce = "012345678901234567890123";
@@ -23,7 +23,7 @@ string Crypt::make(string value){
   return base64::encode(stringified);
 }
 
-string Crypt::decrypt(std::string ciphertext) {
+string Ljus::Crypt::decrypt(std::string ciphertext) {
   vector<unsigned char> decoded_chars = base64::decode(ciphertext);
   string decoded = string(decoded_chars.begin(), decoded_chars.end());
   json parsed = json::parse(decoded);

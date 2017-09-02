@@ -15,13 +15,15 @@
 
 using base64 = cppcodec::base64_rfc4648;
 
-class Crypt {
+namespace Ljus{
+    
+    class Crypt {
 
-public:
-    static std::string make(std::string value);
-    static std::string decrypt(std::string ciphertext);
+    public:
+        static std::string encrypt(std::string value);
+        static std::string decrypt(std::string ciphertext);
 
-};
-
+    };
+}
 
 #endif //CRYPT_H
