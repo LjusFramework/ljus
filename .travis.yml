@@ -27,9 +27,8 @@ before_script:
 
 script:
   - cd $PARENTDIR/build
-  - cmake -Dcoverage=ON -DCMAKE_CXX_COMPILER=$COMPILER $PARENTDIR
-  - make
-  - make test
+  - cmake -DCMAKE_CXX_COMPILER=g++ $PARENTDIR --target tests.out
+  - make tests.out
   - ./tests.out
 
 after_success:
