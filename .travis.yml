@@ -9,9 +9,6 @@ before_install:
   - sudo apt-get update -qq
   - pip install --user cpp-coveralls
   - git submodule update --init --recursive
-  - make -C /home/travis/build/ErikPartridge/ljus/includes/argon2
-  - sudo make install -C includes/argon2
-  - ./includes/nacl/do
 
 install:
   - gem install coveralls-lcov
