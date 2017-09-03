@@ -1,1 +1,0 @@
-/usr/bin/c++    -std=c++1z -pthread -g -O0 -fprofile-arcs -ftest-coverage   CMakeFiles/app.out.dir/ljus.cpp.o  -o app.out  -L/home/cents/ljus/external libpistache.a libhash.a libcrypt.a libfiles.a libhttp.a libconfig.a -lstdc++fs -lnacl -Wl,-rpath,/home/cents/ljus/external 

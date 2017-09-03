@@ -1,2 +1,0 @@
-/usr/bin/ar qc libcrypt.a  CMakeFiles/crypt.dir/ljus/encryption/Crypt.cpp.o
-/usr/bin/ranlib libcrypt.a
