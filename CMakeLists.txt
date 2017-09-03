@@ -50,6 +50,8 @@ include_directories(
         ${PROJECT_SOURCE_DIR}/other
         ${PROJECT_SOURCE_DIR}/external/argon2/src
 )
+include_directories(/usr/include/nacl)
+
 
 link_directories(${CMAKE_SOURCE_DIR}/external)
 
@@ -70,12 +72,10 @@ set(TEST_MAIN unit_tests.out)
 # -----------------------------------------------------------------------
 add_library(hash ${HASH})
 add_library(crypt ${JSON} ${CRYPT})
-
+add_dependencies(crypt nacl)
 add_library(files ${FILES})
 add_library(http ${HTTP})
 add_library(config ${CONFIG} ${JSON})
-
-include_directories(/usr/include/nacl)
 
 add_executable(app.out ljus.cpp ${JSON})
 
