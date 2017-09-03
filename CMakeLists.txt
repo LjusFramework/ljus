@@ -44,6 +44,8 @@ include_directories(
         ${PROJECT_SOURCE_DIR}/ljus
         ${PROJECT_SOURCE_DIR}/app
         ${PROJECT_SOURCE_DIR}/tests
+        ${PROJECT_SOURCE_DIR}/external/pistache/include
+        ${PROJECT_SOURCE_DIR}/external/argon2/include
         ${PROJECT_SOURCE_DIR}/external/json/src
         ${PROJECT_SOURCE_DIR}/other
         ${PROJECT_SOURCE_DIR}/external/argon2/src
