@@ -19,6 +19,10 @@ install:
   - sudo make -C lcov-1.11/ install
 
 before_script:
+  - sudo ln -s /usr/bin/gcc-5 /usr/local/bin/gcc
+  - sudo ln -s /usr/bin/g++-5 /usr/local/bin/g++
+  - export CC=/usr/bin/gcc-5
+  - export CXX=/usr/bin/g++-5
   - lcov --version
   - gcov --version
   - g++ --version
@@ -28,10 +32,6 @@ before_script:
   - lcov --directory $PARENTDIR/build --zerocounters
 
 script:
-  - sudo ln -s /usr/bin/gcc-6 /usr/local/bin/gcc
-  - sudo ln -s /usr/bin/g++-6 /usr/local/bin/g++
-  - export CC=/usr/bin/gcc-6
-  - export CXX=/usr/bin/g++-6
   - cd ..
   - cmake .
   - make tests.out
