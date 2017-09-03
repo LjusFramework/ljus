@@ -5,17 +5,10 @@ notifications:
 compiler:
   - gcc
 
-addons:
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-    packages:
-      - gcc-6
-      - g++-6
-      - cmake
-
 before_install:
+  - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
   - sudo apt-get update -qq
+  - sudo apt-get install gcc-6 g++-6 -y
   - pip install --user cpp-coveralls
   - git submodule update --init --recursive
 
@@ -34,7 +27,7 @@ before_script:
   - mkdir $PARENTDIR/build && cd $PARENTDIR/build
   - lcov --directory $PARENTDIR/build --zerocounters
 
-script
+script:
   - sudo ln -s /usr/bin/gcc-6 /usr/local/bin/gcc
   - sudo ln -s /usr/bin/g++-6 /usr/local/bin/g++
   - export CC=/usr/bin/gcc-6
