@@ -26,8 +26,7 @@ before_script:
   - lcov --directory $PARENTDIR/build --zerocounters
 
 script:
-  - cd $PARENTDIR
-  - cmake ..
+  - cmake .
   - make tests.out
   - ./tests.out
 
