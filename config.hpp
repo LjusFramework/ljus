@@ -11,7 +11,7 @@ using json = nlohmann::json;
 
 const auto config = R"(
   {
-    "app_key": "--SET ME TO SOMETHING SECURER THIS NEEDS TO BE 32 CHARS OR LONGER--"
+    "app_key": "PLEASESETMETOSOMETHINGSECURERTHISNEEDSTOBE32CHARSORLONGERthisisBase64"
   }
 )"_json;
 

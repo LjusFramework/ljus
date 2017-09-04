@@ -16,18 +16,18 @@ using namespace std;
 #define T_COST 4
 #define PARALLELISM 2
 //1 MiB -- roughly going standard as of Sep 2017
-#define M_COST 65536
+#define M_COST 32000
 
 string Ljus::Hash::make(string pwd) {
 
   const char* value = pwd.c_str();
   
   uint8_t salt[SALTLEN];
-  int fd = open("/dev/random", O_RDONLY);
+  int fd = open("/dev/urandom", O_RDONLY);
     ssize_t size = read(fd, salt, sizeof salt);
   close(fd);
 
-    unsigned long pwdlen = strlen(value);
+  unsigned long pwdlen = strlen(value);
   char encoded[97];
   
   argon2i_hash_encoded(T_COST, M_COST, PARALLELISM, value, pwdlen, salt, SALTLEN,HASHLEN, encoded, 97);
@@ -42,6 +42,6 @@ bool Ljus::Hash::check(string plain, string hashed) {
 bool Ljus::Hash::needs_rehash(string hashed){
   std::ostringstream settings;
   settings << "$m=" << M_COST << ",t=" << T_COST << ",p=" << PARALLELISM;
-    unsigned long index = hashed.find(settings.str());
+  unsigned long index = hashed.find(settings.str());
   return !(index < hashed.length() && index >= 0);
 }

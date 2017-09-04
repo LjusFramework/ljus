@@ -4,15 +4,27 @@ namespace fs = std::experimental::filesystem;
 
 using namespace std;
 using namespace Ljus;
+#include <vector>
+#include <random>
+#include <climits>
+#include <algorithm>
+#include <functional>
+
+using random_bytes_engine = std::independent_bits_engine<
+        std::default_random_engine, CHAR_BIT, unsigned char>;
 
 TEST_CASE("encryption can be performed", "[crypt]") {
     string foo = "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffoooooooooooooooooooooooooooo";
+    for(int i = 0; i <100; i++){
 
-    string enc = Crypt::encrypt(foo);
-    string dec = Crypt::decrypt(enc);
-    REQUIRE(foo == dec);
+        string enc = Crypt::encrypt(foo);
+        printf("%s\n", enc.c_str());
+        string dec = Crypt::decrypt(enc);
+        REQUIRE(foo == dec);
+    }
 }
 
+/*
 TEST_CASE("hashes can be computed and checked", "[hash]") {
     string passwd = "password";
     string result = Hash::make(passwd);
@@ -43,3 +55,5 @@ TEST_CASE("files can be created", "[filesystem]") {
         REQUIRE((Filesystem::chmod(file) & fs::perms::others_exec) == fs::perms::none);
     }
 }
+
+ */

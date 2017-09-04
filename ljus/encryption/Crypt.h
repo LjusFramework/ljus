@@ -8,13 +8,16 @@
 #include "../../config.hpp"
 #include <string>
 #include <vector>
-#include "crypto_secretbox_xsalsa20poly1305.h"
+extern "C"{
+#include "sodium.h"
+#include "base64.h"
+};
+#include "nacl_wrapper.h"
 #include "json.hpp"
 #include <fcntl.h>
 #include <unistd.h>
-#include "../../external/cppcodec/cppcodec/base64_rfc4648.hpp"
 
-using base64 = cppcodec::base64_rfc4648;
+//using base64 = cppcodec::base64_rfc4648;
 
 namespace Ljus{
     
@@ -22,8 +25,11 @@ namespace Ljus{
 
     public:
         static std::string encrypt(std::string value);
-        static std::string decrypt(std::string ciphertext);
+        static std::string decrypt(std::string combined);
 
+        static void encrypt_bytes(unsigned char *result, unsigned char *message, size_t mlen);
+
+        static void decrypt_bytes(unsigned char *decrypted, unsigned char *ciphered);
     };
 }
 

@@ -1,38 +1,80 @@
 
 #include "Crypt.h"
+#include <algorithm>
+#include <chrono>
 
 using namespace std;
+using namespace std::chrono;
 
-string Ljus::Crypt::encrypt(string value){
-  //Key needs to be 32 chars-- 256 bit for xsalsa
-  string key = config["app_key"].get<string>().substr(0,32);
-  string nonce = "012345678901234567890123";
-  string ciphertext;
-  //Get secure "real" random for the nonce
-  uint8_t nonce_raw[24];
-  int fd = open("/dev/random", O_RDONLY);
-  int size = read(fd, nonce_raw, sizeof nonce_raw);
-  close(fd);
-  nonce = base64::encode(nonce_raw, 24);
-  //Perform the encryption, xsalsa20 is used to avoid limitations of 256-GCM
-  ciphertext = crypto_secretbox_xsalsa20poly1305(value, nonce.substr(0,24), key);
-  //Pack it into a JSON for nice storage
-  json output;
-  output["nonce"] = nonce.substr(0,24);
-  output["content"] = base64::encode(ciphertext);
-  string stringified = output.dump();
-  return base64::encode(stringified);
+string get_nonce(){
+    string base = "ABCDEFGHIJKLMNOPQRSTOUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    char bytes[sizeof(int) + 32];
+    return base.substr(0, crypto_secretbox_NONCEBYTES);
 }
 
-string Ljus::Crypt::decrypt(std::string ciphertext) {
-  vector<unsigned char> decoded_chars = base64::decode(ciphertext);
-  string decoded = string(decoded_chars.begin(), decoded_chars.end());
-  json parsed = json::parse(decoded);
+string Ljus::Crypt::encrypt(string value){
+    if(sodium_init() < 0){
+        throw "Couldn't init libsodium";
+    }
+    //Key needs to be 32 chars-- 256 bit for xsalsa
+    string tkey = "0123456789123456789012345678901234560";
+    string key = tkey.substr(0,32);
 
-  vector<unsigned char> decoded_value = base64::decode(parsed["content"].get<string>());
-  string content = string(decoded_value.begin(), decoded_value.end());
-  string key = config["app_key"].get<string>().substr(0,32);
+    string nonce = get_nonce();
 
-  string plain = crypto_secretbox_xsalsa20poly1305_open(content, parsed["nonce"].get<string>(), key);
-  return plain;
+    //Perform the encryption, xsalsa20 is used to avoid limitations of 256-GCM
+    unsigned char ciphertext[value.length() + crypto_secretbox_MACBYTES ];
+
+    int res = crypto_secretbox_easy(ciphertext, reinterpret_cast<const unsigned char *>(value.c_str()), strlen(value.c_str()),
+                                    reinterpret_cast<const unsigned char *>(nonce.c_str()),
+                                    reinterpret_cast<const unsigned char *>(key.c_str()));
+    printf("RES RESULT: %d\n", res);
+
+    string content;
+    content = string(reinterpret_cast<char*>(ciphertext));
+
+    //Pack it into a JSON for nice storage
+    string nonce_encoded;
+    Base64::Encode(nonce, &nonce_encoded);
+    string content_encoded;
+    Base64::Encode(content, &content_encoded);
+    json output;
+    output["nonce"] = nonce_encoded;
+    output["content"] = content_encoded;
+    string stringified = output.dump();
+
+    return nonce_encoded + ";&c=" + content_encoded;
+}
+
+string Ljus::Crypt::decrypt(std::string combined) {
+    if(sodium_init() < 0){
+        throw "Couldn't init libsodium";
+    }
+   // auto j = combined::parse(combined);
+    string nonce_t;
+    string ciphertext_t;
+    string nonce;
+    string ciphertext;
+    nonce_t = combined.substr(0, combined.find(";&c="));
+    ciphertext_t = combined.substr(combined.find(";&c=") +4, combined.length());
+    Base64::Decode(ciphertext_t, &ciphertext);
+    Base64::Decode(nonce_t, &nonce);/*
+    vector<unsigned char> decoded_chars = base64::decode(j["content"].get<string>());
+
+    string ciphertext = string(decoded_chars.begin(), decoded_chars.end());
+
+    vector<unsigned char> decoded_nonce = base64::decode(j["nonce"].get<string>());
+
+    string nonce = string(decoded_nonce.begin(), decoded_nonce.end());*/
+
+    string tkey = "0123456789123456789012345678901234560";
+    string key = tkey.substr(0,32);
+
+    unsigned char message[ciphertext.length()];
+    int plain = crypto_secretbox_open_easy(message, reinterpret_cast<const unsigned char *>(ciphertext.c_str()), strlen(ciphertext.c_str()),
+                                           reinterpret_cast<const unsigned char *>(nonce.c_str()), reinterpret_cast<const unsigned char *>(key.c_str()));
+    if(plain == -1){
+        throw "Invalid authentication";
+    }
+    return string(reinterpret_cast<char*>(message));
 }

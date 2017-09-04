@@ -7,6 +7,9 @@ set(PROJECT_VERSION_MAJOR 0)
 set(PROJECT_VERSION_MINOR 1)
 set(PROJECT_VERSION_PATCH 0)
 
+# If you want to fuzz turn this on
+#set(CMAKE_CXX_COMPILER /home/erik/Downloads/afl/afl-g++)
+#set(CMAKE_C_COMPILER /home/erik/Downloads/afl/afl-gcc)
 # ---------------------------------------------------------------------
 #                     COMPILE FLAGS
 # ---------------------------------------------------------------------
@@ -50,8 +53,6 @@ include_directories(
         ${PROJECT_SOURCE_DIR}/other
         ${PROJECT_SOURCE_DIR}/external/argon2/src
 )
-include_directories(/usr/include/nacl)
-
 
 link_directories(${CMAKE_SOURCE_DIR}/external)
 
@@ -64,6 +65,7 @@ file(GLOB CONFIG "config.cpp")
 file(GLOB TEST "tests/*.cpp")
 file(GLOB JSON "external/json/src/json.hpp")
 file(GLOB BENCHMARK "other/benchmark/*.cpp")
+file(GLOB B64 "ljus/encryption/base64.cpp")
 file(GLOB PISTACHE_COMMON "external/pistache/src/common/*.cpp")
 set(TEST_MAIN unit_tests.out)
 
@@ -71,9 +73,12 @@ set(TEST_MAIN unit_tests.out)
 #                           Build
 # -----------------------------------------------------------------------
 add_library(hash ${HASH})
+add_library(b64 ${B64})
 add_library(crypt ${JSON} ${CRYPT})
-add_dependencies(crypt nacl)
+add_dependencies(crypt b64)
 add_dependencies(hash argon2)
+target_link_libraries(crypt sodium)
+target_link_libraries(crypt b64)
 add_library(files ${FILES})
 add_library(http ${HTTP})
 add_dependencies(http pistache)
@@ -84,7 +89,6 @@ add_executable(app.out ljus.cpp ${JSON})
 # Dependencies
 add_dependencies(app.out pistache hash crypt files http config)
 target_link_libraries(app.out pistache hash crypt files http config stdc++fs)
-target_link_libraries(app.out nacl)
 
 # ----------------------------------------------------------------------
 #                       Building Pistache
@@ -136,6 +140,7 @@ add_library( argon2
         ${PROJECT_SOURCE_DIR}/external/argon2/include/argon2.h
         )
 
+
 # ----------------------------------------------------------------------
 #                       Build test
 # ----------------------------------------------------------------------
@@ -147,4 +152,10 @@ set(TEST_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/tests/test.cpp)
 add_executable(tests.out ${TEST_SOURCES})
 add_dependencies(tests.out Catch pistache hash crypt files http config argon2)
 target_link_libraries(tests.out Catch pistache hash crypt files http config stdc++fs argon2)
-target_link_libraries(tests.out nacl)
+
+add_executable(fuzzhash other/fuzz_hash.cpp)
+add_dependencies(fuzzhash hash)
+target_link_libraries(fuzzhash hash argon2)
+
+add_executable(sodiumfuzz other/sodium_fuzz.cpp)
+target_link_libraries(sodiumfuzz sodium)

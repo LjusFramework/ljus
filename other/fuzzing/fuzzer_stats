@@ -1,0 +1,27 @@
+start_time        : 1504538117
+last_update       : 1504546819
+fuzzer_pid        : 32459
+cycles_done       : 16743
+execs_done        : 24648511
+execs_per_sec     : 2418.20
+paths_total       : 2
+paths_favored     : 1
+paths_found       : 0
+paths_imported    : 0
+max_depth         : 1
+cur_path          : 1
+pending_favs      : 0
+pending_total     : 0
+variable_paths    : 0
+stability         : 100.00%
+bitmap_cvg        : 0.35%
+unique_crashes    : 0
+unique_hangs      : 0
+last_path         : 0
+last_crash        : 0
+last_hang         : 0
+execs_since_crash : 24648511
+exec_timeout      : 20
+afl_banner        : fuzzhash
+afl_version       : 2.51b
+command_line      : /home/erik/Downloads/afl/afl-fuzz -i other/fuzzing/hash/ -o other/fuzzing ./fuzzhash
