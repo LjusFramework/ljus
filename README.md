@@ -1,4 +1,5 @@
 # Ljus (yoos)
+[![Build Status](https://travis-ci.org/ErikPartridge/ljus.svg?branch=master)](https://travis-ci.org/ErikPartridge/ljus)
 C++ web framework inspired by Laravel - in development - **do not use this in production**.
 
 Ljus = light in Swedish
