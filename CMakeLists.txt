@@ -8,8 +8,8 @@ set(PROJECT_VERSION_MINOR 1)
 set(PROJECT_VERSION_PATCH 0)
 
 # If you want to fuzz turn this on
-#set(CMAKE_CXX_COMPILER /home/erik/Downloads/afl/afl-g++)
-#set(CMAKE_C_COMPILER /home/erik/Downloads/afl/afl-gcc)
+set(CMAKE_CXX_COMPILER /home/erik/Downloads/afl/afl-g++)
+set(CMAKE_C_COMPILER /home/erik/Downloads/afl/afl-gcc)
 # ---------------------------------------------------------------------
 #                     COMPILE FLAGS
 # ---------------------------------------------------------------------
@@ -157,5 +157,6 @@ add_executable(fuzzhash other/fuzz_hash.cpp)
 add_dependencies(fuzzhash hash)
 target_link_libraries(fuzzhash hash argon2)
 
-add_executable(sodiumfuzz other/sodium_fuzz.cpp)
+add_executable(sodiumfuzz other/sodium_fuzz.cpp other/sodium_fuzz.cpp other/sodium_fuzz.h)
 target_link_libraries(sodiumfuzz sodium)
+target_link_libraries(sodiumfuzz crypt)
