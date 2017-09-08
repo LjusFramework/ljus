@@ -42,7 +42,7 @@ script:
   - ./tests.out
 
 after_success:
-  - lcov --directory $PARENTDIR/build --capture --output-file coverage.info
+  - lcov --directory $PARENTDIR --capture --output-file coverage.info
   - lcov --remove coverage.info 'tests/*' 'other/*' 'cmake/*' '/usr/*' 'external/*' --output-file coverage.info
   - lcov --list coverage.info
   - coveralls-lcov coverage.info --repo-token $REPO_TOKEN

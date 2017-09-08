@@ -18,7 +18,7 @@ namespace Ljus { namespace CacheDrivers {
         std::string get(string key);
         void put(string key, string value, unsigned long long minutes);
         void forever(string key, string value);
-        bool forget(string key);
+        void forget( string key );
         bool flush();
 
 

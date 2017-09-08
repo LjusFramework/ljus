@@ -55,3 +55,13 @@ TEST_CASE("files can be created", "[filesystem]") {
     }
 }
 
+TEST_CASE("files can be hashed", "[filesystem"){
+    string content = "Hi I'm a nice file\n";
+    int random = (rand() / 10000);
+    string file = "/tmp/" + std::to_string(random);
+    Filesystem::put(file, content);
+    SECTION("gets a hash that can be recomputed"){
+        printf("%s", Filesystem::hash(file));
+        REQUIRE(Filesystem::hash(file) == Filesystem::hash(file));
+    }
+}

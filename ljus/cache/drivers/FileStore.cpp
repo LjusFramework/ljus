@@ -34,3 +34,7 @@ bool CacheDrivers::FileDriver::flush() {
     }
     return true;
 }
+
+void CacheDrivers::FileDriver::forget( string key ) {
+    return this->filesystem.remove(this->folder + key);
+}

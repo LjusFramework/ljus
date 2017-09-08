@@ -2,7 +2,11 @@
 // Created by Erik Partridge on 24/08/17.
 //
 
+#include <cstring>
 #include "Filesystem.h"
+#include "../encryption/base64.h"
+#include "../../external/blake2/ref/blake2.h"
+#include "../../config.hpp"
 
 using namespace std;
 
@@ -24,8 +28,8 @@ string Ljus::Filesystem::get(const string &path) {
 
 //Returns a SHA-512 hash of the file contents
 string Ljus::Filesystem::hash(const string &path) {
-    //TODO
-    return path;
+//TODO
+    return string(reinterpret_cast<char *>(hash));
 }
 
 void Ljus::Filesystem::put(const string &path, const string &contents) {

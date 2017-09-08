@@ -22,7 +22,7 @@ option(coverage "Use coverage flag" ON)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++1z")
 
 # Flags to always have on, some may be dropped, pthread cannot
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread -g --coverage")
 
 # Set debug/coverage flags or optimize for production, depending on options.
 if (debug)
@@ -67,6 +67,7 @@ file(GLOB JSON "external/json/src/json.hpp")
 file(GLOB BENCHMARK "other/benchmark/*.cpp")
 file(GLOB B64 "ljus/encryption/base64.cpp")
 file(GLOB PISTACHE_COMMON "external/pistache/src/common/*.cpp")
+file(GLOB BLAKE2 "${PROJECT_SOURCE_DIR}/external/blake2/ref/*.c")
 set(TEST_MAIN unit_tests.out)
 
 # -----------------------------------------------------------------------
@@ -80,6 +81,8 @@ add_dependencies(hash argon2)
 target_link_libraries(crypt sodium)
 target_link_libraries(crypt b64)
 add_library(files ${FILES})
+add_dependencies(files blake2)
+target_link_libraries(files blake2)
 add_library(http ${HTTP})
 add_dependencies(http pistache)
 add_library(config ${CONFIG} ${JSON})
@@ -89,6 +92,13 @@ add_executable(app.out ljus.cpp ${JSON} ljus/cache/Cache.cpp ljus/cache/Cache.h)
 # Dependencies
 add_dependencies(app.out pistache hash crypt files http config)
 target_link_libraries(app.out pistache hash crypt files http config stdc++fs)
+
+# ----------------------------------------------------------------------
+#                       Building Blake2
+# ----------------------------------------------------------------------
+
+add_library(blake2 ${BLAKE2}  ${PROJECT_SOURCE_DIR}/external/blake2/ref/blake2-impl.h ${PROJECT_SOURCE_DIR}/external/blake2/ref/blake2.h)
+add_dependencies(blake2 git_update)
 
 # ----------------------------------------------------------------------
 #                       Building Pistache
@@ -137,8 +147,7 @@ add_library( argon2
         ${PROJECT_SOURCE_DIR}/external/argon2/src/blake2/blamka-round-opt.h
         ${PROJECT_SOURCE_DIR}/external/argon2/src/blake2/blamka-round-ref.h
         ${PROJECT_SOURCE_DIR}/external/argon2/src/blake2/blake2-impl.h
-        ${PROJECT_SOURCE_DIR}/external/argon2/include/argon2.h
-        )
+        ${PROJECT_SOURCE_DIR}/external/argon2/include/argon2.h)
 
 
 # ----------------------------------------------------------------------
@@ -150,8 +159,8 @@ target_include_directories(Catch INTERFACE ${CATCH_INCLUDE_DIR})
 set(TEST_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/tests/test.cpp ljus/cache/Cache.cpp ljus/cache/Cache.h ljus/cache/drivers/FileStore.cpp ljus/cache/drivers/FileStore.h)
 
 add_executable(tests.out ${TEST_SOURCES})
-add_dependencies(tests.out Catch pistache hash crypt files http config argon2)
-target_link_libraries(tests.out Catch pistache hash crypt files http config stdc++fs argon2)
+add_dependencies(tests.out Catch pistache hash crypt files http config argon2 blake2)
+target_link_libraries(tests.out Catch pistache hash crypt files http config stdc++fs argon2 blake2)
 
 add_executable(fuzzhash other/fuzz_hash.cpp)
 add_dependencies(fuzzhash hash)

@@ -24,7 +24,10 @@ string Ljus::Hash::make(string pwd) {
   
   uint8_t salt[SALTLEN];
   int fd = open("/dev/urandom", O_RDONLY);
-    ssize_t size = read(fd, salt, sizeof salt);
+  ssize_t size = read(fd, salt, sizeof salt);
+  if(size != sizeof salt){
+    throw "Could not generate salt";
+  }
   close(fd);
 
   unsigned long pwdlen = strlen(value);
