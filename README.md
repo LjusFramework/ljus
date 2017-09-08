@@ -6,10 +6,13 @@
 
 C++ web framework inspired by Laravel - in development - **do not use this in production**.
 
-Ljus = light in Swedish
+Ljus = light in Swedish (the thing that comes from the sun, not the adjective)
 
 ## Goals of the Project
 
+To make the web blazing fast. It's a shame that web apps are rarely written with a C++ backend, and this framework tries to couple together useful libraries and some other great features to make C++ web development more accessible. 
+
+The goal is also to bring in modern goodies into the framework! The algorithms and features that make you say cool! Part of the benefit of working with C++ is not only do we get the stability of system libraries, but we also get access to cutting edge reference specifications, usually written in C. Argon2 is therefore used for password hashing, XSalsa for Encryption: those using ljus should always be using standards as they are adopted and considered safe to use.
 
 ## Components (Updated as I go)
 
@@ -22,7 +25,7 @@ Ljus = light in Swedish
 ```
 A component to securely salt and hash most things (including passwords), using [Argon 2](https://P-H-C/phc-winner-argon2) the algorithm that won the password hashing competition (specifically, Ljus uses Argon2i). This is rapidly becoming the standard for password hashing, and is the default for LibSodium. However, Ljus uses libargon2 for implementation.
 
-By default, ljus uses a time cost of 2, parallelism of 2, and a memory cost of 1 MiB.
+By default, ljus uses a time cost of 4, parallelism of 2, and a memory cost of 1 MiB.
 
 The api looks almost identical to Laravel's
 ```c++
@@ -48,6 +51,23 @@ std::string plain = "encrypt me";
 std::string cipher_text = Crypt::encrypt(plain); //Base64 encoded
 std::string decrypted = Crypt::decrypt(cipher_text);
 bool plain.compare(decrypted) == 0; // true
+```
+
+#### Filesystem
+
+[Laravel version](https://laravel.com/docs/5.5/filesystem)
+```c++
+#include ljus/filesystem/Filesystem.h
+```
+
+A component to manage files, mostly depends on the new C++ 17 filesystem library. If you don't want to use the wrapper, the new C++ filesystem library is pretty darn good, but if you're coming from Laravel, this will be more familiar.
+
+The API is identical to the Laravel one, except that it's not a SHA-256 hash (Blake2B instead). 
+
+```c++
+std::string contents = Filesystem::get(path);
+Filesystem::put(path, contents);
+Filesystem::exists(path); // true
 ```
 
 ## Dependencies
