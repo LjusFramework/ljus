@@ -1,5 +1,8 @@
 # Ljus (yoos)
 [![Build Status](https://travis-ci.org/ErikPartridge/ljus.svg?branch=master)](https://travis-ci.org/ErikPartridge/ljus)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/9cadf04aee3f4f608796e96cf3bc3e31)](https://www.codacy.com/app/erikdevelopments/ljus?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ErikPartridge/ljus&amp;utm_campaign=Badge_Grade)
+
+
 C++ web framework inspired by Laravel - in development - **do not use this in production**.
 
 Ljus = light in Swedish
