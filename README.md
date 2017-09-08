@@ -12,6 +12,8 @@ Ljus = light in Swedish (the thing that comes from the sun, not the adjective)
 
 To make the web blazing fast. It's a shame that web apps are rarely written with a C++ backend, and this framework tries to couple together useful libraries and some other great features to make C++ web development more accessible. 
 
+The goal is also to bring in modern goodies into the framework! The algorithms and features that make you say cool! Part of the benefit of working with C++ is not only do we get the stability of system libraries, but we also get access to cutting edge reference specifications, usually written in C. Argon2 is therefore used for password hashing, XSalsa for Encryption: those using ljus should always be using standards as they are adopted and considered safe to use.
+
 ## Components (Updated as I go)
 
 #### Hashing 
