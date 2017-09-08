@@ -81,7 +81,7 @@ TEST_CASE("files can be prepended", "[filesystem]"){
 
 }
 
-TEST_CASE("files can be appended", "[filesystem]"){
+TEST_CASE("file system functions", "[filesystem]"){
     string content = "1234567890";
     string content2 = "01234567890";
     int random = (rand() / 100000);
@@ -89,4 +89,17 @@ TEST_CASE("files can be appended", "[filesystem]"){
     Filesystem::append(file, content);
     Filesystem::append(file, content2);
     REQUIRE(Filesystem::get(file) == (content + content2));
+
+    Filesystem::remove(file);
+    try {
+        Filesystem::get(file);
+    } catch ( int x){
+        REQUIRE (x != 0);
+    }
+
+    Filesystem::makeDirectory("/tmp/test_dir/");
+    Filesystem::put("/tmp/test_dir/file", "Hello World");
+    REQUIRE(Filesystem::directory_contents("/tmp/test_dir").size() == 1);
+    Filesystem::remove(Filesystem::directory_contents("/tmp/test_dir"));
+    REQUIRE(Filesystem::directory_contents("/tmp/test_dir").size() == 0);
 }
