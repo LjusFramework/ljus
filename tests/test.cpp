@@ -40,28 +40,53 @@ TEST_CASE("hashes status can be checked", "[hash]") {
 }
 
 TEST_CASE("files can be created", "[filesystem]") {
+    srand(time(NULL));
     string content = "Hi I'm a nice file\n";
     int random = (rand() / 10000);
     string file = "/tmp/" + std::to_string(random);
     Filesystem::put(file, content);
     REQUIRE(Filesystem::exists(file));
+
+    SECTION("Retrieves file as string"){
+        REQUIRE(Filesystem::get(file) == content);
+    }
+
     SECTION("gets chmod of 777") {
         Filesystem::chmod(file, fs::perms::group_read);
         REQUIRE((Filesystem::chmod(file) & fs::perms::group_read) != fs::perms::none);
         REQUIRE((Filesystem::chmod(file) & fs::perms::others_exec) == fs::perms::none);
     }
-    SECTION("Retrieves file as string"){
-        REQUIRE(Filesystem::get(file) == content);
-    }
 }
 
 TEST_CASE("files can be hashed", "[filesystem"){
+    srand(time(NULL));
     string content = "Hi I'm a nice file\n";
     int random = (rand() / 10000);
     string file = "/tmp/" + std::to_string(random);
     Filesystem::put(file, content);
     SECTION("gets a hash that can be recomputed"){
-        printf("%s", Filesystem::hash(file));
         REQUIRE(Filesystem::hash(file) == Filesystem::hash(file));
     }
+}
+
+TEST_CASE("files can be prepended", "[filesystem]"){
+    srand(time(NULL));
+    string content = "1234567890";
+    string content2 = "01234567890";
+    int random = (rand() / 100000);
+    string file = "/tmp/file-" + std::to_string(random);
+    Filesystem::prepend(file, content);
+    Filesystem::prepend(file, content2);
+    REQUIRE(Filesystem::get(file) == content2 + content);
+
+}
+
+TEST_CASE("files can be appended", "[filesystem]"){
+    string content = "1234567890";
+    string content2 = "01234567890";
+    int random = (rand() / 100000);
+    string file = "/tmp/file-" + std::to_string(random);
+    Filesystem::append(file, content);
+    Filesystem::append(file, content2);
+    REQUIRE(Filesystem::get(file) == (content + content2));
 }

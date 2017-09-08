@@ -46,15 +46,12 @@ void Ljus::Filesystem::put(const string &path, const string &contents) {
 void Ljus::Filesystem::prepend(const string &path, const string &data) {
 
     if (!Ljus::Filesystem::exists(path)) {
-        string original = Ljus::Filesystem::get(path);
-        ofstream file;
-        file.open(path, ios::out);
-        file << original << data;
-        file.close();
+        put(path, data);
     } else {
+        string contents = get(path);
         ofstream file;
         file.open(path, ios::out);
-        file << data;
+        file << data << contents;
         file.close();
     }
 
