@@ -15,13 +15,9 @@ using random_bytes_engine = std::independent_bits_engine<
 
 TEST_CASE("encryption can be performed", "[crypt]") {
     string foo = "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffoooooooooooooooooooooooooooo";
-    for(int i = 0; i <100; i++){
-
-        string enc = Crypt::encrypt(foo);
-        printf("%s\n", enc.c_str());
-        string dec = Crypt::decrypt(enc);
-        REQUIRE(foo == dec);
-    }
+    string enc = Crypt::encrypt(foo);
+    string dec = Crypt::decrypt(enc);
+    REQUIRE(foo == dec);
 }
 
 
@@ -53,6 +49,9 @@ TEST_CASE("files can be created", "[filesystem]") {
         Filesystem::chmod(file, fs::perms::group_read);
         REQUIRE((Filesystem::chmod(file) & fs::perms::group_read) != fs::perms::none);
         REQUIRE((Filesystem::chmod(file) & fs::perms::others_exec) == fs::perms::none);
+    }
+    SECTION("Retrieves file as string"){
+        REQUIRE(Filesystem::get(file) == content);
     }
 }
 

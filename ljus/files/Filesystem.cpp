@@ -12,7 +12,14 @@ bool Ljus::Filesystem::exists(const string &path) {
 
 
 string Ljus::Filesystem::get(const string &path) {
-    return fs::path(path).string();
+    std::ifstream in(path.c_str(), std::ios::in | std::ios::binary);
+    if (in){
+        std::ostringstream contents;
+        contents << in.rdbuf();
+        in.close();
+        return contents.str();
+    }
+    throw(errno);
 }
 
 //Returns a SHA-512 hash of the file contents
@@ -76,7 +83,7 @@ void Ljus::Filesystem::remove(std::vector<string> paths) {
     }
 }
 
-Ljus::Filesystem::Filesystem() {}
+Ljus::Filesystem::Filesystem() = default;
 
 void Ljus::Filesystem::makeDirectory(const string &path) {
     fs::path p(path);

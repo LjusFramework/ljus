@@ -40,3 +40,16 @@ cmake-build-debug/
 .idea/workspace.xml
 
 coverage.info
+CMakeFiles/
+other/fuzzing/crashes/
+other/fuzzing/hangs/
+other/fuzzing/queue/.state/auto_extras/
+other/fuzzing/queue/.state/variable_behavior/
+other/sf/
+other/sf_results/crashes/
+other/sf_results/hangs/
+other/sf_results/queue/.state/auto_extras/
+
+CMakeCache.txt
+cmake_install.cmake
+Makefile
