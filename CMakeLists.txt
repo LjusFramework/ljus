@@ -8,8 +8,8 @@ set(PROJECT_VERSION_MINOR 1)
 set(PROJECT_VERSION_PATCH 0)
 
 # If you want to fuzz turn this on
-set(CMAKE_CXX_COMPILER /home/erik/Downloads/afl/afl-g++)
-set(CMAKE_C_COMPILER /home/erik/Downloads/afl/afl-gcc)
+#set(CMAKE_CXX_COMPILER /home/erik/Downloads/afl/afl-g++)
+#set(CMAKE_C_COMPILER /home/erik/Downloads/afl/afl-gcc)
 # ---------------------------------------------------------------------
 #                     COMPILE FLAGS
 # ---------------------------------------------------------------------
@@ -84,7 +84,7 @@ add_library(http ${HTTP})
 add_dependencies(http pistache)
 add_library(config ${CONFIG} ${JSON})
 
-add_executable(app.out ljus.cpp ${JSON})
+add_executable(app.out ljus.cpp ${JSON} ljus/cache/Cache.cpp ljus/cache/Cache.h)
 
 # Dependencies
 add_dependencies(app.out pistache hash crypt files http config)
@@ -147,7 +147,7 @@ add_library( argon2
 set(CATCH_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/tests/catch)
 add_library(Catch INTERFACE)
 target_include_directories(Catch INTERFACE ${CATCH_INCLUDE_DIR})
-set(TEST_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/tests/test.cpp)
+set(TEST_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/tests/test.cpp ljus/cache/Cache.cpp ljus/cache/Cache.h ljus/cache/drivers/FileStore.cpp ljus/cache/drivers/FileStore.h)
 
 add_executable(tests.out ${TEST_SOURCES})
 add_dependencies(tests.out Catch pistache hash crypt files http config argon2)

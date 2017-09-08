@@ -24,7 +24,7 @@ TEST_CASE("encryption can be performed", "[crypt]") {
     }
 }
 
-/*
+
 TEST_CASE("hashes can be computed and checked", "[hash]") {
     string passwd = "password";
     string result = Hash::make(passwd);
@@ -56,4 +56,3 @@ TEST_CASE("files can be created", "[filesystem]") {
     }
 }
 
- */

@@ -23,6 +23,8 @@ namespace Ljus{
     class Filesystem {
 
     public:
+        Filesystem();
+
         static bool exists(const string& path);
         static string get(const string& path);
         static string hash(const string& path);
@@ -32,7 +34,8 @@ namespace Ljus{
         static fs::perms chmod(const string& path);
         static void chmod(const string& path, fs::perms perms);
         static void remove(const string& path);
-
+        static void makeDirectory(const string& path);
+        static vector<string> directory_contents( const string &dir_path );
         static void remove(vector<string> paths);
     };
 }
