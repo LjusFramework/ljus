@@ -13,11 +13,12 @@ using namespace Pistache;
 class LjusHandler : public Pistache::Http::Handler {
 
 public:
-    HTTP_PROTOTYPE(LjusHandler)
+HTTP_PROTOTYPE(LjusHandler)
 
-    void onRequest(const Http::Request& request, Http::ResponseWriter response) {
-      std::string enc = Ljus::Crypt::encrypt((std::string) std::string("Hello world"));
-      response.send(Http::Code::Ok, enc);
+    void onRequest( const Http::Request &request, Http::ResponseWriter response ) {
+        std::string enc = Ljus::Crypt::encrypt(( std::string ) std::string("Hello world"));
+        response.send(Http::Code::Ok, enc);
+        request.method();
     }
 
 };

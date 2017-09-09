@@ -14,7 +14,6 @@ int main() {
             threads = 8;
         }
     }
-    std::cout << "messg" << '\n';
 
     Address addr(Ipv4::any(), port);
 
