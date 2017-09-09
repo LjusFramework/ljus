@@ -87,7 +87,7 @@ add_library(http ${HTTP})
 add_dependencies(http pistache)
 add_library(config ${CONFIG} ${JSON})
 
-add_executable(app.out ljus.cpp ${JSON} ljus/cache/Cache.cpp ljus/cache/Cache.h)
+add_executable(app.out ljus.cpp ${JSON})
 
 # Dependencies
 add_dependencies(app.out pistache hash crypt files http config)
