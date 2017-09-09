@@ -27,7 +27,7 @@ namespace Ljus{
 
         static bool exists(const string& path);
 
-        static unsigned long long size( const string &path );
+        static long long size( const string &path );
         static string get(const string& path);
         static string hash(const string& path);
         static void put(const string& path, const string& contents);

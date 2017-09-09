@@ -104,9 +104,10 @@ vector<string> Ljus::Filesystem::directory_contents( const string &dir_path ) {
     return result;
 }
 
-unsigned long long Ljus::Filesystem::size( const string &path ) {
-    string contents = get(path);
-    return strlen(contents.c_str());
+long long Ljus::Filesystem::size( const string &path ) {
+    struct stat stat_buf;
+    int rc = stat(path.c_str(), &stat_buf);
+    return rc == 0 ? stat_buf.st_size : -1;
 }
 
 void Ljus::Filesystem::copy( const string &path, const string &target ) {
