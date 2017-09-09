@@ -41,6 +41,7 @@ void Ljus::Filesystem::put(const string &path, const string &contents) {
 
 }
 
+
 void Ljus::Filesystem::prepend(const string &path, const string &data) {
 
     if (!Ljus::Filesystem::exists(path)) {
@@ -106,6 +107,10 @@ vector<string> Ljus::Filesystem::directory_contents( const string &dir_path ) {
 unsigned long long Ljus::Filesystem::size( const string &path ) {
     string contents = get(path);
     return strlen(contents.c_str());
+}
+
+void Ljus::Filesystem::copy( const string &path, const string &target ) {
+    put(target, get(path));
 }
 
 

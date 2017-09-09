@@ -83,7 +83,8 @@ TEST_CASE("file system functions", "[filesystem]"){
     Filesystem::append(file, content2);
     REQUIRE(Filesystem::get(file) == (content + content2));
     REQUIRE(Filesystem::size(file) == 21);
-
+    Filesystem::copy(file, "/tmp/to-copy-to" + std::to_string(random));
+    REQUIRE(Filesystem::size("/tmp/to-copy-to" + std::to_string(random)) == 21);
     Filesystem::remove(file);
     try {
         Filesystem::get(file);

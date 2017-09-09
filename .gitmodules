@@ -1,15 +1,9 @@
 [submodule "external/argon2"]
 	path = external/argon2
 	url = https://github.com/P-H-C/phc-winner-argon2
-[submodule "external/cppcodec"]
-	path = external/cppcodec
-	url = https://github.com/tplgy/cppcodec
 [submodule "external/json"]
 	path = external/json
 	url = https://github.com/nlohmann/json
 [submodule "external/pistache"]
 	path = external/pistache
 	url = https://github.com/oktal/pistache
-[submodule "external/blake2"]
-	path = external/blake2
-	url = https://github.com/BLAKE2/BLAKE2

@@ -39,6 +39,8 @@ namespace Ljus{
         static void makeDirectory(const string& path);
         static vector<string> directory_contents( const string &dir_path );
         static void remove(vector<string> paths);
+
+        static void copy( const string &path, const string &target );
     };
 }
 
