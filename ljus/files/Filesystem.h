@@ -40,6 +40,7 @@ namespace Ljus{
         static vector<string> directory_contents( const string &dir_path );
         static void remove(vector<string> paths);
 
+        static long long modified( const string &path );
         static void copy( const string &path, const string &target );
     };
 }

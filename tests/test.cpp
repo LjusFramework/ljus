@@ -95,5 +95,13 @@ TEST_CASE("file system functions", "[filesystem]"){
     Filesystem::put("/tmp/test_dir/file", "Hello World");
     REQUIRE(Filesystem::directory_contents("/tmp/test_dir").size() == 1);
     Filesystem::remove(Filesystem::directory_contents("/tmp/test_dir"));
-    REQUIRE(Filesystem::directory_contents("/tmp/test_dir").size() == 0);
+    REQUIRE(Filesystem::directory_contents("/tmp/test_dir").empty());
+}
+
+TEST_CASE("file modified time", "[filesystem]") {
+    int random = (rand() / 9000000);
+    string file = "/tmp/file-a-" + std::to_string(random);
+    Filesystem::put(file, "hi");
+    REQUIRE(Filesystem::modified(file) == time(NULL));
+
 }

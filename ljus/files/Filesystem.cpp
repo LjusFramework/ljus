@@ -114,4 +114,10 @@ void Ljus::Filesystem::copy( const string &path, const string &target ) {
     put(target, get(path));
 }
 
+long long Ljus::Filesystem::modified( const string &path ) {
+    struct stat result;
+    int rc = stat(path.c_str(), &result);
+    return rc == 0 ? result.st_mtim.tv_sec : -1;
+}
+
 
