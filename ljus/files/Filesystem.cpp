@@ -4,8 +4,6 @@
 
 #include <cstring>
 #include "Filesystem.h"
-#include "../encryption/base64.h"
-#include "../../external/blake2/ref/blake2.h"
 #include "../../config.hpp"
 
 using namespace std;
@@ -104,4 +102,10 @@ vector<string> Ljus::Filesystem::directory_contents( const string &dir_path ) {
     }
     return result;
 }
+
+unsigned long long Ljus::Filesystem::size( const string &path ) {
+    string contents = get(path);
+    return strlen(contents.c_str());
+}
+
 

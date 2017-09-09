@@ -4,11 +4,6 @@ namespace fs = std::experimental::filesystem;
 
 using namespace std;
 using namespace Ljus;
-#include <vector>
-#include <random>
-#include <climits>
-#include <algorithm>
-#include <functional>
 
 using random_bytes_engine = std::independent_bits_engine<
         std::default_random_engine, CHAR_BIT, unsigned char>;
@@ -89,6 +84,7 @@ TEST_CASE("file system functions", "[filesystem]"){
     Filesystem::append(file, content);
     Filesystem::append(file, content2);
     REQUIRE(Filesystem::get(file) == (content + content2));
+    REQUIRE(Filesystem::size(file) == 21);
 
     Filesystem::remove(file);
     try {
@@ -96,7 +92,6 @@ TEST_CASE("file system functions", "[filesystem]"){
     } catch ( int x){
         REQUIRE (x != 0);
     }
-
     Filesystem::makeDirectory("/tmp/test_dir/");
     Filesystem::put("/tmp/test_dir/file", "Hello World");
     REQUIRE(Filesystem::directory_contents("/tmp/test_dir").size() == 1);
