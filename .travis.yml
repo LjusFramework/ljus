@@ -13,10 +13,11 @@ addons:
             - llvm-toolchain-precise
             - ubuntu-toolchain-r-test
         packages:
-            - clang-4.1
             - g++-6
             - gcc-6
 before_install:
+  - sudo apt-add-repository "deb http://apt.llvm.org/trusty/ llvm-toolchain-trusty-5.0 main"
+  - sudo apt-get install -qq clang++-5.0 clang-5.0
   - sudo add-apt-repository ppa:chris-lea/libsodium -y
   - sudo apt-get install libsodium-dev libuv-dev
   - pip install --user cpp-coveralls
@@ -33,8 +34,8 @@ before_script:
   - sudo rm /usr/bin/g++
   - sudo ln -s /usr/bin/gcc-6 /usr/bin/gcc
   - sudo ln -s /usr/bin/g++-6 /usr/bin/g++
-  - export CC=/usr/bin/gcc
-  - export CXX=/usr/bin/g++
+  - export CC=/usr/bin/clang
+  - export CXX=/usr/bin/clang++
   - lcov --version
   - gcov --version
   - g++ --version
