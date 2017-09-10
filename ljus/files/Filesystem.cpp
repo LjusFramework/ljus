@@ -8,7 +8,12 @@
 
 using namespace std;
 
-bool Ljus::Filesystem::exists(const string &path) {
+/**
+ * @brief Check if a file at a given path exists
+ * @param path the path for which to check file existence
+ * @return If the file exists
+ */
+bool Ljus::Filesystem::exists( const string &path) {
     return fs::exists(path);
 }
 
@@ -101,6 +106,11 @@ vector<string> Ljus::Filesystem::files( const string &dir_path ) {
     return result;
 }
 
+/**
+ * @brief Get the size of the file at the given path in bytes
+ * @param path the path to the file
+ * @return size of the file in bytes
+ */
 long long Ljus::Filesystem::size( const string &path ) {
     struct stat stat_buf;
     int rc = stat(path.c_str(), &stat_buf);
