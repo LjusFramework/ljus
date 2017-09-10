@@ -8,8 +8,8 @@ set(PROJECT_VERSION_MINOR 1)
 set(PROJECT_VERSION_PATCH 0)
 
 # If you want to fuzz turn this on
-#set(CMAKE_CXX_COMPILER /home/erik/Downloads/afl/afl-g++)
-#set(CMAKE_C_COMPILER /home/erik/Downloads/afl/afl-gcc)
+set(CMAKE_CXX_COMPILER /usr/bin/clang)
+set(CMAKE_C_COMPILER /usr/bin/clang)
 # ---------------------------------------------------------------------
 #                     COMPILE FLAGS
 # ---------------------------------------------------------------------
@@ -47,7 +47,7 @@ include_directories(
         ${PROJECT_SOURCE_DIR}/ljus
         ${PROJECT_SOURCE_DIR}/app
         ${PROJECT_SOURCE_DIR}/tests
-        ${PROJECT_SOURCE_DIR}/external/pistache/include
+        ${PROJECT_SOURCE_DIR}/external/haywire/include
         ${PROJECT_SOURCE_DIR}/external/argon2/include
         ${PROJECT_SOURCE_DIR}/external/json/src
         ${PROJECT_SOURCE_DIR}/other
@@ -66,7 +66,8 @@ file(GLOB TEST "tests/*.cpp")
 file(GLOB JSON "external/json/src/json.hpp")
 file(GLOB BENCHMARK "other/benchmark/*.cpp")
 file(GLOB B64 "ljus/encryption/base64.cpp")
-file(GLOB PISTACHE_COMMON "external/pistache/src/common/*.cpp")
+file(GLOB HAYWIRE "external/haywire/src/haywire/*.c")
+file(GLOB HAYWIRECONF "external/haywire/src/haywire/configuration/*.c")
 file(GLOB BLAKE2 "${PROJECT_SOURCE_DIR}/external/blake2/ref/*.c")
 set(TEST_MAIN unit_tests.out)
 
@@ -82,14 +83,14 @@ target_link_libraries(crypt sodium)
 target_link_libraries(crypt b64)
 add_library(files ${FILES})
 add_library(http ${HTTP} ljus/http/utils/Request.cpp ljus/http/utils/CookieJar.cpp ljus/http/utils/CookieJar.h)
-add_dependencies(http pistache)
+add_dependencies(http haywire)
 add_library(config ${CONFIG} ${JSON})
 
 add_executable(app.out ljus.cpp ${JSON} ljus/http/utils/CookieJar.cpp)
 
 # Dependencies
-add_dependencies(app.out pistache hash crypt files http config)
-target_link_libraries(app.out pistache hash crypt files http config stdc++fs)
+add_dependencies(app.out haywire hash crypt files http config)
+target_link_libraries(app.out haywire hash crypt files http config stdc++fs)
 
 # ----------------------------------------------------------------------
 #                       Building Blake2
@@ -103,28 +104,9 @@ add_custom_target( git_update
         COMMAND git submodule update
         WORKING_DIRECTORY ${PROJECT_SOURCE_DIR})
 
-add_library( pistache
-        ${PROJECT_SOURCE_DIR}/external/pistache/src/client/client.cc
-        ${PROJECT_SOURCE_DIR}/external/pistache/src/common/cookie.cc
-        ${PROJECT_SOURCE_DIR}/external/pistache/src/common/description.cc
-        ${PROJECT_SOURCE_DIR}/external/pistache/src/common/http.cc
-        ${PROJECT_SOURCE_DIR}/external/pistache/src/common/http_defs.cc
-        ${PROJECT_SOURCE_DIR}/external/pistache/src/common/http_header.cc
-        ${PROJECT_SOURCE_DIR}/external/pistache/src/common/http_headers.cc
-        ${PROJECT_SOURCE_DIR}/external/pistache/src/common/mime.cc
-        ${PROJECT_SOURCE_DIR}/external/pistache/src/common/net.cc
-        ${PROJECT_SOURCE_DIR}/external/pistache/src/common/os.cc
-        ${PROJECT_SOURCE_DIR}/external/pistache/src/common/peer.cc
-        ${PROJECT_SOURCE_DIR}/external/pistache/src/common/reactor.cc
-        ${PROJECT_SOURCE_DIR}/external/pistache/src/common/stream.cc
-        ${PROJECT_SOURCE_DIR}/external/pistache/src/common/tcp.cc
-        ${PROJECT_SOURCE_DIR}/external/pistache/src/common/timer_pool.cc
-        ${PROJECT_SOURCE_DIR}/external/pistache/src/common/transport.cc
-        ${PROJECT_SOURCE_DIR}/external/pistache/src/server/endpoint.cc
-        ${PROJECT_SOURCE_DIR}/external/pistache/src/server/listener.cc
-        ${PROJECT_SOURCE_DIR}/external/pistache/src/server/router.cc )
+add_library(haywire ${HAYWIRE} ${HAYWIRECONF})
 
-add_dependencies(pistache git_update)
+add_dependencies(haywire git_update)
 
 add_library( argon2
         ${PROJECT_SOURCE_DIR}/external/argon2/src/argon2.c
@@ -154,8 +136,8 @@ target_include_directories(Catch INTERFACE ${CATCH_INCLUDE_DIR})
 set(TEST_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/tests/test.cpp ljus/http/utils/CookieJar.cpp)
 
 add_executable(tests.out ${TEST_SOURCES})
-add_dependencies(tests.out Catch pistache hash crypt files http config argon2)
-target_link_libraries(tests.out Catch pistache hash crypt files http config stdc++fs argon2)
+add_dependencies(tests.out Catch haywire hash crypt files http config argon2)
+target_link_libraries(tests.out Catch haywire hash crypt files http config stdc++fs argon2)
 
 add_executable(fuzzhash other/fuzz_hash.cpp)
 add_dependencies(fuzzhash hash)

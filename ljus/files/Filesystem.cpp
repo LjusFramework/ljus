@@ -83,14 +83,12 @@ void Ljus::Filesystem::remove(std::vector<string> paths) {
     }
 }
 
-Ljus::Filesystem::Filesystem() = default;
-
 void Ljus::Filesystem::makeDirectory(const string &path) {
     fs::path p(path);
     fs::create_directories(p);
 }
 
-vector<string> Ljus::Filesystem::directory_contents( const string &dir_path ) {
+vector<string> Ljus::Filesystem::files( const string &dir_path ) {
     if(!exists(dir_path)){
         return vector<string>();
     }
@@ -111,7 +109,7 @@ long long Ljus::Filesystem::size( const string &path ) {
 }
 
 void Ljus::Filesystem::copy( const string &path, const string &target ) {
-    put(target, get(path));
+    fs::copy(fs::path(path), fs::path(target));
 }
 
 long long Ljus::Filesystem::modified( const string &path ) {

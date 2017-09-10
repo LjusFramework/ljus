@@ -1,29 +1,24 @@
+#include <haywire.h>
 #include "ljus.h"
-
-using namespace Pistache;
 
 int main() {
 
 
+    char *root = "/";
+    configuration config;
+    config.http_listen_address = "127.0.0.1";
+    config.http_listen_port = 8000;
+    config.thread_count = 4;
+    config.balancer = "ipc";
+    config.parser = "http_parser";
+    config.max_request_size = 2097576; // roughly 2 MiB
+    config.tcp_nodelay = true;
 
-    Port port(6200);
+    hw_init_with_config(&config);
 
-    int threads = 1;
-    if(const char* env_t = std::getenv("LJUS_ENV")){
-        if(strcmp(env_t, "PRODUCTION") == 0){
-            threads = 8;
-        }
-    }
+    // Routing
 
-    Address addr(Ipv4::any(), port);
-
-    auto server = std::make_shared<Http::Endpoint>(addr);
-
-    auto options = Http::Endpoint::options()
-            .threads(threads);
-    server->init(options);
-    server->setHandler(Http::make_handler<LjusHandler>());
-    server->serve();
-
-    server->shutdown();
+    //
+    hw_http_open();
+    return 0;
 }

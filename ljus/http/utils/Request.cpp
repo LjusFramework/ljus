@@ -4,7 +4,14 @@
 
 #include "Request.h"
 
-Request::Request( Pistache::Http::Request request ) {
+
+std::unordered_map<string, string> parse_params( Pistache::Http::Request request ) {
+    std::unordered_map<string, string> params;
+    printf("%s\n", request.body().c_str());
+    return params;
+}
+
+Ljus::Request::Request( Pistache::Http::Request request ) {
     switch ( request.method()) {
         case Http::Method::Get:
             this->method = "GET";
@@ -33,6 +40,7 @@ Request::Request( Pistache::Http::Request request ) {
 
     this->body = request.body();
     this->headers = request.headers();
-
+    this->resource = request.resource();
+    parse_params(request);
 
 }

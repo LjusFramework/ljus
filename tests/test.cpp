@@ -74,7 +74,7 @@ TEST_CASE("files can be prepended", "[filesystem]"){
 
 }
 
-TEST_CASE("file system functions", "[filesystem]"){
+TEST_CASE("file system functions", "[filesystem]") {
     string content = "1234567890";
     string content2 = "01234567890";
     int random = (rand() / 100000);
@@ -93,9 +93,10 @@ TEST_CASE("file system functions", "[filesystem]"){
     }
     Filesystem::makeDirectory("/tmp/test_dir/");
     Filesystem::put("/tmp/test_dir/file", "Hello World");
-    REQUIRE(Filesystem::directory_contents("/tmp/test_dir").size() == 1);
-    Filesystem::remove(Filesystem::directory_contents("/tmp/test_dir"));
-    REQUIRE(Filesystem::directory_contents("/tmp/test_dir").empty());
+    REQUIRE(Filesystem::files("/tmp/test_dir").size() == 1);
+    Filesystem::remove(Filesystem::files("/tmp/test_dir"));
+    REQUIRE(Filesystem::files("/tmp/test_dir").empty());
+    REQUIRE(Filesystem::files("/tmp/randomtidirfasdtuhewruthaewitheihtiea").empty());
 }
 
 TEST_CASE("file modified time", "[filesystem]") {
