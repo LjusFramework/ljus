@@ -47,7 +47,6 @@ include_directories(
         ${PROJECT_SOURCE_DIR}/ljus
         ${PROJECT_SOURCE_DIR}/app
         ${PROJECT_SOURCE_DIR}/tests
-        ${PROJECT_SOURCE_DIR}/external/haywire/include
         ${PROJECT_SOURCE_DIR}/external/argon2/include
         ${PROJECT_SOURCE_DIR}/external/json/src
         ${PROJECT_SOURCE_DIR}/other
@@ -66,8 +65,6 @@ file(GLOB TEST "tests/*.cpp")
 file(GLOB JSON "external/json/src/json.hpp")
 file(GLOB BENCHMARK "other/benchmark/*.cpp")
 file(GLOB B64 "ljus/encryption/base64.cpp")
-file(GLOB HAYWIRE "external/haywire/src/haywire/*.c")
-file(GLOB HAYWIRECONF "external/haywire/src/haywire/configuration/*.c")
 file(GLOB BLAKE2 "${PROJECT_SOURCE_DIR}/external/blake2/ref/*.c")
 set(TEST_MAIN unit_tests.out)
 
@@ -83,14 +80,13 @@ target_link_libraries(crypt sodium)
 target_link_libraries(crypt b64)
 add_library(files ${FILES})
 add_library(http ${HTTP} ljus/http/utils/Request.cpp ljus/http/utils/CookieJar.cpp ljus/http/utils/CookieJar.h)
-add_dependencies(http haywire)
 add_library(config ${CONFIG} ${JSON})
 
 add_executable(app.out ljus.cpp ${JSON} ljus/http/utils/CookieJar.cpp)
 
 # Dependencies
-add_dependencies(app.out haywire hash crypt files http config)
-target_link_libraries(app.out haywire hash crypt files http config stdc++fs)
+add_dependencies(app.out hash crypt files http config)
+target_link_libraries(app.out hash crypt files http config stdc++fs)
 
 # ----------------------------------------------------------------------
 #                       Building Blake2
@@ -104,9 +100,6 @@ add_custom_target( git_update
         COMMAND git submodule update
         WORKING_DIRECTORY ${PROJECT_SOURCE_DIR})
 
-add_library(haywire ${HAYWIRE} ${HAYWIRECONF})
-
-add_dependencies(haywire git_update)
 
 add_library( argon2
         ${PROJECT_SOURCE_DIR}/external/argon2/src/argon2.c
@@ -136,8 +129,8 @@ target_include_directories(Catch INTERFACE ${CATCH_INCLUDE_DIR})
 set(TEST_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/tests/test.cpp ljus/http/utils/CookieJar.cpp)
 
 add_executable(tests.out ${TEST_SOURCES})
-add_dependencies(tests.out Catch haywire hash crypt files http config argon2)
-target_link_libraries(tests.out Catch haywire hash crypt files http config stdc++fs argon2)
+add_dependencies(tests.out Catch hash crypt files http config argon2)
+target_link_libraries(tests.out Catch hash crypt files http config stdc++fs argon2)
 
 add_executable(fuzzhash other/fuzz_hash.cpp)
 add_dependencies(fuzzhash hash)
