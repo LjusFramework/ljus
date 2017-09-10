@@ -6,17 +6,31 @@
 #define HASH_H
 
 #include <string>
+#include <argon2.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <sstream>
+#include <cstring>
+
+#define HASHLEN 32
+#define SALTLEN 16
+#define T_COST 4
+#define PARALLELISM 2
+//1 MiB -- roughly going standard as of Sep 2017
+#define M_COST 32000
 
 using namespace std;
 
-namespace Ljus{
-        
+namespace Ljus {
+
     class Hash {
 
     public:
-        static string make(string value);
-        static bool check(string plain, string hashed);
-        static bool needs_rehash(string hashed);
+        static string make( string value );
+
+        static bool check( string plain, string hashed );
+
+        static bool needs_rehash( string hashed );
     };
 }
 

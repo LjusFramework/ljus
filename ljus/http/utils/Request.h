@@ -8,4 +8,5 @@
 class Request {
 
 };
+
 #endif //LJUS_REQUEST_H

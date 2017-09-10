@@ -22,7 +22,7 @@ option(coverage "Use coverage flag" ON)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++1z")
 
 # Flags to always have on, some may be dropped, pthread cannot
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread -g --coverage -fprofile-instr-generate -fcoverage-mapping")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread -g -Wall -fprofile-instr-generate -fcoverage-mapping")
 
 # Set debug/coverage flags or optimize for production, depending on options.
 if (debug)

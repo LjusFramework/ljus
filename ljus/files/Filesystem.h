@@ -14,33 +14,46 @@
 
 #include <cerrno>
 #include <sys/stat.h>
+#include "../../config.hpp"
 
-using namespace std;
+using string = std::string;
+
 namespace fs = std::experimental::filesystem;
 
-namespace Ljus{
-        
+namespace Ljus {
+
     class Filesystem {
 
     public:
 
-        static bool exists(const string& path);
+        static bool exists( const string &path );
 
         static long long size( const string &path );
-        static string get(const string& path);
-        static string hash(const string& path);
-        static void put(const string& path, const string& contents);
-        static void prepend(const string& path, const string& data);
-        static void append(const string& path, const string& data);
-        static fs::perms chmod(const string& path);
-        static void chmod(const string& path, fs::perms perms);
-        static void remove(const string& path);
-        static void makeDirectory(const string& path);
+
+        static string get( const string &path );
+
+        static string hash( const string &path );
+
+        static void put( const string &path, const string &contents );
+
+        static void prepend( const string &path, const string &data );
+
+        static void append( const string &path, const string &data );
+
+        static fs::perms chmod( const string &path );
+
+        static void chmod( const string &path, fs::perms perms );
+
+        static void remove( const string &path );
+
+        static void makeDirectory( const string &path );
 
         static vector<string> files( const string &dir_path );
-        static void remove(vector<string> paths);
+
+        static void remove( vector<string> paths );
 
         static long long modified( const string &path );
+
         static void copy( const string &path, const string &target );
 
         static string name( const string &path );
