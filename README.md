@@ -1,8 +1,9 @@
 # Ljus (yoos)
-[![Build Status](https://travis-ci.org/ErikPartridge/ljus.svg?branch=master)](https://travis-ci.org/ErikPartridge/ljus)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/9cadf04aee3f4f608796e96cf3bc3e31)](https://www.codacy.com/app/erikdevelopments/ljus?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ErikPartridge/ljus&amp;utm_campaign=Badge_Grade)
-[![Coverage Status](https://coveralls.io/repos/github/ErikPartridge/ljus/badge.svg?branch=master)](https://coveralls.io/github/ErikPartridge/ljus?branch=master)
-
+[![Travis](https://img.shields.io/travis/ErikPartridge/ljus.svg?style=flat-square)]()
+[![Codacy grade](https://img.shields.io/codacy/grade/9cadf04aee3f4f608796e96cf3bc3e31.svg?style=flat-square)]()
+[![Coveralls](https://img.shields.io/coveralls/ErikPartridge/ljus.svg?style=flat-square)]()
+[![license](https://img.shields.io/github/license/ErikPartridge/ljus.svg?style=flat-square)]()
+[![stability](https://img.shields.io/badge/stability-experimental-orange.svg?style=flat-square)]()
 
 C++ web framework inspired by Laravel - in development - **do not use this in production**.
 
@@ -19,6 +20,8 @@ The goal is also to bring in modern goodies into the framework! The algorithms a
 #### Hashing 
 
 [Laravel version](https://laravel.com/docs/5.5/hashing)
+[![stability](https://img.shields.io/badge/stability-stable-green.svg?style=flat-square)]()
+[![production](https://img.shields.io/badge/production-not%20ready-red.svg?style=flat-square)]()
 
 ```c++
 #include ljus/hash/Hash.h
@@ -38,6 +41,9 @@ bool needs_rehash = Hash::needs_rehash(hashed); //false
 #### Encryption 
 
 [Laravel version](https://laravel.com/docs/5.5/encryption)
+[![stability](https://img.shields.io/badge/stability-stable-green.svg?style=flat-square)]()
+[![production](https://img.shields.io/badge/production-not%20ready-red.svg?style=flat-square)]()
+
 
 ```c++
 #include ljus/encryption/Crypt.h
@@ -56,6 +62,9 @@ bool plain.compare(decrypted) == 0; // true
 #### Filesystem
 
 [Laravel version](https://laravel.com/docs/5.5/filesystem)
+[![stability](https://img.shields.io/badge/stability-active%20development-orange.svg?style=flat-square)]()
+[![production](https://img.shields.io/badge/production-not%20ready-red.svg?style=flat-square)]()
+
 ```c++
 #include ljus/filesystem/Filesystem.h
 ```
