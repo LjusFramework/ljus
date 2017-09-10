@@ -3,3 +3,5 @@ exclude_paths:
   - other/**
   - other/*
   - tests/**
+  - tests/catch/*
+  - other/**/*

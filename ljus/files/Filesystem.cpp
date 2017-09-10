@@ -48,7 +48,7 @@ void Ljus::Filesystem::put(const string &path, const string &contents) {
 
 void Ljus::Filesystem::prepend(const string &path, const string &data) {
 
-    if (!Ljus::Filesystem::exists(path)) {
+    if ( !Ljus::Filesystem::exists(path)) {
         put(path, data);
     } else {
         string contents = get(path);
@@ -93,7 +93,7 @@ void Ljus::Filesystem::makeDirectory(const string &path) {
 }
 
 vector<string> Ljus::Filesystem::files( const string &dir_path ) {
-    if(!exists(dir_path)){
+    if ( not exists(dir_path)) {
         return vector<string>();
     }
     fs::path p(dir_path);

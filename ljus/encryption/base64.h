@@ -105,7 +105,8 @@ public:
     }
 
     static bool Decode( const std::string &in, std::string *out) {
-        int i = 0, j = 0;
+        int i = 0;
+        int j = 0;
         size_t dec_len = 0;
         unsigned char a3[3];
         unsigned char a4[4];
