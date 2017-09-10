@@ -5,7 +5,6 @@ notifications:
   email: false
 compiler:
   - g++
-  - clang
  
 addons:
     apt:
@@ -16,10 +15,8 @@ addons:
             - g++-6
             - gcc-6
 before_install:
-  - sudo apt-add-repository "deb http://apt.llvm.org/trusty/ llvm-toolchain-trusty-5.0 main"
   - sudo add-apt-repository ppa:chris-lea/libsodium -y
   - sudo apt-get update
-  - sudo apt-get install -qq clang++-5.0 clang-5.0
   - sudo apt-get install libsodium-dev libuv-dev
   - pip install --user cpp-coveralls
   - git submodule update --init --recursive
@@ -35,8 +32,8 @@ before_script:
   - sudo rm /usr/bin/g++
   - sudo ln -s /usr/bin/gcc-6 /usr/bin/gcc
   - sudo ln -s /usr/bin/g++-6 /usr/bin/g++
-  - export CC=/usr/bin/clang-5.0
-  - export CXX=/usr/bin/clang++-5.0
+  - export CC=/usr/bin/gcc
+  - export CXX=/usr/bin/g++
   - lcov --version
   - gcov --version
   - g++ --version
