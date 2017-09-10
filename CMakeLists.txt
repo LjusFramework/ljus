@@ -7,9 +7,6 @@ set(PROJECT_VERSION_MAJOR 0)
 set(PROJECT_VERSION_MINOR 1)
 set(PROJECT_VERSION_PATCH 0)
 
-# If you want to fuzz turn this on
-set(CMAKE_CXX_COMPILER /usr/bin/clang)
-set(CMAKE_C_COMPILER /usr/bin/clang)
 # ---------------------------------------------------------------------
 #                     COMPILE FLAGS
 # ---------------------------------------------------------------------
