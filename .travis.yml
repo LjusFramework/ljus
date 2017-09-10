@@ -5,6 +5,7 @@ notifications:
   email: false
 compiler:
   - clang
+  - g++
  
 addons:
     apt:
@@ -29,6 +30,12 @@ install:
   - sudo make -C lcov-1.11/ install
 
 before_script:
+  - sudo rm /usr/bin/gcc
+  - sudo rm /usr/bin/g++
+  - sudo rm /usr/bin/clang
+  - sudo ln -s /usr/bin/gcc-6 /usr/bin/gcc
+  - sudo ln -s /usr/bin/g++-6 /usr/bin/g++
+  - sudo ln -s /usr/bin/clang-5.0 /usr/bin/clang
   - lcov --version
   - gcov --version
   - g++ --version

@@ -8,8 +8,8 @@ set(PROJECT_VERSION_MINOR 1)
 set(PROJECT_VERSION_PATCH 0)
 
 # If you want to fuzz turn this on
-set(CMAKE_CXX_COMPILER /usr/bin/clang++-5.0)
-set(CMAKE_C_COMPILER /usr/bin/clang-5.0)
+set(CMAKE_CXX_COMPILER ${CXX})
+set(CMAKE_C_COMPILER ${C})
 # ---------------------------------------------------------------------
 #                     COMPILE FLAGS
 # ---------------------------------------------------------------------
@@ -21,8 +21,12 @@ option(coverage "Use coverage flag" ON)
 # This will be by default C++17, adjust as needed
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++1z")
 
+if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread -g -Wall -O3")
+elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread -g -Wall --coverage")
+endif ()
 # Flags to always have on, some may be dropped, pthread cannot
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread -g -Wall -fprofile-instr-generate -fcoverage-mapping")
 
 # Set debug/coverage flags or optimize for production, depending on options.
 if (debug)
