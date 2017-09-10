@@ -6,13 +6,18 @@ notifications:
 compiler:
   - g++
   - clang
-  
+ 
+addons:
+    apt:
+        sources:
+            - llvm-toolchain-precise
+            - ubuntu-toolchain-r-test
+        packages:
+            - clang-4.1
+            - g++-6
+            - gcc-6
 before_install:
-  - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
   - sudo add-apt-repository ppa:chris-lea/libsodium -y
-  - sudo apt-get update -qq
-  - sudo apt-get install gcc-6 g++-6 -y
-  - sudo apt-get install clang
   - sudo apt-get install libsodium-dev libuv-dev
   - pip install --user cpp-coveralls
   - git submodule update --init --recursive
