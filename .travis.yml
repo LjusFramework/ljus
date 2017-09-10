@@ -17,8 +17,9 @@ addons:
             - gcc-6
 before_install:
   - sudo apt-add-repository "deb http://apt.llvm.org/trusty/ llvm-toolchain-trusty-5.0 main"
-  - sudo apt-get install -qq clang++-5.0 clang-5.0
   - sudo add-apt-repository ppa:chris-lea/libsodium -y
+  - sudo apt-get update
+  - sudo apt-get install -qq clang++-5.0 clang-5.0
   - sudo apt-get install libsodium-dev libuv-dev
   - pip install --user cpp-coveralls
   - git submodule update --init --recursive
