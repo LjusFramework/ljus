@@ -13,7 +13,7 @@ before_install:
   - sudo apt-get update -qq
   - sudo apt-get install gcc-6 g++-6 -y
   - sudo apt-get install clang
-  - sudo apt-get install libsodium-dev
+  - sudo apt-get install libsodium-dev libuv-dev
   - pip install --user cpp-coveralls
   - git submodule update --init --recursive
 
