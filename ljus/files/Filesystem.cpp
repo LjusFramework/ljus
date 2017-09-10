@@ -26,8 +26,7 @@ string Ljus::Filesystem::get(const string &path) {
 
 //Returns a SHA-512 hash of the file contents
 string Ljus::Filesystem::hash(const string &path) {
-//TODO
-    return string(reinterpret_cast<char *>(hash));
+    return path;
 }
 
 void Ljus::Filesystem::put(const string &path, const string &contents) {

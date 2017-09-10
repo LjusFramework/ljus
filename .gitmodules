@@ -1,6 +1,6 @@
 [submodule "external/argon2"]
 	path = external/argon2
 	url = https://github.com/P-H-C/phc-winner-argon2
-[submodule "external/json"]
-	path = external/json
-	url = https://github.com/nlohmann/json
+[submodule "external/server"]
+	path = external/server
+	url = https://github.com/eidheim/Simple-Web-Server

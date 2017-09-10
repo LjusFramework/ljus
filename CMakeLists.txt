@@ -8,8 +8,8 @@ set(PROJECT_VERSION_MINOR 1)
 set(PROJECT_VERSION_PATCH 0)
 
 # If you want to fuzz turn this on
-set(CMAKE_CXX_COMPILER /usr/bin/clang)
-set(CMAKE_C_COMPILER /usr/bin/clang)
+set(CMAKE_CXX_COMPILER /usr/bin/clang++-5.0)
+set(CMAKE_C_COMPILER /usr/bin/clang-5.0)
 # ---------------------------------------------------------------------
 #                     COMPILE FLAGS
 # ---------------------------------------------------------------------
@@ -22,7 +22,7 @@ option(coverage "Use coverage flag" ON)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++1z")
 
 # Flags to always have on, some may be dropped, pthread cannot
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread -g --coverage")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread -g --coverage -fprofile-instr-generate -fcoverage-mapping")
 
 # Set debug/coverage flags or optimize for production, depending on options.
 if (debug)
@@ -48,9 +48,10 @@ include_directories(
         ${PROJECT_SOURCE_DIR}/app
         ${PROJECT_SOURCE_DIR}/tests
         ${PROJECT_SOURCE_DIR}/external/argon2/include
-        ${PROJECT_SOURCE_DIR}/external/json/src
+        ${PROJECT_SOURCE_DIR}/external/
         ${PROJECT_SOURCE_DIR}/other
         ${PROJECT_SOURCE_DIR}/external/argon2/src
+        ${PROJECT_SOURCE_DIR}/server/
 )
 
 link_directories(${CMAKE_SOURCE_DIR}/external)
@@ -62,7 +63,7 @@ file(GLOB FILES "ljus/files/*.cpp")
 file(GLOB HTTP "ljus/http/*.cpp")
 file(GLOB CONFIG "config.cpp")
 file(GLOB TEST "tests/*.cpp")
-file(GLOB JSON "external/json/src/json.hpp")
+file(GLOB JSON "external/json.hpp")
 file(GLOB BENCHMARK "other/benchmark/*.cpp")
 file(GLOB B64 "ljus/encryption/base64.cpp")
 file(GLOB BLAKE2 "${PROJECT_SOURCE_DIR}/external/blake2/ref/*.c")
@@ -79,7 +80,8 @@ add_dependencies(hash argon2)
 target_link_libraries(crypt sodium)
 target_link_libraries(crypt b64)
 add_library(files ${FILES})
-add_library(http ${HTTP} ljus/http/utils/Request.cpp ljus/http/utils/CookieJar.cpp ljus/http/utils/CookieJar.h)
+target_link_libraries(files)
+add_library(http ${HTTP} ljus/http/utils/Request.cpp ljus/http/utils/CookieJar.cpp ljus/http/utils/CookieJar.h ljus/http/Route.cpp ljus/http/Route.h ljus/http/utils/Response.cpp ljus/http/utils/Response.h)
 add_library(config ${CONFIG} ${JSON})
 
 add_executable(app.out ljus.cpp ${JSON} ljus/http/utils/CookieJar.cpp)
@@ -118,7 +120,6 @@ add_library( argon2
         ${PROJECT_SOURCE_DIR}/external/argon2/src/blake2/blamka-round-ref.h
         ${PROJECT_SOURCE_DIR}/external/argon2/src/blake2/blake2-impl.h
         ${PROJECT_SOURCE_DIR}/external/argon2/include/argon2.h)
-
 
 # ----------------------------------------------------------------------
 #                       Build test

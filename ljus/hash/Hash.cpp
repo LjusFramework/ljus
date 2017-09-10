@@ -46,5 +46,5 @@ bool Ljus::Hash::needs_rehash(string hashed){
   std::ostringstream settings;
   settings << "$m=" << M_COST << ",t=" << T_COST << ",p=" << PARALLELISM;
   unsigned long index = hashed.find(settings.str());
-  return !(index < hashed.length() && index >= 0);
+    return index >= hashed.length();
 }
