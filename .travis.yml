@@ -12,7 +12,7 @@ before_install:
   - sudo add-apt-repository ppa:chris-lea/libsodium -y
   - sudo apt-get update -qq
   - sudo apt-get install gcc-6 g++-6 -y
-  - sudo apt-get install clang-5.0
+  - sudo apt-get install clang
   - sudo apt-get install libsodium-dev
   - pip install --user cpp-coveralls
   - git submodule update --init --recursive
