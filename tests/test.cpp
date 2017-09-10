@@ -5,6 +5,7 @@ namespace fs = std::experimental::filesystem;
 using namespace std;
 using namespace Ljus;
 
+mt19937 rng(time(NULL));
 
 TEST_CASE("encryption can be performed", "[crypt]") {
     string foo = "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffoooooooooooooooooooooooooooo";
@@ -33,9 +34,8 @@ TEST_CASE("hashes status can be checked", "[hash]") {
 }
 
 TEST_CASE("files can be created", "[filesystem]") {
-    srand(time(NULL));
     string content = "Hi I'm a nice file\n";
-    int random = (rand() / 10000);
+    int random = (rng() / 10000);
     string file = "/tmp/" + std::to_string(random);
     Filesystem::put(file, content);
     REQUIRE(Filesystem::exists(file));
@@ -52,9 +52,8 @@ TEST_CASE("files can be created", "[filesystem]") {
 }
 
 TEST_CASE("files can be hashed", "[filesystem"){
-    srand(time(NULL));
     string content = "Hi I'm a nice file\n";
-    int random = (rand() / 10000);
+    int random = (rng() / 10000);
     string file = "/tmp/" + std::to_string(random);
     Filesystem::put(file, content);
     SECTION("gets a hash that can be recomputed"){
@@ -63,10 +62,9 @@ TEST_CASE("files can be hashed", "[filesystem"){
 }
 
 TEST_CASE("files can be prepended", "[filesystem]"){
-    srand(time(NULL));
     string content = "1234567890";
     string content2 = "01234567890";
-    int random = (rand() / 100000);
+    int random = (rng() / 100000);
     string file = "/tmp/file-" + std::to_string(random);
     Filesystem::prepend(file, content);
     Filesystem::prepend(file, content2);
@@ -75,16 +73,23 @@ TEST_CASE("files can be prepended", "[filesystem]"){
 }
 
 TEST_CASE("file system functions", "[filesystem]") {
-    string content = "1234567890";
+    string content = "123456789";
     string content2 = "01234567890";
-    int random = (rand() / 100000);
+    int random = (rng() / 100000);
     string file = "/tmp/file-" + std::to_string(random);
-    Filesystem::append(file, content);
-    Filesystem::append(file, content2);
-    REQUIRE(Filesystem::get(file) == (content + content2));
-    REQUIRE(Filesystem::size(file) == 21);
+    SECTION("appending can be performed", "[append]") {
+        Filesystem::append(file, content);
+        Filesystem::append(file, content2);
+        REQUIRE(Filesystem::get(file) == (content + content2));
+    }
+    SECTION("sizing files", "[size]") {
+        string file1 = "/tmp/file-" + std::to_string(random);
+        Filesystem::put(file, content + content2);
+
+        REQUIRE(Filesystem::size(file1) == 20);
+    }
     Filesystem::copy(file, "/tmp/to-copy-to" + std::to_string(random));
-    REQUIRE(Filesystem::size("/tmp/to-copy-to" + std::to_string(random)) == 21);
+    REQUIRE(Filesystem::size("/tmp/to-copy-to" + std::to_string(random)) == 20);
     Filesystem::remove(file);
     try {
         Filesystem::get(file);
@@ -97,12 +102,31 @@ TEST_CASE("file system functions", "[filesystem]") {
     Filesystem::remove(Filesystem::files("/tmp/test_dir"));
     REQUIRE(Filesystem::files("/tmp/test_dir").empty());
     REQUIRE(Filesystem::files("/tmp/randomtidirfasdtuhewruthaewitheihtiea").empty());
+    REQUIRE(Filesystem::is_directory("/tmp"));
 }
 
 TEST_CASE("file modified time", "[filesystem]") {
-    int random = (rand() / 9000000);
+    srand(time(NULL));
+    int random = (rng() / 9000000);
     string file = "/tmp/file-a-" + std::to_string(random);
     Filesystem::put(file, "hi");
-    REQUIRE(Filesystem::modified(file) == time(NULL));
+    REQUIRE((Filesystem::modified(file) <= time(NULL) && Filesystem::modified(file) > time(NULL) - 5000));
+    REQUIRE(Filesystem::is_writable(file));
+    REQUIRE(Filesystem::is_readable(file));
+    Filesystem::chmod(file, fs::perms::none);
+    REQUIRE(!Filesystem::is_writable(file));
+    REQUIRE(!Filesystem::is_readable(file));
+    Filesystem::chmod(file, fs::perms::all);
+    Filesystem::remove(file);
+}
 
+TEST_CASE("file name processing", "[filesystem]") {
+    string path = "/tmp/a-long-file.php";
+    Filesystem::put(path, "Some php code");
+    REQUIRE(Filesystem::is_file(path));
+    REQUIRE(Filesystem::extension(path) == "php");
+    string path2 = "/tmp/file.";
+    Filesystem::put(path2, "random");
+    REQUIRE(Filesystem::is_file(path2));
+    REQUIRE(Filesystem::extension(path2) == "");
 }

@@ -59,10 +59,11 @@ void Ljus::Filesystem::prepend( const string &path, const string &data ) {
 }
 
 void Ljus::Filesystem::append( const string &path, const string &data ) {
-    ofstream file;
-    file.open(path, ios::app);
-    file << data;
-    file.close();
+    if ( exists(path)) {
+        put(path, get(path) + data);
+    } else {
+        put(path, data);
+    }
 }
 
 fs::perms Ljus::Filesystem::chmod( const string &path ) {
@@ -123,6 +124,35 @@ long long Ljus::Filesystem::modified( const string &path ) {
     struct stat result;
     int rc = stat(path.c_str(), &result);
     return rc == 0 ? result.st_mtim.tv_sec : -1;
+}
+
+bool Ljus::Filesystem::is_writable( const string &path ) {
+    return access(path.c_str(), W_OK) == 0;
+}
+
+bool Ljus::Filesystem::is_readable( const string &path ) {
+    return access(path.c_str(), R_OK) == 0;
+}
+
+bool Ljus::Filesystem::is_file( const string &path ) {
+    struct stat result;
+    int rc = stat(path.c_str(), &result);
+    return result.st_mode & S_IFREG;
+}
+
+bool Ljus::Filesystem::is_directory( const string &path ) {
+    struct stat result;
+    int rc = stat(path.c_str(), &result);
+    return result.st_mode & S_IFDIR;
+}
+
+string Ljus::Filesystem::extension( const string &path ) {
+    size_t index = path.find_last_of('.');
+    if ( index == string::npos || index == path.length() - 1 ) {
+        return "";
+    } else {
+        return path.substr(index + 1);
+    }
 }
 
 

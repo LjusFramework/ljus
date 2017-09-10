@@ -17,7 +17,6 @@ const auto config = R"(
 )"_json;
 
 namespace conf {
-    const auto file_driver = Ljus::Filesystem();
 
 }
 

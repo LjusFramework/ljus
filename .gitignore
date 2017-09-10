@@ -38,6 +38,7 @@ cmake-build-debug/
 .vscode/
 .idea/.name
 .idea/workspace.xml
+LJUS.cbp
 
 coverage.info
 CMakeFiles/
