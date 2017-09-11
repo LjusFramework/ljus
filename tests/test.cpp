@@ -129,4 +129,6 @@ TEST_CASE("file name processing", "[filesystem]") {
     Filesystem::put(path2, "random");
     REQUIRE(Filesystem::is_file(path2));
     REQUIRE(Filesystem::extension(path2) == "");
+    REQUIRE(Filesystem::type(path2) == "file");
+    REQUIRE(Filesystem::type("/tmp/") == "dir");
 }

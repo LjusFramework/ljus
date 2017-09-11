@@ -101,7 +101,6 @@ std::string http_code_message( unsigned short code ) {
 
         default:
             return "Not Implemented";
-            break;
     }
 }
 
@@ -116,6 +115,10 @@ std::string Response::generate() {
 
 SimpleWeb::CaseInsensitiveMultimap Response::get_headers() {
     SimpleWeb::CaseInsensitiveMultimap res;
-
+    std::unordered_map<std::string, std::string>::iterator it;
+    for ( it = headers.begin(); it != headers.end(); it++ ) {
+        res.emplace(it->first, it->second);
+    }
+    return res;
 }
 
