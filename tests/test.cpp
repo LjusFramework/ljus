@@ -5,6 +5,7 @@ namespace fs = std::experimental::filesystem;
 using namespace std;
 using namespace Ljus;
 
+
 mt19937 rng(time(NULL));
 
 TEST_CASE("encryption can be performed", "[crypt]") {
@@ -131,4 +132,16 @@ TEST_CASE("file name processing", "[filesystem]") {
     REQUIRE(Filesystem::extension(path2) == "");
     REQUIRE(Filesystem::type(path2) == "file");
     REQUIRE(Filesystem::type("/tmp/") == "dir");
+}
+
+TEST_CASE("routing", "[route]") {
+    Route::register_routes();
+    try {
+        auto action1 = Route::find("GET", "/");
+        REQUIRE(action1 != nullptr);
+    } catch ( int number ) {
+        REQUIRE(number == 0);
+    }
+
+
 }

@@ -104,7 +104,10 @@ std::string http_code_message( unsigned short code ) {
     }
 }
 
-
+/**
+ * @brief Generate an HTTP response from this request object
+ * @return Properly formatted HTTP message content
+ */
 std::string Response::generate() {
     std::stringstream sstream;
 
@@ -113,8 +116,13 @@ std::string Response::generate() {
     return sstream.str();
 }
 
+/**
+ * @brief Convert Ljus::Request's header content which is implemented as an unordered_map to a case insensitive map which SimpleWeb requires.
+ * @return The SimpleWeb header map.
+ */
 SimpleWeb::CaseInsensitiveMultimap Response::get_headers() {
     SimpleWeb::CaseInsensitiveMultimap res;
+
     std::unordered_map<std::string, std::string>::iterator it;
     for ( it = headers.begin(); it != headers.end(); it++ ) {
         res.emplace(it->first, it->second);

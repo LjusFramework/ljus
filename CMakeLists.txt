@@ -85,7 +85,7 @@ target_link_libraries(crypt sodium)
 target_link_libraries(crypt b64)
 add_library(files ${FILES})
 target_link_libraries(files)
-add_library(http ${HTTP} ljus/http/utils/Request.cpp ljus/http/utils/CookieJar.cpp ljus/http/utils/CookieJar.h ljus/http/Route.cpp ljus/http/Route.h ljus/http/utils/Response.cpp ljus/http/utils/Response.h)
+add_library(http ${HTTP} ljus/http/utils/Request.cpp ljus/http/utils/CookieJar.cpp ljus/http/utils/CookieJar.h ljus/http/Route.cpp ljus/http/Route.h ljus/http/utils/Response.cpp ljus/http/utils/Response.h ljus/http/BaseController.cpp ljus/http/BaseController.h)
 add_library(config ${CONFIG} ${JSON})
 
 add_executable(app.out ljus.cpp ${JSON} ljus/http/utils/CookieJar.cpp)
@@ -131,7 +131,7 @@ add_library( argon2
 set(CATCH_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/tests/catch)
 add_library(Catch INTERFACE)
 target_include_directories(Catch INTERFACE ${CATCH_INCLUDE_DIR})
-set(TEST_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/tests/test.cpp ljus/http/utils/CookieJar.cpp)
+set(TEST_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/tests/test.cpp)
 
 add_executable(tests.out ${TEST_SOURCES})
 add_dependencies(tests.out Catch hash crypt files http config argon2)

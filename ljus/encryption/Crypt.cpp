@@ -4,6 +4,10 @@
 using namespace std;
 using namespace std::chrono;
 
+/**
+ * @brief Generate a nonce based on the present time and a randomly shuffled string
+ * @return a 24 char nonce
+ */
 string get_nonce() {
     string base = "ABCDEFGHIJKLMNOPQRSTOUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     unsigned long long time = ( unsigned long long ) (system_clock::now().time_since_epoch() / milliseconds(1));
@@ -12,6 +16,11 @@ string get_nonce() {
     return base.substr(0, crypto_secretbox_NONCEBYTES);
 }
 
+/**
+ * @brief Encrypt a given string
+ * @param m the content to encrypt in string form.
+ * @return the encrypted string in base 64 format (nonce will be included)
+ */
 string Ljus::Crypt::encrypt( string m ) {
     if ( sodium_init() < 0 ) {
         throw "Couldn't init libsodium";
@@ -41,6 +50,11 @@ string Ljus::Crypt::encrypt( string m ) {
     return result;
 }
 
+/**
+ * @brief Decrypt a string as encrypted using the built-in encrypt function
+ * @param raw the encrypted string
+ * @return the decrypted version of the string -- your original content
+ */
 string Ljus::Crypt::decrypt( std::string raw ) {
     string combined;
     Base64::Decode(raw, &combined);

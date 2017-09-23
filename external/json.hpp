@@ -29,6 +29,7 @@ SOFTWARE.
 #ifndef NLOHMANN_JSON_HPP
 #define NLOHMANN_JSON_HPP
 
+#include <experimental/string_view>
 #include <algorithm> // all_of, copy, fill, find, for_each, none_of, remove, reverse, transform
 #include <array> // array
 #include <cassert> // assert
