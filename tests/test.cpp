@@ -1,3 +1,4 @@
+#include <http/BaseController.h>
 #include "test.h"
 
 namespace fs = std::experimental::filesystem;
@@ -108,7 +109,7 @@ TEST_CASE("file system functions", "[filesystem]") {
 
 TEST_CASE("file modified time", "[filesystem]") {
     srand(time(NULL));
-    int random = (rng() / 9000000);
+    int random = (rng() % 9000000);
     string file = "/tmp/file-a-" + std::to_string(random);
     Filesystem::put(file, "hi");
     REQUIRE((Filesystem::modified(file) <= time(NULL) && Filesystem::modified(file) > time(NULL) - 5000));
@@ -142,6 +143,23 @@ TEST_CASE("routing", "[route]") {
     } catch ( int number ) {
         REQUIRE(number == 0);
     }
-
+    try {
+        Route::put("/o", []( std::shared_ptr<Request> req, std::shared_ptr<Response> res ) -> Response {
+            return BaseController().index(req, res);
+        });
+        auto res2 = Route::find("PUT", "/o");
+        REQUIRE(res2 != nullptr);
+    } catch ( int number ) {
+        REQUIRE(number == 0);
+    }
+    try {
+        Route::post("/o", []( std::shared_ptr<Request> req, std::shared_ptr<Response> res ) -> Response {
+            return BaseController().index(req, res);
+        });
+        auto res3 = Route::find("POST", "/o");
+        REQUIRE(res3 != nullptr);
+    } catch ( int number ) {
+        REQUIRE(number == 0);
+    }
 
 }
