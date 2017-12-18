@@ -78,6 +78,7 @@ set(TEST_MAIN unit_tests.out)
 #                           Build
 # -----------------------------------------------------------------------
 add_library(hash ${HASH})
+add_library(exceptions ${EXCEPTIONS})
 add_library(b64 ${B64})
 add_library(crypt ${JSON} ${CRYPT})
 add_dependencies(crypt b64)
@@ -135,8 +136,8 @@ target_include_directories(Catch INTERFACE ${CATCH_INCLUDE_DIR})
 set(TEST_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/tests/test.cpp)
 
 add_executable(tests.out ${TEST_SOURCES})
-add_dependencies(tests.out Catch hash crypt files http config argon2)
-target_link_libraries(tests.out Catch hash crypt files http config stdc++fs argon2)
+add_dependencies(tests.out Catch hash exceptions crypt files http config argon2)
+target_link_libraries(tests.out Catch hash exceptions crypt files http config stdc++fs argon2)
 
 add_executable(fuzzhash other/fuzz_hash.cpp)
 add_dependencies(fuzzhash hash)
