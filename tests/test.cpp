@@ -95,7 +95,7 @@ TEST_CASE("file system functions", "[filesystem]") {
     Filesystem::remove(file);
     try {
         Filesystem::get(file);
-    } catch (Ljus::Exception::NoSuchFileError x){
+    } catch (Ljus::Exceptions::NoSuchFileError x){
         REQUIRE (true);
     }
     Filesystem::makeDirectory("/tmp/test_dir/");
