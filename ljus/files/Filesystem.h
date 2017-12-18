@@ -16,6 +16,7 @@
 #include <cerrno>
 #include <sys/stat.h>
 #include "../../config.hpp"
+#include "../exceptions/NoSuchFileError.h"
 
 using string = std::string;
 

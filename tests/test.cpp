@@ -95,8 +95,8 @@ TEST_CASE("file system functions", "[filesystem]") {
     Filesystem::remove(file);
     try {
         Filesystem::get(file);
-    } catch ( int x){
-        REQUIRE (x != 0);
+    } catch (NoSuchFileError x){
+        REQUIRE (true);
     }
     Filesystem::makeDirectory("/tmp/test_dir/");
     Filesystem::put("/tmp/test_dir/file", "Hello World");

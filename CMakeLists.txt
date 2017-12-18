@@ -39,7 +39,7 @@ if (debug)
     endif ()
 else ()
     #Optimize for production, don't want fast math, others are fine
-    SET(CMAKE_CXX_FLAGS "-O2")
+    SET(CMAKE_CXX_FLAGS "-O3")
 endif ()
 
 # -----------------------------------------------------------------------
@@ -62,6 +62,7 @@ link_directories(${CMAKE_SOURCE_DIR}/external)
 
 # Get all the files from various components
 file(GLOB HASH "ljus/hash/*.cpp")
+file(GLOB EXCEPTIONS "ljus/hash/*.cpp")
 file(GLOB CRYPT "ljus/encryption/*.cpp")
 file(GLOB FILES "ljus/files/*.cpp")
 file(GLOB HTTP "ljus/http/*.cpp")
