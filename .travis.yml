@@ -4,7 +4,6 @@ dist: trusty
 notifications:
   email: false
 compiler:
-  - clang
   - g++
  
 addons:
@@ -15,7 +14,6 @@ addons:
         packages:
             - g++-6
             - gcc-6
-            - clang-6.0
 before_install:
   - sudo add-apt-repository ppa:chris-lea/libsodium -y
   - sudo apt-get update
@@ -34,7 +32,6 @@ before_script:
   - sudo rm /usr/bin/g++
   - sudo ln -s /usr/bin/gcc-6 /usr/bin/gcc
   - sudo ln -s /usr/bin/g++-6 /usr/bin/g++
-  - sudo ln -s /usr/bin/clang-6.0 /usr/bin/clang
   - lcov --version
   - gcov --version
   - g++ --version
