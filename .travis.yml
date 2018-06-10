@@ -15,7 +15,7 @@ addons:
         packages:
             - g++-6
             - gcc-6
-            - clang-5.0
+            - clang-6.0
 before_install:
   - sudo add-apt-repository ppa:chris-lea/libsodium -y
   - sudo apt-get update
