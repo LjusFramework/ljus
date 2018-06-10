@@ -15,7 +15,11 @@ bool Ljus::Filesystem::exists( const string &path ) {
     return fs::exists(fs::path(path));
 }
 
-
+/**
+ * @brief Get the contents of the file at a given path
+ * @param path the path for whicih to get the file
+ * @return the contents of the file
+ */
 string Ljus::Filesystem::get( const string &path ) {
     std::ifstream in(path.c_str(), std::ios::in | std::ios::binary);
     if ( in ) {
@@ -24,10 +28,14 @@ string Ljus::Filesystem::get( const string &path ) {
         in.close();
         return contents.str();
     }
-    throw (errno);
+    throw Ljus::Exceptions::NoSuchFileError();
 }
 
-//Returns a SHA-512 hash of the file contents
+/**
+ * @brief Get the SHA-512 of the file contents
+ * @param path the path of the file to compute the hash for
+ * @return the SHA-512 hash of the file
+ */
 string Ljus::Filesystem::hash( const string &path ) {
     return path;
 }
