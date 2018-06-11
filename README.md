@@ -1,5 +1,5 @@
 # Ljus (yoos)
-[![Travis](https://api.travis-ci.com/LjusFramework/ljus.svg?branch=master]()
+[![Travis](https://api.travis-ci.com/LjusFramework/ljus.svg?branch=master)]()
 [![Codacy grade](https://img.shields.io/codacy/grade/9cadf04aee3f4f608796e96cf3bc3e31.svg?style=flat-square)]()
 [![Coveralls](https://img.shields.io/coveralls/ErikPartridge/ljus.svg?style=flat-square)]()
 [![license](https://img.shields.io/github/license/ErikPartridge/ljus.svg?style=flat-square)]()
