@@ -6,12 +6,14 @@
 #define HASH_H
 
 #include <string>
-#include <sodium.h>
 #include <fcntl.h>
 #include <unistd.h>
 #include <sstream>
 #include <cstring>
 
+extern "C" {
+#include "sodium.h"
+};
 #define HASHLEN 32
 #define SALTLEN 16
 #define T_COST 4
