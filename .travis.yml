@@ -15,11 +15,16 @@ addons:
             - g++-8
             - gcc-8
 before_install:
-  - sudo add-apt-repository ppa:chris-lea/libsodium -y
   - sudo apt-get update
-  - sudo apt-get install libsodium-dev libuv-dev
   - pip install --user cpp-coveralls
   - git submodule update --init --recursive
+  - wget https://download.libsodium.org/libsodium/releases/libsodium-1.0.16.tar.gz
+  - tar xf libsodium-1.0.16.tar.gz
+  - cd libsodium-1.0.16
+  - ./configure
+  - make && make check
+  - sudo make install
+  
 
 install:
   - gem install coveralls-lcov
