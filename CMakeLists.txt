@@ -96,13 +96,7 @@ add_executable(app.out ljus.cpp ${JSON} ljus/http/utils/CookieJar.cpp)
 add_dependencies(app.out hash crypt files http config)
 target_link_libraries(app.out hash crypt files http config stdc++fs)
 
-# ----------------------------------------------------------------------
-#                       Building Blake2
-# ----------------------------------------------------------------------
 
-# ----------------------------------------------------------------------
-#                       Building Pistache
-# ----------------------------------------------------------------------
 add_custom_target( git_update
         COMMAND git submodule init
         COMMAND git submodule update
