@@ -112,7 +112,7 @@ set(TEST_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/tests/test.cpp)
 
 add_executable(tests.out ${TEST_SOURCES})
 add_dependencies(tests.out Catch hash exceptions crypt files http config)
-target_link_libraries(tests.out Catch hash exceptions crypt files http config stdc++fs)
+target_link_libraries(tests.out Catch hash exceptions crypt files http config sodium stdc++fs)
 
 add_executable(fuzzhash other/fuzz_hash.cpp)
 add_dependencies(fuzzhash hash)

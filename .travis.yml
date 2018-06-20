@@ -14,23 +14,20 @@ addons:
         packages:
             - g++-8
             - gcc-8
+
 before_install:
   - sudo apt-get update
   - pip install --user cpp-coveralls
   - git submodule update --init --recursive
-  - wget https://download.libsodium.org/libsodium/releases/libsodium-1.0.16.tar.gz
-  - tar xf libsodium-1.0.16.tar.gz
-  - cd libsodium-1.0.16
-  - ./configure
-  - make && make check
-  - sudo make install
-  
+  - wget -O libsodium-src.tar.gz https://github.com/jedisct1/libsodium/releases/download/1.0.16/libsodium-1.0.16.tar.gz
+  - mkdir libsodium-src && tar -zxf libsodium-src.tar.gz -C libsodium-src --strip-components=1
+  - cd libsodium-src && ./configure --prefix=$HOME/.libsodium & && make install && cd ..
 
 install:
   - gem install coveralls-lcov
-  - wget http://ftp.de.debian.org/debian/pool/main/l/lcov/lcov_1.11.orig.tar.gz
-  - tar xf lcov_1.11.orig.tar.gz
-  - sudo make -C lcov-1.11/ install
+  - wget http://ftp.de.debian.org/debian/pool/main/l/lcov/lcov_1.13.orig.tar.gz
+  - tar xf lcov_1.13.orig.tar.gz
+  - sudo make -C lcov-1.13/ install
 
 before_script:
   - sudo rm /usr/bin/gcc

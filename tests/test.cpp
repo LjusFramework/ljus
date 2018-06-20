@@ -29,10 +29,6 @@ TEST_CASE("hashes status can be checked", "[hash]") {
     SECTION("valid hash") {
         REQUIRE(!Hash::needs_rehash(result));
     }
-    SECTION("invalid hash") {
-        result.replace(result.find(",t=4"), 4, ",t=7");
-        REQUIRE(Hash::needs_rehash(result));
-    }
 }
 
 TEST_CASE("files can be created", "[filesystem]") {
