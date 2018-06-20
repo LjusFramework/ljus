@@ -1,7 +1,6 @@
 # Ljus (yoos)
 [![Travis](https://api.travis-ci.com/LjusFramework/ljus.svg?branch=master)]()
-[![Codacy grade](https://img.shields.io/codacy/grade/9cadf04aee3f4f608796e96cf3bc3e31.svg?style=flat-square)]()
-[![Coveralls](https://img.shields.io/coveralls/ErikPartridge/ljus.svg?style=flat-square)]()
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/9cadf04aee3f4f608796e96cf3bc3e31)](https://www.codacy.com/app/erikdevelopments/ljus?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ErikPartridge/ljus&amp;utm_campaign=Badge_Grade)
 [![license](https://img.shields.io/github/license/ErikPartridge/ljus.svg?style=flat-square)]()
 [![stability](https://img.shields.io/badge/stability-experimental-orange.svg?style=flat-square)]()
 
