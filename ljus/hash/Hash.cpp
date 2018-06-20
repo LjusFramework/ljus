@@ -21,8 +21,9 @@ string Ljus::Hash::make( string pwd ) {
 
     unsigned long pwdlen = strlen(value);
     char encoded[97];
-    if (crypto_pwhash_str(encoded, value, pwdlen, crypto_pwhash_OPSLIMIT_MODERATE,
-                          crypto_pwhash_MEMLIMIT_MODERATE) != 0) {
+    // As of June 2018, these values are reasonable choices for Argon2
+    if (crypto_pwhash_str(encoded, value, pwdlen, 6,
+                          134217728) != 0) {
         throw "Out of memory";
     }
     return string(strdup(encoded));
@@ -34,6 +35,7 @@ bool Ljus::Hash::check( string plain, string hashed ) {
 }
 
 bool Ljus::Hash::needs_rehash( string hashed ) {
-    return crypto_pwhash_str_needs_rehash(hashed.c_str(), crypto_pwhash_OPSLIMIT_MODERATE,
-                                          crypto_pwhash_MEMLIMIT_MODERATE) != 0;
+    // As of June 2018, these values are reasonable choices for Argon2
+    return crypto_pwhash_str_needs_rehash(hashed.c_str(), 6,
+                                          134217728) != 0;
 }
