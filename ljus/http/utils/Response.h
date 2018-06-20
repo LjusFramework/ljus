@@ -7,7 +7,6 @@
 
 #include <string>
 #include <unordered_map>
-#include "../../../external/server/utility.hpp"
 
 class Response {
 public:
@@ -15,8 +14,6 @@ public:
     std::string generate();
 
     unsigned long long content_length();
-
-    SimpleWeb::CaseInsensitiveMultimap get_headers();
 
 private:
     std::unordered_map<std::string, std::string> headers;

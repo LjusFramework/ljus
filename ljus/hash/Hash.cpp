@@ -2,6 +2,7 @@
 // Created by Erik Partridge on 24/08/17.
 //
 
+#include <sodium.h>
 #include "Hash.h"
 
 
@@ -21,19 +22,19 @@ string Ljus::Hash::make( string pwd ) {
 
     unsigned long pwdlen = strlen(value);
     char encoded[97];
-
-    argon2i_hash_encoded(T_COST, M_COST, PARALLELISM, value, pwdlen, salt, SALTLEN, HASHLEN, encoded, 97);
+    if (crypto_pwhash_str(encoded, value, pwdlen, crypto_pwhash_OPSLIMIT_INTERACTIVE,
+                          crypto_pwhash_MEMLIMIT_INTERACTIVE) != 0) {
+        throw "Out of memory";
+    }
     return string(strdup(encoded));
 }
 
 
 bool Ljus::Hash::check( string plain, string hashed ) {
-    return argon2i_verify(hashed.c_str(), plain.c_str(), strlen(plain.c_str())) == 0;
+    return crypto_pwhash_str_verify(hashed.c_str(), plain.c_str(), strlen(plain.c_str())) == 0;
 }
 
 bool Ljus::Hash::needs_rehash( string hashed ) {
-    std::ostringstream settings;
-    settings << "$m=" << M_COST << ",t=" << T_COST << ",p=" << PARALLELISM;
-    unsigned long index = hashed.find(settings.str());
-    return index >= hashed.length();
+    return crypto_pwhash_str_needs_rehash(hashed.c_str(), crypto_pwhash_OPSLIMIT_INTERACTIVE,
+                                          crypto_pwhash_MEMLIMIT_INTERACTIVE) != 0;
 }

@@ -78,11 +78,11 @@ set(TEST_MAIN unit_tests.out)
 #                           Build
 # -----------------------------------------------------------------------
 add_library(hash ${HASH})
+target_link_libraries(hash sodium)
 add_library(exceptions ${EXCEPTIONS})
 add_library(b64 ${B64})
 add_library(crypt ${JSON} ${CRYPT})
 add_dependencies(crypt b64)
-add_dependencies(hash argon2)
 target_link_libraries(crypt sodium)
 target_link_libraries(crypt b64)
 add_library(files ${FILES})
@@ -108,25 +108,6 @@ add_custom_target( git_update
         COMMAND git submodule update
         WORKING_DIRECTORY ${PROJECT_SOURCE_DIR})
 
-
-add_library( argon2
-        ${PROJECT_SOURCE_DIR}/external/argon2/src/argon2.c
-        ${PROJECT_SOURCE_DIR}/external/argon2/src/bench.c
-        ${PROJECT_SOURCE_DIR}/external/argon2/src/encoding.c
-        ${PROJECT_SOURCE_DIR}/external/argon2/src/core.c
-        ${PROJECT_SOURCE_DIR}/external/argon2/src/genkat.c
-        ${PROJECT_SOURCE_DIR}/external/argon2/src/opt.c
-        ${PROJECT_SOURCE_DIR}/external/argon2/src/ref.c
-        ${PROJECT_SOURCE_DIR}/external/argon2/src/run.c
-        ${PROJECT_SOURCE_DIR}/external/argon2/src/test.c
-        ${PROJECT_SOURCE_DIR}/external/argon2/src/thread.c
-        ${PROJECT_SOURCE_DIR}/external/argon2/src/blake2/blake2b.c
-        ${PROJECT_SOURCE_DIR}/external/argon2/src/blake2/blake2.h
-        ${PROJECT_SOURCE_DIR}/external/argon2/src/blake2/blamka-round-opt.h
-        ${PROJECT_SOURCE_DIR}/external/argon2/src/blake2/blamka-round-ref.h
-        ${PROJECT_SOURCE_DIR}/external/argon2/src/blake2/blake2-impl.h
-        ${PROJECT_SOURCE_DIR}/external/argon2/include/argon2.h)
-
 # ----------------------------------------------------------------------
 #                       Build test
 # ----------------------------------------------------------------------
@@ -136,12 +117,12 @@ target_include_directories(Catch INTERFACE ${CATCH_INCLUDE_DIR})
 set(TEST_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/tests/test.cpp)
 
 add_executable(tests.out ${TEST_SOURCES})
-add_dependencies(tests.out Catch hash exceptions crypt files http config argon2)
-target_link_libraries(tests.out Catch hash exceptions crypt files http config stdc++fs argon2)
+add_dependencies(tests.out Catch hash exceptions crypt files http config)
+target_link_libraries(tests.out Catch hash exceptions crypt files http config stdc++fs)
 
 add_executable(fuzzhash other/fuzz_hash.cpp)
 add_dependencies(fuzzhash hash)
-target_link_libraries(fuzzhash hash argon2)
+target_link_libraries(fuzzhash hash)
 
 add_executable(sodiumfuzz other/sodium_fuzz.cpp other/sodium_fuzz.cpp other/sodium_fuzz.h)
 target_link_libraries(sodiumfuzz sodium)
