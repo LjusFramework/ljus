@@ -2,7 +2,6 @@
 // Created by Erik Partridge on 24/08/17.
 //
 
-#include <sodium.h>
 #include "Hash.h"
 
 
@@ -22,8 +21,8 @@ string Ljus::Hash::make( string pwd ) {
 
     unsigned long pwdlen = strlen(value);
     char encoded[97];
-    if (crypto_pwhash_str(encoded, value, pwdlen, crypto_pwhash_OPSLIMIT_INTERACTIVE,
-                          crypto_pwhash_MEMLIMIT_INTERACTIVE) != 0) {
+    if (crypto_pwhash_str(encoded, value, pwdlen, crypto_pwhash_OPSLIMIT_MODERATE,
+                          crypto_pwhash_MEMLIMIT_MODERATE) != 0) {
         throw "Out of memory";
     }
     return string(strdup(encoded));
@@ -35,6 +34,6 @@ bool Ljus::Hash::check( string plain, string hashed ) {
 }
 
 bool Ljus::Hash::needs_rehash( string hashed ) {
-    return crypto_pwhash_str_needs_rehash(hashed.c_str(), crypto_pwhash_OPSLIMIT_INTERACTIVE,
-                                          crypto_pwhash_MEMLIMIT_INTERACTIVE) != 0;
+    return crypto_pwhash_str_needs_rehash(hashed.c_str(), crypto_pwhash_OPSLIMIT_MODERATE,
+                                          crypto_pwhash_MEMLIMIT_MODERATE) != 0;
 }

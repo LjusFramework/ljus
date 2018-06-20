@@ -6,7 +6,7 @@
 #define HASH_H
 
 #include <string>
-#include <argon2.h>
+#include <sodium.h>
 #include <fcntl.h>
 #include <unistd.h>
 #include <sstream>
