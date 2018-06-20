@@ -45,7 +45,7 @@ before_script:
   - lcov --directory $PARENTDIR/build --zerocounters
 
 script:
-  - cd ..
+  - cd /home/travis/build/LjusFramework/ljus
   - cmake .
   - make tests.out
   - ./tests.out
