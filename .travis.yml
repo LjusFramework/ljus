@@ -16,7 +16,7 @@ addons:
             - gcc-8
 
 before_install:
-  - LD_LIBRARY_PATH=/usr/local/lib
+  - LD_LIBRARY_PATH=/usr/local/include
   - sudo apt-get update
   - pip install --user cpp-coveralls
   - git submodule update --init --recursive
