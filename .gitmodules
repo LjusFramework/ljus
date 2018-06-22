@@ -4,3 +4,6 @@
 [submodule "external/server"]
 	path = external/server
 	url = https://github.com/eidheim/Simple-Web-Server
+[submodule "external/http"]
+	path = external/http
+        url = https://github.com/LjusFramework/nodeuv-http
