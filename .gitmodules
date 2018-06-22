@@ -1,6 +1,6 @@
 [submodule "external/argon2"]
 	path = external/argon2
 	url = https://github.com/P-H-C/phc-winner-argon2
-[submodule "external/server"]
-	path = external/server
-	url = https://github.com/eidheim/Simple-Web-Server
+[submodule "external/http"]
+	path = external/http
+    url = https://github.com/LjusFramework/nodeuv-http
