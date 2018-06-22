@@ -4,7 +4,6 @@
 
 #include <functional>
 #include "Route.h"
-#include "BaseController.h"
 
 static std::vector<Route> routes;
 
@@ -57,8 +56,5 @@ void Route::add_route( std::string method, std::string path,
 }
 
 void Route::register_routes() {
-    Route::get("/", []( std::shared_ptr<Request> req, std::shared_ptr<Response> res ) -> Response {
-        return BaseController().index(req, res);
-    });
 }
 
