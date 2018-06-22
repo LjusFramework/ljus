@@ -8,6 +8,7 @@
 
 #include <http/utils/Response.h>
 #include <http/utils/Request.h>
+#include <memory>
 
 class BaseController {
 

@@ -12,7 +12,6 @@
 #include <experimental/filesystem>
 #include <vector>
 #include <unistd.h>
-
 #include <cerrno>
 #include <sys/stat.h>
 #include "../../config.hpp"
