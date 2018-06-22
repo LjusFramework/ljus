@@ -12,9 +12,6 @@
 class BaseController {
 
 public:
-    Response index( std::shared_ptr<Request> req, std::shared_ptr<Response> res ) {
-
-    }
 
 };
 

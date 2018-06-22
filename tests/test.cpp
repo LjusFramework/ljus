@@ -134,7 +134,7 @@ TEST_CASE("file name processing", "[filesystem]") {
     REQUIRE(Filesystem::type(path2) == "file");
     REQUIRE(Filesystem::type("/tmp/") == "dir");
 }
-
+/*
 TEST_CASE("routing", "[route]") {
     Route::register_routes();
     try {
@@ -162,4 +162,4 @@ TEST_CASE("routing", "[route]") {
         REQUIRE(number == 0);
     }
 
-}
+}*/
