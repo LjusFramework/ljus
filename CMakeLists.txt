@@ -58,6 +58,9 @@ include_directories(
         ${PROJECT_SOURCE_DIR}/server/
 )
 
+
+add_library(HTTPUV external/http/uri.h external/http/http.h external/http/http.cpp external/http/src/http-server.cc external/http/src/http.cc)
+target_link_libraries(HTTPUV uv http-server)
 link_directories(${CMAKE_SOURCE_DIR}/external)
 
 # Get all the files from various components
@@ -88,13 +91,14 @@ target_link_libraries(crypt b64)
 add_library(files ${FILES})
 target_link_libraries(files)
 add_library(http ${HTTP} ljus/http/utils/Request.cpp ljus/http/utils/CookieJar.cpp ljus/http/utils/CookieJar.h ljus/http/Route.cpp ljus/http/Route.h ljus/http/utils/Response.cpp ljus/http/utils/Response.h ljus/http/BaseController.cpp ljus/http/BaseController.h)
+add_dependencies(http HTTPUV)
 add_library(config ${CONFIG} ${JSON})
 
 add_executable(app.out ljus.cpp ${JSON} ljus/http/utils/CookieJar.cpp)
 
 # Dependencies
 add_dependencies(app.out hash crypt files http config)
-target_link_libraries(app.out hash crypt files http config stdc++fs)
+target_link_libraries(app.out hash crypt files http config stdc++fs uv HTTPUV)
 
 
 add_custom_target( git_update
