@@ -12,8 +12,9 @@ addons:
             - llvm-toolchain-precise
             - ubuntu-toolchain-r-test
         packages:
-            - g++-6
-            - gcc-6
+            - g++-8
+            - gcc-8
+
 before_install:
   - sudo add-apt-repository ppa:chris-lea/libsodium -y
   - sudo apt-get update
@@ -30,8 +31,8 @@ install:
 before_script:
   - sudo rm /usr/bin/gcc
   - sudo rm /usr/bin/g++
-  - sudo ln -s /usr/bin/gcc-6 /usr/bin/gcc
-  - sudo ln -s /usr/bin/g++-6 /usr/bin/g++
+  - sudo ln -s /usr/bin/gcc-8 /usr/bin/gcc
+  - sudo ln -s /usr/bin/g++-8 /usr/bin/g++
   - lcov --version
   - gcov --version
   - g++ --version
