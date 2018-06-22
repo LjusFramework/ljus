@@ -19,7 +19,7 @@ before_install:
   - sudo apt-get update
   - pip install --user cpp-coveralls
   - git submodule update --init --recursive
-  - sudo add-apt-repository ppa:chris-lea/libsodium
+  - sudo add-apt-repository ppa:chris-lea/libsodium -y;
   - sudo apt-get update && sudo apt-get install libsodium-dev
 
 install:
