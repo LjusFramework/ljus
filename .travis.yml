@@ -12,26 +12,27 @@ addons:
             - llvm-toolchain-precise
             - ubuntu-toolchain-r-test
         packages:
-            - g++-6
-            - gcc-6
+            - g++-8
+            - gcc-8
+
 before_install:
-  - sudo add-apt-repository ppa:chris-lea/libsodium -y
   - sudo apt-get update
-  - sudo apt-get install libsodium-dev libuv-dev
   - pip install --user cpp-coveralls
   - git submodule update --init --recursive
+  - sudo add-apt-repository ppa:chris-lea/libsodium -y;
+  - sudo apt-get update && sudo apt-get install libsodium-dev
 
 install:
   - gem install coveralls-lcov
-  - wget http://ftp.de.debian.org/debian/pool/main/l/lcov/lcov_1.11.orig.tar.gz
-  - tar xf lcov_1.11.orig.tar.gz
-  - sudo make -C lcov-1.11/ install
+  - wget http://ftp.de.debian.org/debian/pool/main/l/lcov/lcov_1.13.orig.tar.gz
+  - tar xf lcov_1.13.orig.tar.gz
+  - sudo make -C lcov-1.13/ install
 
 before_script:
   - sudo rm /usr/bin/gcc
   - sudo rm /usr/bin/g++
-  - sudo ln -s /usr/bin/gcc-6 /usr/bin/gcc
-  - sudo ln -s /usr/bin/g++-6 /usr/bin/g++
+  - sudo ln -s /usr/bin/gcc-8 /usr/bin/gcc
+  - sudo ln -s /usr/bin/g++-8 /usr/bin/g++
   - lcov --version
   - gcov --version
   - g++ --version
@@ -40,7 +41,7 @@ before_script:
   - lcov --directory $PARENTDIR/build --zerocounters
 
 script:
-  - cd ..
+  - cd /home/travis/build/LjusFramework/ljus
   - cmake .
   - make tests.out
   - ./tests.out

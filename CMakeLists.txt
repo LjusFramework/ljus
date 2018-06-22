@@ -58,6 +58,9 @@ include_directories(
         ${PROJECT_SOURCE_DIR}/server/
 )
 
+
+add_library(HTTPUV external/http/uri.h external/http/http.h external/http/http.cpp external/http/src/http-server.cc external/http/src/http.cc)
+target_link_libraries(HTTPUV uv http-server)
 link_directories(${CMAKE_SOURCE_DIR}/external)
 
 # Get all the files from various components
@@ -78,54 +81,30 @@ set(TEST_MAIN unit_tests.out)
 #                           Build
 # -----------------------------------------------------------------------
 add_library(hash ${HASH})
+target_link_libraries(hash sodium)
 add_library(exceptions ${EXCEPTIONS})
 add_library(b64 ${B64})
 add_library(crypt ${JSON} ${CRYPT})
 add_dependencies(crypt b64)
-add_dependencies(hash argon2)
 target_link_libraries(crypt sodium)
 target_link_libraries(crypt b64)
 add_library(files ${FILES})
 target_link_libraries(files)
 add_library(http ${HTTP} ljus/http/utils/Request.cpp ljus/http/utils/CookieJar.cpp ljus/http/utils/CookieJar.h ljus/http/Route.cpp ljus/http/Route.h ljus/http/utils/Response.cpp ljus/http/utils/Response.h ljus/http/BaseController.cpp ljus/http/BaseController.h)
+add_dependencies(http HTTPUV)
 add_library(config ${CONFIG} ${JSON})
 
 add_executable(app.out ljus.cpp ${JSON} ljus/http/utils/CookieJar.cpp)
 
 # Dependencies
 add_dependencies(app.out hash crypt files http config)
-target_link_libraries(app.out hash crypt files http config stdc++fs)
+target_link_libraries(app.out hash crypt files http config stdc++fs uv HTTPUV)
 
-# ----------------------------------------------------------------------
-#                       Building Blake2
-# ----------------------------------------------------------------------
 
-# ----------------------------------------------------------------------
-#                       Building Pistache
-# ----------------------------------------------------------------------
 add_custom_target( git_update
         COMMAND git submodule init
         COMMAND git submodule update
         WORKING_DIRECTORY ${PROJECT_SOURCE_DIR})
-
-
-add_library( argon2
-        ${PROJECT_SOURCE_DIR}/external/argon2/src/argon2.c
-        ${PROJECT_SOURCE_DIR}/external/argon2/src/bench.c
-        ${PROJECT_SOURCE_DIR}/external/argon2/src/encoding.c
-        ${PROJECT_SOURCE_DIR}/external/argon2/src/core.c
-        ${PROJECT_SOURCE_DIR}/external/argon2/src/genkat.c
-        ${PROJECT_SOURCE_DIR}/external/argon2/src/opt.c
-        ${PROJECT_SOURCE_DIR}/external/argon2/src/ref.c
-        ${PROJECT_SOURCE_DIR}/external/argon2/src/run.c
-        ${PROJECT_SOURCE_DIR}/external/argon2/src/test.c
-        ${PROJECT_SOURCE_DIR}/external/argon2/src/thread.c
-        ${PROJECT_SOURCE_DIR}/external/argon2/src/blake2/blake2b.c
-        ${PROJECT_SOURCE_DIR}/external/argon2/src/blake2/blake2.h
-        ${PROJECT_SOURCE_DIR}/external/argon2/src/blake2/blamka-round-opt.h
-        ${PROJECT_SOURCE_DIR}/external/argon2/src/blake2/blamka-round-ref.h
-        ${PROJECT_SOURCE_DIR}/external/argon2/src/blake2/blake2-impl.h
-        ${PROJECT_SOURCE_DIR}/external/argon2/include/argon2.h)
 
 # ----------------------------------------------------------------------
 #                       Build test
@@ -136,12 +115,12 @@ target_include_directories(Catch INTERFACE ${CATCH_INCLUDE_DIR})
 set(TEST_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/tests/test.cpp)
 
 add_executable(tests.out ${TEST_SOURCES})
-add_dependencies(tests.out Catch hash exceptions crypt files http config argon2)
-target_link_libraries(tests.out Catch hash exceptions crypt files http config stdc++fs argon2)
+add_dependencies(tests.out Catch hash exceptions crypt files http config)
+target_link_libraries(tests.out Catch hash exceptions crypt files http config sodium stdc++fs)
 
 add_executable(fuzzhash other/fuzz_hash.cpp)
 add_dependencies(fuzzhash hash)
-target_link_libraries(fuzzhash hash argon2)
+target_link_libraries(fuzzhash hash)
 
 add_executable(sodiumfuzz other/sodium_fuzz.cpp other/sodium_fuzz.cpp other/sodium_fuzz.h)
 target_link_libraries(sodiumfuzz sodium)

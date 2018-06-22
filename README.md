@@ -1,7 +1,7 @@
 # Ljus (yoos)
-[![Travis](https://img.shields.io/travis/ErikPartridge/ljus.svg?style=flat-square)]()
-[![Codacy grade](https://img.shields.io/codacy/grade/9cadf04aee3f4f608796e96cf3bc3e31.svg?style=flat-square)]()
-[![Coveralls](https://img.shields.io/coveralls/ErikPartridge/ljus.svg?style=flat-square)]()
+[![Travis](https://api.travis-ci.com/LjusFramework/ljus.svg?branch=master)]()
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/9cadf04aee3f4f608796e96cf3bc3e31)](https://www.codacy.com/app/erikdevelopments/ljus?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ErikPartridge/ljus&amp;utm_campaign=Badge_Grade)
+[![Coverage Status](https://coveralls.io/repos/github/ErikPartridge/ljus/badge.svg?branch=master)](https://coveralls.io/github/ErikPartridge/ljus?branch=master)
 [![license](https://img.shields.io/github/license/ErikPartridge/ljus.svg?style=flat-square)]()
 [![stability](https://img.shields.io/badge/stability-experimental-orange.svg?style=flat-square)]()
 
@@ -100,11 +100,7 @@ $ add-apt-repository ppa:chris-lea/libsodium
 $ apt install libsodium-dev libuv-dev
 ```
 
-JSON processing is included from [nlohmann::json](https://github.com/nlohmann/json), included in external. It's (c) 2013-2017 Niels Lohmann, and licensed under the MIT license.
-
-Password hashing is included as a git submodule from [the Argon2 Ref-Spec](https://github.com/P-H-C/phc-winner-argon2), which is in the public domain.
-
-Web server things are included as a git submodule from [Simple Web Server](https://github.com/eidheim/Simple-Web-Server), which is under the MIT license.
+JSON processing is included from [nlohmann::json](https://github.com/nlohmann/json), included in external. It's (c) 2013-2018 Niels Lohmann, and licensed under the MIT license.
 
 Base64 supported is coupled in the project, and is a lightly modified version of [Base64](https://github.com/tkislan/base64), which is released under the MIT license.
 

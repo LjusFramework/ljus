@@ -4,9 +4,10 @@
 
 #ifndef HASH_H
 #define HASH_H
-
+extern "C" {
+#include "sodium.h"
+};
 #include <string>
-#include <argon2.h>
 #include <fcntl.h>
 #include <unistd.h>
 #include <sstream>
@@ -14,10 +15,6 @@
 
 #define HASHLEN 32
 #define SALTLEN 16
-#define T_COST 4
-#define PARALLELISM 2
-//1 MiB -- roughly going standard as of Sep 2017
-#define M_COST 32000
 
 using namespace std;
 
