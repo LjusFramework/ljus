@@ -22,7 +22,7 @@ Route::Route( std::string method, std::string path,
               std::function<Response( std::shared_ptr<Request>, std::shared_ptr<Response> )> action ) {
     this->method = std::move(method);
     this->path_regex = std::regex(path);
-    this->action = action;
+    this->action = std::move(action);
 }
 
 bool Route::match( std::string method, std::string path ) {
@@ -37,22 +37,22 @@ bool Route::match( std::string method, std::string path ) {
 
 void
 Route::get( std::string path, std::function<Response( std::shared_ptr<Request>, std::shared_ptr<Response> )> action ) {
-    Route::add_route("GET", std::move(path), action);
+    Route::add_route("GET", std::move(path), std::move(action));
 }
 
 void
 Route::post( std::string path, std::function<Response( std::shared_ptr<Request>, std::shared_ptr<Response> )> action ) {
-    Route::add_route("POST", std::move(path), action);
+    Route::add_route("POST", std::move(path), std::move(action));
 }
 
 void
 Route::put( std::string path, std::function<Response( std::shared_ptr<Request>, std::shared_ptr<Response> )> action ) {
-    Route::add_route("PUT", std::move(path), action);
+    Route::add_route("PUT", std::move(path), std::move(action));
 }
 
 void Route::add_route( std::string method, std::string path,
                        std::function<Response( std::shared_ptr<Request>, std::shared_ptr<Response> )> action ) {
-    routes.push_back(Route(method, path, action));
+    routes.emplace_back(Route(std::move(method), std::move(path), std::move(action)));
 }
 
 void Route::register_routes() {
