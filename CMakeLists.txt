@@ -58,6 +58,25 @@ include_directories(
         ${PROJECT_SOURCE_DIR}/server/
 )
 
+add_library(argon2
+        ${PROJECT_SOURCE_DIR}/external/argon2/src/argon2.c
+        ${PROJECT_SOURCE_DIR}/external/argon2/src/bench.c
+        ${PROJECT_SOURCE_DIR}/external/argon2/src/encoding.c
+        ${PROJECT_SOURCE_DIR}/external/argon2/src/core.c
+        ${PROJECT_SOURCE_DIR}/external/argon2/src/genkat.c
+        ${PROJECT_SOURCE_DIR}/external/argon2/src/opt.c
+        ${PROJECT_SOURCE_DIR}/external/argon2/src/ref.c
+        ${PROJECT_SOURCE_DIR}/external/argon2/src/run.c
+        ${PROJECT_SOURCE_DIR}/external/argon2/src/test.c
+        ${PROJECT_SOURCE_DIR}/external/argon2/src/thread.c
+        ${PROJECT_SOURCE_DIR}/external/argon2/src/blake2/blake2b.c
+        ${PROJECT_SOURCE_DIR}/external/argon2/src/blake2/blake2.h
+        ${PROJECT_SOURCE_DIR}/external/argon2/src/blake2/blamka-round-opt.h
+        ${PROJECT_SOURCE_DIR}/external/argon2/src/blake2/blamka-round-ref.h
+        ${PROJECT_SOURCE_DIR}/external/argon2/src/blake2/blake2-impl.h
+        ${PROJECT_SOURCE_DIR}/external/argon2/include/argon2.h)
+
+
 link_directories(${CMAKE_SOURCE_DIR}/external)
 
 # Get all the files from various components
@@ -108,24 +127,6 @@ add_custom_target( git_update
         COMMAND git submodule update
         WORKING_DIRECTORY ${PROJECT_SOURCE_DIR})
 
-
-add_library( argon2
-        ${PROJECT_SOURCE_DIR}/external/argon2/src/argon2.c
-        ${PROJECT_SOURCE_DIR}/external/argon2/src/bench.c
-        ${PROJECT_SOURCE_DIR}/external/argon2/src/encoding.c
-        ${PROJECT_SOURCE_DIR}/external/argon2/src/core.c
-        ${PROJECT_SOURCE_DIR}/external/argon2/src/genkat.c
-        ${PROJECT_SOURCE_DIR}/external/argon2/src/opt.c
-        ${PROJECT_SOURCE_DIR}/external/argon2/src/ref.c
-        ${PROJECT_SOURCE_DIR}/external/argon2/src/run.c
-        ${PROJECT_SOURCE_DIR}/external/argon2/src/test.c
-        ${PROJECT_SOURCE_DIR}/external/argon2/src/thread.c
-        ${PROJECT_SOURCE_DIR}/external/argon2/src/blake2/blake2b.c
-        ${PROJECT_SOURCE_DIR}/external/argon2/src/blake2/blake2.h
-        ${PROJECT_SOURCE_DIR}/external/argon2/src/blake2/blamka-round-opt.h
-        ${PROJECT_SOURCE_DIR}/external/argon2/src/blake2/blamka-round-ref.h
-        ${PROJECT_SOURCE_DIR}/external/argon2/src/blake2/blake2-impl.h
-        ${PROJECT_SOURCE_DIR}/external/argon2/include/argon2.h)
 
 # ----------------------------------------------------------------------
 #                       Build test
