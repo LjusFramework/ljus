@@ -1,9 +1,9 @@
 # Ljus (yoos)
-[![Travis](https://img.shields.io/travis/ErikPartridge/ljus.svg?style=flat-square)]()
-[![Codacy grade](https://img.shields.io/codacy/grade/9cadf04aee3f4f608796e96cf3bc3e31.svg?style=flat-square)]()
-[![Coveralls](https://img.shields.io/coveralls/ErikPartridge/ljus.svg?style=flat-square)]()
-[![license](https://img.shields.io/github/license/ErikPartridge/ljus.svg?style=flat-square)]()
-[![stability](https://img.shields.io/badge/stability-experimental-orange.svg?style=flat-square)]()
+[![Travis](https://travis-ci.com/LjusFramework/ljus.svg?branch=master)]()
+[![Codacy grade](https://img.shields.io/codacy/grade/9cadf04aee3f4f608796e96cf3bc3e31.svg)]()
+[![Coveralls](https://img.shields.io/coveralls/ErikPartridge/ljus.svg)]()
+[![license](https://img.shields.io/github/license/LjusFramework/ljus.svg)]()
+[![stability](https://img.shields.io/badge/stability-experimental-orange.svg)]()
 
 C++ web framework inspired by Laravel - in development - **do not use this in production**.
 
@@ -19,10 +19,10 @@ The goal is also to bring in modern goodies into the framework! The algorithms a
 
 #### Hashing 
 
-[Laravel version](https://laravel.com/docs/5.5/hashing)
+[Laravel version](https://laravel.com/docs/5.6/hashing)
 
-[![stability](https://img.shields.io/badge/stability-stable-green.svg?style=flat-square)]()
-[![production](https://img.shields.io/badge/production-not%20ready-red.svg?style=flat-square)]()
+[![stability](https://img.shields.io/badge/stability-stable-green.svg)]()
+[![production](https://img.shields.io/badge/production-not%20ready-red.svg)]()
 
 ```c++
 #include "ljus/hash/Hash.h"
@@ -44,10 +44,10 @@ bool needs_rehash = Hash::needs_rehash(hashed); //false
 
 #### Encryption 
 
-[Laravel version](https://laravel.com/docs/5.5/encryption)
+[Laravel version](https://laravel.com/docs/5.6/encryption)
 
-[![stability](https://img.shields.io/badge/stability-stable-green.svg?style=flat-square)]()
-[![production](https://img.shields.io/badge/production-not%20ready-red.svg?style=flat-square)]()
+[![stability](https://img.shields.io/badge/stability-stable-green.svg)]()
+[![production](https://img.shields.io/badge/production-not%20ready-red.svg)]()
 
 
 ```c++
@@ -68,10 +68,10 @@ bool plain.compare(decrypted) == 0; // true
 
 #### Filesystem
 
-[Laravel version](https://laravel.com/docs/5.5/filesystem)
+[Laravel version](https://laravel.com/docs/5.6/filesystem)
 
-[![stability](https://img.shields.io/badge/stability-active%20development-orange.svg?style=flat-square)]()
-[![production](https://img.shields.io/badge/production-not%20ready-red.svg?style=flat-square)]()
+[![stability](https://img.shields.io/badge/stability-active%20development-orange.svg)]()
+[![production](https://img.shields.io/badge/production-not%20ready-red.svg)]()
 
 ```c++
 #include "ljus/filesystem/Filesystem.h"
@@ -100,11 +100,11 @@ $ add-apt-repository ppa:chris-lea/libsodium
 $ apt install libsodium-dev libuv-dev
 ```
 
-JSON processing is included from [nlohmann::json](https://github.com/nlohmann/json), included in external. It's (c) 2013-2017 Niels Lohmann, and licensed under the MIT license.
+JSON processing is included from [nlohmann::json](https://github.com/nlohmann/json), included in external. It's (c) 2013-2018 Niels Lohmann, and licensed under the MIT license.
 
 Password hashing is included as a git submodule from [the Argon2 Ref-Spec](https://github.com/P-H-C/phc-winner-argon2), which is in the public domain.
 
-Web server things are included as a git submodule from [Simple Web Server](https://github.com/eidheim/Simple-Web-Server), which is under the MIT license.
+Web server things are included as a git submodule from [LjusFramework/nodeuv-http](https://github.com/LjusFramework/nodeuv-http), which is under the MIT license. This project also includes its own dependency on [hxoht/nodeuv-uri](https://github.com/hxoht/nodeuv-uri), also under the MIT license.
 
 Base64 supported is coupled in the project, and is a lightly modified version of [Base64](https://github.com/tkislan/base64), which is released under the MIT license.
 
