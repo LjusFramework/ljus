@@ -94,7 +94,7 @@ before_install:
   - eval "${MATRIX_EVAL}"
   - sudo add-apt-repository ppa:chris-lea/libsodium -y
   - sudo apt-get update
-  - sudo apt-get install http-parser
+  - sudo apt-get install libhttp-parser-dev
   - sudo apt-get install libsodium-dev libuv-dev
   - git submodule update --init --recursive
 
