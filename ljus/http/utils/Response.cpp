@@ -4,13 +4,12 @@
 
 #include <sstream>
 #include "Response.h"
-
 /**
  * @brief Get the content length in bytes of the HTTP response's body content
  * @return length in bytes of content
  */
-unsigned long long Response::content_length() {
-    return content.length();
+unsigned long long Ljus::Response::content_length() {
+    return this->content.length();
 }
 
 /**
@@ -18,8 +17,8 @@ unsigned long long Response::content_length() {
  * @param code the HTTP status code
  * @return the string describing the HTTP code
  */
-std::string http_code_message( unsigned short code ) {
-    switch ( code ) {
+std::string http_code_message(unsigned short code) {
+    switch (code) {
         case 100:
             return "Continue";
         case 101:
@@ -108,11 +107,19 @@ std::string http_code_message( unsigned short code ) {
  * @brief Generate an HTTP response from this request object
  * @return Properly formatted HTTP message content
  */
-std::string Response::generate() {
+std::string Ljus::Response::generate() {
     std::stringstream sstream;
 
-    sstream << http_type << " " << code << " " << http_code_message(code) << "\r\n\r\n"
-            << "Content-Length: " << content_length() << "\r\n\r\n" << content;
+    sstream << this->http_type << " " << this->code << " " << http_code_message(this->code) << "\r\n\r\n"
+            << "Content-Length: " << this->content_length() << "\r\n\r\n" << this->content;
     return sstream.str();
+}
+
+/**
+ * @brief Get the cookies attached to this response
+ * @return a vector of cookies
+ */
+std::vector<Cookie> Ljus::Response::get_cookies() {
+    return this->cookies;
 }
 

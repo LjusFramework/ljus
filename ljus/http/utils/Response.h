@@ -7,20 +7,27 @@
 
 #include <string>
 #include <unordered_map>
+#include <vector>
+#include <cookie/CookieJar.h>
 
-class Response {
-public:
+namespace Ljus {
+    class Response {
+    public:
 
-    std::string generate();
+        std::string generate();
 
-    unsigned long long content_length();
+        unsigned long long content_length();
 
-private:
-    std::unordered_map<std::string, std::string> headers;
-    std::string content;
-    unsigned short code;
-    std::string http_type = "HTTP/1.1";
+        std::vector<Cookie> get_cookies();
 
-};
+    private:
+        std::unordered_map<std::string, std::string> headers;
+        std::string content;
+        unsigned short code;
+        std::vector<Cookie> cookies;
+        std::string http_type = "HTTP/1.1";
+
+    };
+}
 
 #endif //LJUS_RESPONSE_H

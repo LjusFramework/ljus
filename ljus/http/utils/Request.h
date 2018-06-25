@@ -5,8 +5,14 @@
 #ifndef LJUS_REQUEST_H
 #define LJUS_REQUEST_H
 
-class Request {
+namespace Ljus {
+    class Request {
+    public:
+        std::vector<Cookie> get_cookies();
 
-};
+    private:
+        std::vector<Cookie> cookies;
+    };
+}
 
 #endif //LJUS_REQUEST_H
