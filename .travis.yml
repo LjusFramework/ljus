@@ -5,16 +5,6 @@ notifications:
   email: false
 compiler:
   - g++
- 
-addons:
-    apt:
-        sources:
-            - llvm-toolchain-precise
-            - ubuntu-toolchain-r-test
-        packages:
-            - http-server
-            - g++-8
-            - gcc-8
 
 matrix:
 
@@ -59,6 +49,7 @@ matrix:
             - ubuntu-toolchain-r-test
           packages:
             - g++-8
+            - gcc-8
       env:
          - MATRIX_EVAL="CC=gcc-8 && CXX=g++-8"
 
@@ -70,6 +61,7 @@ matrix:
             - ubuntu-toolchain-r-test
           packages:
             - g++-5
+            - gcc-5
       env:
          - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5"
 
@@ -81,6 +73,7 @@ matrix:
             - ubuntu-toolchain-r-test
           packages:
             - g++-6
+            - gcc-6
       env:
         - MATRIX_EVAL="CC=gcc-6 && CXX=g++-6"
 
@@ -92,6 +85,7 @@ matrix:
             - ubuntu-toolchain-r-test
           packages:
             - g++-7
+            - gcc-7
       env:
         - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
 
