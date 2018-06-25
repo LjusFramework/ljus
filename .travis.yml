@@ -91,7 +91,7 @@ matrix:
 
 
 before_install:
-  - ${MATRIX_EVAL}
+  - eval "${MATRIX_EVAL}"
   - sudo add-apt-repository ppa:chris-lea/libsodium -y
   - sudo apt-get update
   - sudo apt-get install http-parser
