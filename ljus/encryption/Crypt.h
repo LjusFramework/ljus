@@ -20,9 +20,6 @@ extern "C" {
 #include "json.hpp"
 #include "../../config.hpp"
 
-
-//using base64 = cppcodec::base64_rfc4648;
-
 namespace Ljus {
 
     class Crypt {

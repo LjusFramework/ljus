@@ -12,6 +12,8 @@
 #include <regex>
 #include <vector>
 
+using namespace Ljus;
+
 class Route {
 
 public:
