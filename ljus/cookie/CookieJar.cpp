@@ -28,11 +28,11 @@ Cookie CookieJar::make(string name, string value, int minutes, string path, stri
 
 string *CookieJar::getPathAndDomain(string path, string domain, bool secure, string sameSite) {
     string result[4];
-    string rpath = (path == nullptr ? this->path : path);
-    string rdomain = (domain == nullptr ? this->domain : domain);
-    bool rsecure = (secure == nullptr ? this->secure : secure);
+    string rpath = (path.empty() ? this->path : path);
+    string rdomain = (domain.empty() ? this->domain : domain);
+    bool rsecure = (!secure ? this->secure : secure);
     string ssecure = (rsecure ? "1" : "0");
-    string rsameSite = (sameSite == nullptr ? this->sameSite : sameSite);
+    string rsameSite = (sameSite.empty() ? this->sameSite : sameSite);
     result[0] = rpath;
     result[1] = rdomain;
     result[2] = ssecure;
@@ -48,7 +48,7 @@ Cookie CookieJar::forever(string name, string value, string path, string domain,
 
 Cookie CookieJar::forget(string name, string path, string domain) {
     const int NEG_FIVE_YEARS = -1 * 2628000;
-    return this->make(name, nullptr, NEG_FIVE_YEARS, path, domain);
+    return this->make(name, std::string(), NEG_FIVE_YEARS, path, domain);
 }
 
 bool CookieJar::hasQueued(string name) {

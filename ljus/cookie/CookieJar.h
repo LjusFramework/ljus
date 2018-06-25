@@ -26,13 +26,14 @@ struct Cookie {
 
 class CookieJar {
 public:
-    Cookie make(string name, string value, int minutes = 0, string path = nullptr, string domain = nullptr,
-                bool secure = false, bool httpOnly = true, bool raw = false, string sameSite = nullptr);
+    Cookie make(string name, string value, int minutes = 0, string path = std::string(), string domain = std::string(),
+                bool secure = false, bool httpOnly = true, bool raw = false, string sameSite = std::string());
 
-    Cookie forever(string name, string value, string path = nullptr, string domain = nullptr, bool secure = false,
-                   bool httpOnly = true, bool raw = false, string sameSite = nullptr);
+    Cookie
+    forever(string name, string value, string path = std::string(), string domain = std::string(), bool secure = false,
+            bool httpOnly = true, bool raw = false, string sameSite = std::string());
 
-    Cookie forget(string name, string path = nullptr, string domain = nullptr);
+    Cookie forget(string name, string path = std::string(), string domain = std::string());
 
     bool hasQueued(string name);
 
