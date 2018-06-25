@@ -8,6 +8,7 @@
 #include "http/http.h"
 #include <string>
 #include <queue>
+#include <unordered_map>
 
 using namespace std;
 using namespace http;
