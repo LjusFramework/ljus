@@ -1,5 +1,6 @@
-[<div align="center"><img width="500" src="https://raw.githubusercontent.com/LjusFramework/ljus/master/ljus-logo.png"></div>](https://github.com/LjusFramework/ljus)
-# Ljus (yoos)
+[<div align="center"><img width="500" src="https://raw.githubusercontent.com/LjusFramework/ljus/views/ljus-logo.png"></div>](https://github.com/LjusFramework/ljus)
+
+
 [![Travis](https://travis-ci.com/LjusFramework/ljus.svg?branch=master)]()
 [![Codacy grade](https://img.shields.io/codacy/grade/9cadf04aee3f4f608796e96cf3bc3e31.svg)]()
 [![Coveralls](https://img.shields.io/coveralls/ErikPartridge/ljus.svg)]()
