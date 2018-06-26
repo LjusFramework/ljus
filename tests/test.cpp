@@ -1,31 +1,31 @@
 #include <http/BaseController.h>
 #include "test.h"
+#include "../external/json.hpp"
 
 namespace fs = std::experimental::filesystem;
 
-using namespace std;
 using namespace Ljus;
 
 
-mt19937 rng(time(NULL));
+mt19937 rng(static_cast<unsigned int>(time(NULL)));
 
 TEST_CASE("encryption can be performed", "[crypt]") {
-    string foo = "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffoooooooooooooooooooooooooooo";
-    string enc = Crypt::encrypt(foo);
-    string dec = Crypt::decrypt(enc);
+    std::string foo = "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffoooooooooooooooooooooooooooo";
+    std::string enc = Crypt::encrypt(foo);
+    std::string dec = Crypt::decrypt(enc);
     REQUIRE(foo == dec);
 }
 
 
 TEST_CASE("hashes can be computed and checked", "[hash]") {
-    string passwd = "password";
-    string result = Hash::make(passwd);
+    std::string passwd = "password";
+    std::string result = Hash::make(passwd);
     REQUIRE(Hash::check(passwd, result));
 }
 
 TEST_CASE("hashes status can be checked", "[hash]") {
-    string passwd = "password";
-    string result = Hash::make(passwd);
+    std::string passwd = "password";
+    std::string result = Hash::make(passwd);
     SECTION("valid hash") {
         REQUIRE(!Hash::needs_rehash(result));
     }
@@ -36,9 +36,9 @@ TEST_CASE("hashes status can be checked", "[hash]") {
 }
 
 TEST_CASE("files can be created", "[filesystem]") {
-    string content = "Hi I'm a nice file\n";
+    std::string content = "Hi I'm a nice file\n";
     int random = (rng() / 10000);
-    string file = "/tmp/" + std::to_string(random);
+    std::string file = "/tmp/" + std::to_string(random);
     Filesystem::put(file, content);
     REQUIRE(Filesystem::exists(file));
 
@@ -54,9 +54,9 @@ TEST_CASE("files can be created", "[filesystem]") {
 }
 
 TEST_CASE("files can be hashed", "[filesystem"){
-    string content = "Hi I'm a nice file\n";
+    std::string content = "Hi I'm a nice file\n";
     int random = (rng() / 10000);
-    string file = "/tmp/" + std::to_string(random);
+    std::string file = "/tmp/" + std::to_string(random);
     Filesystem::put(file, content);
     SECTION("gets a hash that can be recomputed"){
         REQUIRE(Filesystem::hash(file) == Filesystem::hash(file));
@@ -64,10 +64,10 @@ TEST_CASE("files can be hashed", "[filesystem"){
 }
 
 TEST_CASE("files can be prepended", "[filesystem]"){
-    string content = "1234567890";
-    string content2 = "01234567890";
+    std::string content = "1234567890";
+    std::string content2 = "01234567890";
     int random = (rng() / 100000);
-    string file = "/tmp/file-" + std::to_string(random);
+    std::string file = "/tmp/file-" + std::to_string(random);
     Filesystem::prepend(file, content);
     Filesystem::prepend(file, content2);
     REQUIRE(Filesystem::get(file) == content2 + content);
@@ -75,10 +75,10 @@ TEST_CASE("files can be prepended", "[filesystem]"){
 }
 
 TEST_CASE("file system functions", "[filesystem]") {
-    string content = "123456789";
-    string content2 = "01234567890";
+    std::string content = "123456789";
+    std::string content2 = "01234567890";
     int random = (rng() / 100000);
-    string file = "/tmp/file-" + std::to_string(random);
+    std::string file = "/tmp/file-" + std::to_string(random);
     SECTION("appending can be performed", "[append]") {
         Filesystem::append(file, content);
         Filesystem::append(file, content2);
@@ -108,9 +108,9 @@ TEST_CASE("file system functions", "[filesystem]") {
 }
 
 TEST_CASE("file modified time", "[filesystem]") {
-    srand(time(NULL));
+    srand(static_cast<unsigned int>(time(NULL)));
     int random = (rng() % 9000000);
-    string file = "/tmp/file-a-" + std::to_string(random);
+    std::string file = "/tmp/file-a-" + std::to_string(random);
     Filesystem::put(file, "hi");
     REQUIRE((Filesystem::modified(file) <= time(NULL) && Filesystem::modified(file) > time(NULL) - 5000));
     REQUIRE(Filesystem::is_writable(file));
@@ -123,16 +123,28 @@ TEST_CASE("file modified time", "[filesystem]") {
 }
 
 TEST_CASE("file name processing", "[filesystem]") {
-    string path = "/tmp/a-long-file.php";
+    std::string path = "/tmp/a-long-file.php";
     Filesystem::put(path, "Some php code");
     REQUIRE(Filesystem::is_file(path));
     REQUIRE(Filesystem::extension(path) == "php");
-    string path2 = "/tmp/file.";
+    std::string path2 = "/tmp/file.";
     Filesystem::put(path2, "random");
     REQUIRE(Filesystem::is_file(path2));
-    REQUIRE(Filesystem::extension(path2) == "");
+    REQUIRE(Filesystem::extension(path2).empty());
     REQUIRE(Filesystem::type(path2) == "file");
     REQUIRE(Filesystem::type("/tmp/") == "dir");
+}
+
+TEST_CASE("files can be rendered", "[view]") {
+    nlohmann::json data;
+    data["name"] = "world";
+    std::string path = "/tmp/temporary.html";
+    Filesystem::put(path, "Hello {{ name }}!");
+    View view = View(data, path);
+    REQUIRE(view.render() == "Hello world!");
+    View nv = View(std::make_shared<Ljus::InjaEngine>(), data, path);
+    REQUIRE(view.render() == "Hello world!");
+
 }
 /*
 TEST_CASE("routing", "[route]") {
