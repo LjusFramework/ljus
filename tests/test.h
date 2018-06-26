@@ -5,6 +5,7 @@
 #include "../ljus/encryption/Crypt.h"
 #include "../ljus/files/Filesystem.h"
 #include "../ljus/exceptions/NoSuchFileError.h"
+#include "../ljus/view/View.h"
 #include <string>
 #include <stdio.h>
 #include <cstdlib>
