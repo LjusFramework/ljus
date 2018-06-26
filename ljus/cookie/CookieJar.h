@@ -10,47 +10,46 @@
 #include <queue>
 #include <unordered_map>
 
-using namespace std;
 using namespace http;
 
 struct Cookie {
-    string name;
-    string value;
+    std::string name;
+    std::string value;
     int minutes;
-    string path;
-    string domain;
+    std::string path;
+    std::string domain;
     bool secure;
     bool httpOnly;
     bool raw;
-    string sameSite;
+    std::string sameSite;
 };
 
 class CookieJar {
 public:
-    Cookie make(string name, string value, int minutes = 0, string path = std::string(), string domain = std::string(),
-                bool secure = false, bool httpOnly = true, bool raw = false, string sameSite = std::string());
+    Cookie make(std::string name, std::string value, int minutes = 0, std::string path = std::string(), std::string domain = std::string(),
+                bool secure = false, bool httpOnly = true, bool raw = false, std::string sameSite = std::string());
 
     Cookie
-    forever(string name, string value, string path = std::string(), string domain = std::string(), bool secure = false,
+    forever(std::string name, std::string value, std::string path = std::string(), std::string domain = std::string(), bool secure = false,
             bool httpOnly = true, bool raw = false, string sameSite = std::string());
 
-    Cookie forget(string name, string path = std::string(), string domain = std::string());
+    Cookie forget(std::string name, std::string path = std::string(), std::string domain = std::string());
 
-    bool hasQueued(string name);
+    bool hasQueued(std::string name);
 
     void queue(Cookie cookie);
 
-    Cookie dequeue(string name);
+    Cookie dequeue(std::string name);
 
 private:
-    unordered_map<string, Cookie> cookieQueue;
+    unordered_map<std::string, Cookie> cookieQueue;
 
-    string *getPathAndDomain(string path, string domain, bool secure, string sameSite);
+    std::string *getPathAndDomain(std::string path, std::string domain, bool secure, std::string sameSite);
 
-    string path;
-    string domain;
+    std::string path;
+    std::string domain;
     bool secure;
-    string sameSite;
+    std::string sameSite;
 };
 
 #endif //LJUS_COOKIEJAR_H
