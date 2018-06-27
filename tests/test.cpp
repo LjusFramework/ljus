@@ -146,6 +146,19 @@ TEST_CASE("files can be rendered", "[view]") {
     REQUIRE(view.render() == "Hello world!");
 
 }
+
+TEST_CASE("cache functions properly", "[cache]"){
+    Store *store = new MemoryStore();
+    SECTION("Put and retrieve") {
+        store->forever("Hello", "World");
+        REQUIRE(store->get("Hello") == "World");
+    }
+    SECTION("Forgetting works properly"){
+        store->forget("Hello");
+        REQUIRE(store->has("Hello") == false);
+    }
+    delete store;
+}
 /*
 TEST_CASE("routing", "[route]") {
     Route::register_routes();
