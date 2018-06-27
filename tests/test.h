@@ -6,8 +6,9 @@
 #include "../ljus/files/Filesystem.h"
 #include "../ljus/exceptions/NoSuchFileError.h"
 #include "../ljus/view/View.h"
+#include "../ljus/cache/Store.h"
+#include "../ljus/cache/MemoryStore.h"
 #include <string>
-#include <stdio.h>
 #include <cstdlib>
 #include <experimental/filesystem>
 #include "../ljus/http/Route.h"

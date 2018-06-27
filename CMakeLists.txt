@@ -95,12 +95,14 @@ file(GLOB B64 "ljus/encryption/base64.cpp")
 file(GLOB INJA "external/inja.hpp" "external/inja.cpp")
 file(GLOB BLAKE2 "${PROJECT_SOURCE_DIR}/external/blake2/ref/*.c")
 file(GLOB COOKIE "ljus/cookie/*.cpp" "ljus/cookie/middleware/*.cpp")
+file(GLOB CACHE "ljus/cache/*.cpp")
 set(TEST_MAIN unit_tests.out)
 
 # -----------------------------------------------------------------------
 #                           Build
 # -----------------------------------------------------------------------
 add_library(hash ${HASH})
+add_library(cache ${CACHE})
 add_library(inja ${INJA})
 add_library(cookies ${COOKIES})
 add_library(exceptions ${EXCEPTIONS})
@@ -147,8 +149,8 @@ target_include_directories(Catch INTERFACE ${CATCH_INCLUDE_DIR})
 set(TEST_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/tests/test.cpp)
 
 add_executable(tests.out ${TEST_SOURCES})
-add_dependencies(tests.out Catch cookies hash view exceptions crypt files http config argon2)
-target_link_libraries(tests.out Catch cookies view hash exceptions crypt files http config stdc++fs argon2)
+add_dependencies(tests.out Catch cookies cache hash view exceptions crypt files http config argon2)
+target_link_libraries(tests.out Catch cookies cache view hash exceptions crypt files http config stdc++fs argon2)
 
 add_executable(fuzzhash other/fuzz_hash.cpp)
 add_dependencies(fuzzhash hash)
