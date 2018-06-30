@@ -155,7 +155,7 @@ TEST_CASE("cache functions properly", "[cache]"){
     }
     SECTION("Forgetting works properly"){
         store->forget("Hello");
-        REQUIRE(store->has("Hello") == false);
+        REQUIRE(!store->has("Hello"));
     }
     delete store;
 }
