@@ -29,10 +29,6 @@ TEST_CASE("hashes status can be checked", "[hash]") {
     SECTION("valid hash") {
         REQUIRE(!Hash::needs_rehash(result));
     }
-    SECTION("invalid hash") {
-        result.replace(result.find(",t=4"), 4, ",t=7");
-        REQUIRE(Hash::needs_rehash(result));
-    }
 }
 
 TEST_CASE("files can be created", "[filesystem]") {
@@ -155,7 +151,7 @@ TEST_CASE("cache functions properly", "[cache]"){
     }
     SECTION("Forgetting works properly"){
         store->forget("Hello");
-        REQUIRE(store->has("Hello") == false);
+        REQUIRE(!store->has("Hello"));
     }
     delete store;
 }
