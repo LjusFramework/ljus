@@ -15,7 +15,6 @@
 
 #include <cerrno>
 #include <sys/stat.h>
-#include "../../config.hpp"
 #include "../exceptions/NoSuchFileError.h"
 #include "../external/digestpp/digestpp.hpp"
 
