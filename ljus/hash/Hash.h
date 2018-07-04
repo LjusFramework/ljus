@@ -6,11 +6,14 @@
 #define HASH_H
 
 #include <string>
+extern "C" {
 #include <argon2.h>
+};
 #include <fcntl.h>
 #include <unistd.h>
 #include <sstream>
 #include <cstring>
+#include "../exceptions/ZeroEntropyError.h"
 
 #define HASHLEN 32
 #define SALTLEN 16

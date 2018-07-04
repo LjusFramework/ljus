@@ -5,6 +5,8 @@
 #ifndef LJUS_COOKIEJAR_H
 #define LJUS_COOKIEJAR_H
 
+static const int FIVE_YEARS = 2628000;
+
 #include <string>
 #include <queue>
 #include <unordered_map>

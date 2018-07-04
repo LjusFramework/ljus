@@ -9,6 +9,7 @@
 #include <unordered_map>
 #include <vector>
 #include <cookie/CookieJar.h>
+#include <sstream>
 
 namespace Ljus {
     class Response {

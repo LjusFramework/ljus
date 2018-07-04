@@ -92,7 +92,6 @@ file(GLOB TEST "tests/*.cpp")
 file(GLOB JSON "external/json.cpp")
 file(GLOB BENCHMARK "other/benchmark/*.cpp")
 file(GLOB B64 "ljus/encryption/base64.cpp")
-file(GLOB INJA "external/inja.hpp" "external/inja.cpp")
 file(GLOB BLAKE2 "${PROJECT_SOURCE_DIR}/external/blake2/ref/*.c")
 file(GLOB COOKIE "ljus/cookie/*.cpp" "ljus/cookie/middleware/*.cpp")
 file(GLOB CACHE "ljus/cache/*.cpp")
@@ -103,7 +102,6 @@ set(TEST_MAIN unit_tests.out)
 # -----------------------------------------------------------------------
 add_library(hash ${HASH})
 add_library(cache ${CACHE})
-add_library(inja ${INJA})
 add_library(cookies ${COOKIES})
 add_library(exceptions ${EXCEPTIONS})
 add_library(b64 ${B64})
@@ -131,9 +129,6 @@ target_link_libraries(app.out cookies hash crypt view files http config stdc++fs
 #                       Building Blake2
 # ----------------------------------------------------------------------
 
-# ----------------------------------------------------------------------
-#                       Building Pistache
-# ----------------------------------------------------------------------
 add_custom_target( git_update
         COMMAND git submodule init
         COMMAND git submodule update

@@ -27,7 +27,7 @@ Cookie CookieJar::make(std::string name, std::string value, int minutes, std::st
 }
 
 std::string *CookieJar::getPathAndDomain(std::string path, std::string domain, bool secure, std::string sameSite) {
-    std::string result[4];
+    std::string* result = new std::string[4];
     std::string rpath = (path.empty() ? this->path : path);
     std::string rdomain = (domain.empty() ? this->domain : domain);
     bool rsecure = (!secure ? this->secure : secure);
@@ -37,17 +37,17 @@ std::string *CookieJar::getPathAndDomain(std::string path, std::string domain, b
     result[1] = rdomain;
     result[2] = ssecure;
     result[3] = rsameSite;
+    //TODO don't let the variable escape the local scope
     return result;
 }
 
 Cookie CookieJar::forever(std::string name, std::string value, std::string path, std::string domain, bool secure, bool httpOnly, bool raw,
                           std::string sameSite) {
-    const int FIVE_YEARS = 2628000;
     return this->make(name, value, FIVE_YEARS, path, domain, secure, httpOnly, raw, sameSite);
 }
 
 Cookie CookieJar::forget(std::string name, std::string path, std::string domain) {
-    const int NEG_FIVE_YEARS = -1 * 2628000;
+    const int NEG_FIVE_YEARS = -1 * FIVE_YEARS;
     return this->make(name, std::string(), NEG_FIVE_YEARS, path, domain);
 }
 

@@ -15,7 +15,7 @@ string Ljus::Hash::make( string pwd ) {
     int fd = open("/dev/urandom", O_RDONLY);
     ssize_t size = read(fd, salt, sizeof salt);
     if ( size != sizeof salt ) {
-        throw "Could not generate salt";
+        throw Exceptions::ZeroEntropyError();
     }
     close(fd);
 
@@ -23,7 +23,9 @@ string Ljus::Hash::make( string pwd ) {
     char encoded[97];
 
     argon2i_hash_encoded(T_COST, M_COST, PARALLELISM, value, pwdlen, salt, SALTLEN, HASHLEN, encoded, 97);
-    std::string res = strdup(encoded);
+    char* res = strdup(encoded);
+    std::string r = std::string(res);
+    free(res);
     return res;
 }
 
