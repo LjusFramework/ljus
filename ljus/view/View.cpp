@@ -7,8 +7,7 @@
 #include <memory>
 
 Ljus::View::View(nlohmann::json data, std::string view) {
-    std::shared_ptr<Ljus::RenderingEngine> eng = std::make_shared<Ljus::InjaEngine>();
-    this->engine = eng;
+    this->engine = nullptr;
     this->view = std::move(view);
     this->data = std::move(data);
 }

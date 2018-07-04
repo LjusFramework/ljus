@@ -16,6 +16,7 @@
 #include <cerrno>
 #include <sys/stat.h>
 #include "../exceptions/NoSuchFileError.h"
+#include "../external/digestpp/digestpp.hpp"
 
 using string = std::string;
 

@@ -5,10 +5,8 @@
 #ifndef LJUS_VIEW_H
 #define LJUS_VIEW_H
 
-#include "../../external/inja.hpp"
 #include "../../external/json.hpp"
 #include "RenderingEngine.h"
-#include "InjaEngine.cpp"
 #include <string>
 #include <memory>
 

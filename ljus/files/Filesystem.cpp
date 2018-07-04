@@ -27,17 +27,18 @@ string Ljus::Filesystem::get( const string &path ) {
         contents << in.rdbuf();
         in.close();
         return contents.str();
+    } else {
+        throw Ljus::Exceptions::NoSuchFileError();
     }
-    throw Ljus::Exceptions::NoSuchFileError();
 }
 
 /**
- * @brief Get the SHA-512 of the file contents
+ * @brief Get the SHA-3 of the file contents
  * @param path the path of the file to compute the hash for
- * @return the SHA-512 hash of the file
+ * @return the SHA-3 hash of the file
  */
 string Ljus::Filesystem::hash( const string &path ) {
-    return path;
+    return digestpp::sha3(512).absorb(Filesystem::get(path)).hexdigest();
 }
 
 void Ljus::Filesystem::put( const string &path, const string &contents ) {
@@ -149,13 +150,13 @@ bool Ljus::Filesystem::is_readable( const string &path ) {
 bool Ljus::Filesystem::is_file( const string &path ) {
     struct stat result;
     stat(path.c_str(), &result);
-    return result.st_mode & S_IFREG;
+    return static_cast<bool>(result.st_mode & S_IFREG);
 }
 
 bool Ljus::Filesystem::is_directory( const string &path ) {
     struct stat result;
     stat(path.c_str(), &result);
-    return result.st_mode & S_IFDIR;
+    return static_cast<bool>(result.st_mode & S_IFDIR);
 }
 
 string Ljus::Filesystem::extension( const string &path ) {

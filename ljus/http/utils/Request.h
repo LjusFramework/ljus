@@ -5,6 +5,9 @@
 #ifndef LJUS_REQUEST_H
 #define LJUS_REQUEST_H
 
+#include <vector>
+#include "../../cookie/CookieJar.h"
+
 namespace Ljus {
     class Request {
     public:
