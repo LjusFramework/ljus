@@ -23,7 +23,7 @@ string Ljus::Hash::make( string pwd ) {
     char encoded[97];
 
     argon2i_hash_encoded(T_COST, M_COST, PARALLELISM, value, pwdlen, salt, SALTLEN, HASHLEN, encoded, 97);
-    std::string res = strdup(encoded);
+    std::string res = encoded;
     return res;
 }
 
