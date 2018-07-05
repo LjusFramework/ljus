@@ -33,12 +33,18 @@ string Ljus::Filesystem::get( const string &path ) {
 }
 
 /**
- * @brief Get the SHA-3 of the file contents
+ * @brief Get the blake2b of the file contents
  * @param path the path of the file to compute the hash for
- * @return the SHA-3 hash of the file
+ * @return the blake2b hash of the file
  */
 string Ljus::Filesystem::hash( const string &path ) {
-    return digestpp::sha3(512).absorb(Filesystem::get(path)).hexdigest();
+    char encoded[64];
+    std::string contents = Filesystem::get(path);
+    blake2b_long(encoded, 64, contents.c_str(), contents.length());
+    std::string res = encoded;
+    std::string result;
+    Base64::Encode(res, &result);
+    return result;
 }
 
 void Ljus::Filesystem::put( const string &path, const string &contents ) {
@@ -169,13 +175,13 @@ string Ljus::Filesystem::extension( const string &path ) {
 }
 
 string Ljus::Filesystem::type( const string &path ) {
-    struct stat res;
-    lstat(path.c_str(), &res);
-    if ( S_ISLNK((res.st_mode))) {
+    struct stat result;
+    lstat(path.c_str(), &result);
+    if ( S_ISLNK((result.st_mode))) {
         return "link";
     }
-    stat(path.c_str(), &res);
-    switch ( res.st_mode & S_IFMT ) {
+    stat(path.c_str(), &result);
+    switch ( result.st_mode & S_IFMT ) {
         case S_IFBLK:
             return "block";
         case S_IFCHR:

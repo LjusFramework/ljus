@@ -7,7 +7,7 @@
 
 #include <string>
 extern "C" {
-#include <argon2.h>
+    #include <argon2.h>
 };
 #include <fcntl.h>
 #include <unistd.h>

@@ -59,6 +59,8 @@ TEST_CASE("files can be hashed", "[filesystem"){
     std::string file = "/tmp/" + std::to_string(random);
     Filesystem::put(file, content);
     SECTION("gets a hash that can be recomputed"){
+        std::cout << Filesystem::hash(file) << std::endl;
+
         REQUIRE(Filesystem::hash(file) == Filesystem::hash(file));
     }
 }
@@ -78,7 +80,7 @@ TEST_CASE("files can be prepended", "[filesystem]"){
 TEST_CASE("file system functions", "[filesystem]") {
     std::string content = "123456789";
     std::string content2 = "01234567890";
-    int random = (rng() / 100000);
+    int random = (rng());
     std::string file = "/tmp/file-" + std::to_string(random);
     SECTION("appending can be performed", "[append]") {
         Filesystem::append(file, content);

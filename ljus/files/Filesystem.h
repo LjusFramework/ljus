@@ -16,7 +16,11 @@
 #include <cerrno>
 #include <sys/stat.h>
 #include "../exceptions/NoSuchFileError.h"
-#include <digestpp/digestpp.hpp>
+extern "C"{
+        #include <blake2/blake2.h>
+};
+
+#include "../encryption/base64.h"
 
 using string = std::string;
 
