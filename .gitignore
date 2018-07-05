@@ -39,7 +39,7 @@ cmake-build-debug/
 .idea/.name
 .idea/workspace.xml
 LJUS.cbp
-
+.idea/
 coverage.info
 CMakeFiles/
 other/fuzzing/crashes/
