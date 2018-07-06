@@ -59,8 +59,6 @@ TEST_CASE("files can be hashed", "[filesystem"){
     std::string file = "/tmp/" + std::to_string(random);
     Filesystem::put(file, content);
     SECTION("gets a hash that can be recomputed"){
-        std::cout << Filesystem::hash(file) << std::endl;
-
         REQUIRE(Filesystem::hash(file) == Filesystem::hash(file));
     }
 }
@@ -150,6 +148,13 @@ TEST_CASE("cache functions properly", "[cache]"){
         REQUIRE(!store->has("Hello"));
     }
     delete store;
+}
+
+TEST_CASE("rendering functions properly", "[view]"){
+    RenderingEngine<kainjow::mustache::data> *engine = new MustacheEngine();
+    std::string res = engine->render({"what", "World"}, "Hello {{what}}!");
+    REQUIRE(res == "Hello World!");
+    delete engine;
 }
 /*
 TEST_CASE("routing", "[route]") {

@@ -8,7 +8,9 @@
 
 #include "../../external/json.hpp"
 #include <string>
+
 namespace Ljus {
+    template <class T>
     class RenderingEngine {
     public:
         /**
@@ -17,11 +19,11 @@ namespace Ljus {
          * @param view the full or relative path to the view file
          * @return the html content as a string, not as a file
          */
-        virtual std::string render(nlohmann::json data, std::string view)= 0;
+        virtual std::string render(T data, std::string view)= 0;
 
     private:
         std::string view;
-        nlohmann::json data;
+        T data;
     };
 
 };
