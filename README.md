@@ -1,4 +1,4 @@
-[<div align="center"><img width="1500" src="https://raw.githubusercontent.com/LjusFramework/ljus/master/ljus-logo.png"></div>](https://github.com/LjusFramework/ljus)
+[<div align="center"><img width="1500" src="https://raw.githubusercontent.com/LjusFramework/ljus/master/ljus-logo.jpg"></div>](https://github.com/LjusFramework/ljus)
 
 
 [![Travis](https://travis-ci.com/LjusFramework/ljus.svg?branch=master)]()
