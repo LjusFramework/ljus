@@ -107,10 +107,6 @@ JSON processing is included from [nlohmann::json](https://github.com/nlohmann/js
 
 Password hashing is included as a git submodule from [the Argon2 Ref-Spec](https://github.com/P-H-C/phc-winner-argon2), which is in the public domain.
 
-Web server things are included as a git submodule from [LjusFramework/nodeuv-http](https://github.com/LjusFramework/nodeuv-http), which is under the MIT license. This project also includes its own dependency on [hxoht/nodeuv-uri](https://github.com/hxoht/nodeuv-uri), also under the MIT license.
-
 Base64 supported is coupled in the project, and is a lightly modified version of [Base64](https://github.com/tkislan/base64), which is released under the MIT license.
-
-Inja is our templating engine, it's under the MIT license and is included as a header from [Inja](https://github.com/pantor/inja)
 
 The padding algorithms for encrypting using libsodium are primarily derived from [SodiumPP](https://github.com/rubendv/sodiumpp), although sodiumpp is not included in the project. SodiumPP is under the BSD 2 Clause.
