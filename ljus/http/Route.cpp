@@ -57,4 +57,7 @@ void Route::add_route( std::string method, std::string path,
 
 void Route::register_routes() {
 }
+void Route::register_assets(std::string asset_path)
+{
 
+}

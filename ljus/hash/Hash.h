@@ -15,8 +15,8 @@ extern "C" {
 #include <cstring>
 #include "../exceptions/ZeroEntropyError.h"
 
-#define HASHLEN 32
-#define SALTLEN 16
+#define HASH_LENGTH 32
+#define SALT_LENGTH 16
 #define T_COST 5
 #define PARALLELISM 3
 #define M_COST 48000

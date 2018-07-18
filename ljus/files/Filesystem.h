@@ -119,6 +119,8 @@ namespace Ljus {
 
         static void copy( const string &path, const string &target );
 
+        static void move( const string &path, const string &target);
+
         static string name( const string &path );
 
         static string basename( const string &path );

@@ -37,6 +37,8 @@ public:
 
     static void register_routes();
 
+    static void register_assets(std::string asset_path);
+
 private:
     std::string method;
     std::regex path_regex;

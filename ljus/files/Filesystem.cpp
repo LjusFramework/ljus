@@ -199,4 +199,9 @@ string Ljus::Filesystem::type( const string &path ) {
     }
 }
 
+void Ljus::Filesystem::move(const string &path, const string &target) {
+    copy(path, target);
+    remove(path);
+}
+
 

@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.2.0)
+cmake_minimum_required(VERSION 3.2.0 FATAL_ERROR)
 
 project(LJUS C CXX)
 
@@ -6,7 +6,8 @@ project(LJUS C CXX)
 set(PROJECT_VERSION_MAJOR 0)
 set(PROJECT_VERSION_MINOR 1)
 set(PROJECT_VERSION_PATCH 0)
-
+add_compile_definitions(NO_SSL)
+add_compile_definitions(USE_IPV6)
 # If you want to fuzz turn this on
 set(CMAKE_CXX_COMPILER ${CXX})
 set(CMAKE_C_COMPILER ${C})
@@ -19,7 +20,7 @@ option(coverage "Use coverage flag" ON)
 
 # C++ standard
 # This will be by default C++17, adjust as needed
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++1z")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
 
 if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread -g -Wall -O3")
@@ -41,6 +42,11 @@ else ()
     #Optimize for production, don't want fast math, others are fine
     SET(CMAKE_CXX_FLAGS "-O3")
 endif ()
+
+# -----------------------------------------------------------------------
+#                        Get Dependencies
+# -----------------------------------------------------------------------
+
 
 # -----------------------------------------------------------------------
 #                            Locate files
@@ -76,6 +82,14 @@ add_library(argon2
         ${PROJECT_SOURCE_DIR}/external/argon2/src/blake2/blake2-impl.h
         ${PROJECT_SOURCE_DIR}/external/argon2/include/argon2.h)
 
+add_library(civetweb ${PROJECT_SOURCE_DIR}/external/civetweb/src/civetweb.c
+        ${PROJECT_SOURCE_DIR}/external/civetweb/src/md5.inl
+        ${PROJECT_SOURCE_DIR}/external/civetweb/src/sha1.inl
+        ${PROJECT_SOURCE_DIR}/external/civetweb/src/handle_form.inl
+        ${PROJECT_SOURCE_DIR}/external/civetweb/src/timer.inl
+        ${PROJECT_SOURCE_DIR}/external/civetweb/include/civetweb.h
+        ${PROJECT_SOURCE_DIR}/external/civetweb/src/civetweb.c
+        )
 
 link_directories(${CMAKE_SOURCE_DIR}/external)
 
@@ -122,8 +136,8 @@ add_library(config ${CONFIG} ${JSON})
 add_executable(app.out ljus.cpp ${JSON} ljus/cookie/CookieJar.cpp)
 
 # Dependencies
-add_dependencies(app.out hash cookies crypt view files http config)
-target_link_libraries(app.out cookies hash crypt view files http config stdc++fs)
+add_dependencies(app.out hash cookies crypt view files http config civetweb)
+target_link_libraries(app.out cookies hash crypt view files http config civetweb stdc++fs)
 
 # ----------------------------------------------------------------------
 #                       Building Blake2
@@ -133,7 +147,6 @@ add_custom_target( git_update
         COMMAND git submodule init
         COMMAND git submodule update
         WORKING_DIRECTORY ${PROJECT_SOURCE_DIR})
-
 
 # ----------------------------------------------------------------------
 #                       Build test
@@ -154,3 +167,6 @@ target_link_libraries(fuzzhash hash argon2)
 add_executable(sodiumfuzz other/sodium_fuzz.cpp other/sodium_fuzz.cpp other/sodium_fuzz.h)
 target_link_libraries(sodiumfuzz sodium)
 target_link_libraries(sodiumfuzz crypt)
+
+add_executable(benchmark ${BENCHMARK})
+target_link_libraries(benchmark files hash crypt argon2 stdc++fs view)
