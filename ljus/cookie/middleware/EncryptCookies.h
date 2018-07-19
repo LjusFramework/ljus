@@ -23,7 +23,7 @@ namespace Ljus {
 
         Request decrypt(Ljus::Request req);
 
-        Cookie duplicate(Cookie cookie, string value);
+        Ljus::Cookie duplicate(Ljus::Cookie cookie, string value);
 
         Response encrypt(Ljus::Response res);
 
@@ -36,9 +36,9 @@ namespace Ljus {
 
         vector<string> exceptions;
 
-        Cookie decryptCookie(Cookie cookie);
+        Ljus::Cookie decryptCookie(Ljus::Cookie cookie);
 
-        Cookie encryptCookie(Cookie cookie);
+        Ljus::Cookie encryptCookie(Ljus::Cookie cookie);
 
     };
 }

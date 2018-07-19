@@ -3,22 +3,38 @@
 //
 
 #include "CookieJar.h"
-
-void CookieJar::queue(Cookie cookie) {
+#include <utility>
+void Ljus::CookieJar::queue(Ljus::Cookie cookie) {
     this->cookieQueue.emplace(cookie.name, cookie);
 }
 
-Cookie CookieJar::make(std::string name, std::string value, int minutes, std::string path, std::string domain, bool secure, bool httpOnly,
+/**
+ * Make a cookie
+ * @param name The name of the cookie
+ * @param value the contents of the cookie
+ * @param minutes the duration of the cookie
+ * @param path the path for the cookie
+ * @param domain the domain for it
+ * @param secure if it should be https only
+ * @param httpOnly if http only, ie javascript unable to read it
+ * @param raw
+ * @param sameSite
+ * @return the constructed cookie
+ */
+Ljus::Cookie Ljus::CookieJar::make(std::string name, std::string value, int minutes, std::string path, std::string domain, bool secure, bool httpOnly,
                        bool raw, std::string sameSite) {
-    std::string *pathAndDomain = getPathAndDomain(path, domain, secure, sameSite);
+    std::string *pathAndDomain = getPathAndDomain(std::move(path), std::move(domain), secure, std::move(sameSite));
 
     Cookie c = Cookie();
-    c.name = name;
-    c.value = value;
+    c.name = std::move(name);
+    c.value = std::move(value);
     c.minutes = minutes;
     c.path = pathAndDomain[0];
     c.domain = pathAndDomain[1];
-    c.secure = (bool) atoi(pathAndDomain[2].c_str());
+    std::stringstream temp(pathAndDomain[2]);
+    int x = 0;
+    temp >> x;
+    c.secure = (bool) x;
     c.httpOnly = httpOnly;
     c.raw = raw;
     c.sameSite = pathAndDomain[3];
@@ -26,8 +42,8 @@ Cookie CookieJar::make(std::string name, std::string value, int minutes, std::st
     return c;
 }
 
-std::string *CookieJar::getPathAndDomain(std::string path, std::string domain, bool secure, std::string sameSite) {
-    std::string* result = new std::string[4];
+std::string *Ljus::CookieJar::getPathAndDomain(std::string path, std::string domain, bool secure, std::string sameSite) {
+    auto result = new std::string[4];
     std::string rpath = (path.empty() ? this->path : path);
     std::string rdomain = (domain.empty() ? this->domain : domain);
     bool rsecure = (!secure ? this->secure : secure);
@@ -41,27 +57,47 @@ std::string *CookieJar::getPathAndDomain(std::string path, std::string domain, b
     return result;
 }
 
-Cookie CookieJar::forever(std::string name, std::string value, std::string path, std::string domain, bool secure, bool httpOnly, bool raw,
+/**
+ * Put a cookie on the browser for five years
+ * @param name the name of the cookie to add
+ * @param value the contents of the cookie
+ * @param path the path for the cookie
+ * @param domain the domain for the cookie
+ * @param secure if the cookie should be sent only over HTTPS
+ * @param httpOnly if it should be http only, not javascript accessible
+ * @param raw
+ * @param sameSite
+ * @return the created cookie
+ */
+Ljus::Cookie Ljus::CookieJar::forever(std::string name, std::string value, std::string path, std::string domain, bool secure, bool httpOnly, bool raw,
                           std::string sameSite) {
-    return this->make(name, value, FIVE_YEARS, path, domain, secure, httpOnly, raw, sameSite);
+    return this->make(std::move(name), std::move(value), FIVE_YEARS, std::move(path),
+            std::move(domain), secure, httpOnly, raw, std::move(sameSite));
 }
 
-Cookie CookieJar::forget(std::string name, std::string path, std::string domain) {
+/**
+ * Forget a cookie previously added
+ * @param name the name of the cookie to forget
+ * @param path the path, as previously set
+ * @param domain the domain, as previously set
+ * @return return a cookie that once sent to user will expire the previous one
+ */
+Ljus::Cookie Ljus::CookieJar::forget(std::string name, std::string path, std::string domain) {
     const int NEG_FIVE_YEARS = -1 * FIVE_YEARS;
-    return this->make(name, std::string(), NEG_FIVE_YEARS, path, domain);
+    return this->make(name, std::string(), NEG_FIVE_YEARS, path, std::move(domain));
 }
 
-bool CookieJar::hasQueued(std::string name) {
+bool Ljus::CookieJar::hasQueued(std::string name) {
     return this->cookieQueue.count(name) > 0;
 }
 
 /**
- *
- * @param name
- * @return
+ * Removes a given cookie from the list of cookies to add to the next request
+ * @param name the name of the cookie to remove
+ * @return the cookie that was removed
  */
-Cookie CookieJar::dequeue(std::string name) {
-    Cookie c = this->cookieQueue.at(name);
+Ljus::Cookie Ljus::CookieJar::dequeue(std::string name) {
+    Ljus::Cookie c = this->cookieQueue.at(name);
     this->cookieQueue.erase(name);
     return c;
 }

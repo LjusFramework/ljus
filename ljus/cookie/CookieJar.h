@@ -10,7 +10,9 @@ static const int FIVE_YEARS = 2628000;
 #include <string>
 #include <queue>
 #include <unordered_map>
+#include <sstream>
 
+namespace Ljus {
 struct Cookie {
     std::string name;
     std::string value;
@@ -39,8 +41,9 @@ public:
      * @param sameSite
      * @return
      */
-    Cookie make(std::string name, std::string value, int minutes = 0, std::string path = std::string(), std::string domain = std::string(),
-                bool secure = false, bool httpOnly = true, bool raw = false, std::string sameSite = std::string());
+    Ljus::Cookie make(std::string name, std::string value, int minutes = 0, std::string path = std::string(),
+            std::string domain = std::string(),
+            bool secure = false, bool httpOnly = true, bool raw = false, std::string sameSite = std::string());
 
     /**
      *
@@ -54,7 +57,8 @@ public:
      * @param sameSite
      * @return
      */
-    Cookie forever(std::string name, std::string value, std::string path = std::string(), std::string domain = std::string(), bool secure = false,
+    Ljus::Cookie forever(std::string name, std::string value, std::string path = std::string(),
+            std::string domain = std::string(), bool secure = false,
             bool httpOnly = true, bool raw = false, std::string sameSite = std::string());
     /**
      *
@@ -63,7 +67,7 @@ public:
      * @param domain
      * @return
      */
-    Cookie forget(std::string name, std::string path = std::string(), std::string domain = std::string());
+    Ljus::Cookie forget(std::string name, std::string path = std::string(), std::string domain = std::string());
 
     /**
      * Check if a given cookie is queued to be attached to the response
@@ -76,24 +80,24 @@ public:
      * Enqueue a cookie to be attached to the response
      * @param cookie the cookie to be attached
      */
-    void queue(Cookie cookie);
+    void queue(Ljus::Cookie cookie);
 
     /**
      * Remove the given cookie from the queue of cookies that are to be attached to the response
      * @param name the name of the cookie to remove
      * @return the cookie that was removed
      */
-    Cookie dequeue(std::string name);
+    Ljus::Cookie dequeue(std::string name);
 
 private:
-    std::unordered_map<std::string, Cookie> cookieQueue;
+    std::unordered_map<std::string, Ljus::Cookie> cookieQueue;
 
-    std::string *getPathAndDomain(std::string path, std::string domain, bool secure, std::string sameSite);
+    std::string* getPathAndDomain(std::string path, std::string domain, bool secure, std::string sameSite);
 
     std::string path;
     std::string domain;
     bool secure;
     std::string sameSite;
 };
-
+}
 #endif //LJUS_COOKIEJAR_H

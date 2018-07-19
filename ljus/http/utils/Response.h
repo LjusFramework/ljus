@@ -6,7 +6,7 @@
 #define LJUS_RESPONSE_H
 
 #include <string>
-#include <unordered_map>
+#include <map>
 #include <vector>
 #include <cookie/CookieJar.h>
 #include <sstream>
@@ -19,13 +19,15 @@ namespace Ljus {
 
         unsigned long long content_length();
 
-        std::vector<Cookie> get_cookies();
+        std::vector<Ljus::Cookie> get_cookies();
+
+        void set_header(std::string name, std::string value);
 
     private:
-        std::unordered_map<std::string, std::string> headers;
+        std::map<std::string, std::string> headers;
         std::string content;
         unsigned short code;
-        std::vector<Cookie> cookies;
+        std::vector<Ljus::Cookie> cookies;
         std::string http_type = "HTTP/1.1";
 
     };

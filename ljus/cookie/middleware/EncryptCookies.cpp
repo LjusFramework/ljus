@@ -18,7 +18,7 @@ void EncryptCookies::disableFor(string disable) {
 }
 
 Ljus::Request EncryptCookies::decrypt(Request req) {
-    for (Cookie c: req.get_cookies()) {
+    for (Ljus::Cookie c: req.get_cookies()) {
         if (!isDisabled(c.name)) {
             c.value = Crypt::decrypt(c.value);
         }
@@ -30,13 +30,13 @@ Ljus::Response Ljus::EncryptCookies::after(Response res) {
     return encrypt(res);
 }
 
-Cookie EncryptCookies::duplicate(Cookie cookie, string value) {
-    Cookie newCookie = cookie;
+Ljus::Cookie EncryptCookies::duplicate(Ljus::Cookie cookie, string value) {
+    Ljus::Cookie newCookie = cookie;
     newCookie.value = std::move(value);
     return newCookie;
 }
 
-Cookie EncryptCookies::decryptCookie(Cookie cookie) {
+Ljus::Cookie EncryptCookies::decryptCookie(Ljus::Cookie cookie) {
     if (!isDisabled(cookie.name)) {
         cookie.value = Crypt::decrypt(cookie.value);
     }
@@ -48,7 +48,7 @@ bool EncryptCookies::isDisabled(string cookie) {
 }
 
 Ljus::Response EncryptCookies::encrypt(Ljus::Response res) {
-    for (Cookie c: res.get_cookies()) {
+    for (Ljus::Cookie c: res.get_cookies()) {
         if (!isDisabled(c.name)) {
             c.value = Crypt::encrypt(c.value);
         }
@@ -60,7 +60,7 @@ Request EncryptCookies::before(Ljus::Request req) {
     return decrypt(req);
 }
 
-Cookie EncryptCookies::encryptCookie(Cookie cookie) {
+Ljus::Cookie EncryptCookies::encryptCookie(Ljus::Cookie cookie) {
     cookie.value = Crypt::encrypt(cookie.value);
     return cookie;
 }

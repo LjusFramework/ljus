@@ -109,12 +109,14 @@ file(GLOB B64 "ljus/encryption/base64.cpp")
 file(GLOB BLAKE2 "${PROJECT_SOURCE_DIR}/external/blake2/ref/*.c")
 file(GLOB COOKIE "ljus/cookie/*.cpp" "ljus/cookie/middleware/*.cpp")
 file(GLOB CACHE "ljus/cache/*.cpp")
+file(GLOB MIDDLEWARE "ljus/middleware/*.cpp")
 set(TEST_MAIN unit_tests.out)
 
 # -----------------------------------------------------------------------
 #                           Build
 # -----------------------------------------------------------------------
 add_library(hash ${HASH})
+add_library(middleware ${MIDDLEWARE})
 add_library(cache ${CACHE})
 add_library(cookies ${COOKIES})
 add_library(exceptions ${EXCEPTIONS})
@@ -135,9 +137,11 @@ add_library(config ${CONFIG} ${JSON})
 
 add_executable(app.out ljus.cpp ${JSON} ljus/cookie/CookieJar.cpp)
 
+add_dependencies(middleware http)
+add_dependencies(files exceptions)
 # Dependencies
-add_dependencies(app.out hash cookies crypt view files http config civetweb)
-target_link_libraries(app.out cookies hash crypt view files http config civetweb stdc++fs)
+add_dependencies(app.out hash middleware cookies crypt view files http config civetweb)
+target_link_libraries(app.out middleware cookies hash crypt view files http config civetweb stdc++fs)
 
 # ----------------------------------------------------------------------
 #                       Building Blake2

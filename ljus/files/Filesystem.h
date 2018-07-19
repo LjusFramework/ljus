@@ -15,7 +15,8 @@
 
 #include <cerrno>
 #include <sys/stat.h>
-#include "../exceptions/NoSuchFileError.h"
+#include <exceptions/NoSuchFileError.h>
+
 extern "C"{
         #include <blake2/blake2.h>
 };

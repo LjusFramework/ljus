@@ -3,6 +3,7 @@
 //
 
 #include "Response.h"
+#include <utility>
 /**
  * @brief Get the content length in bytes of the HTTP response's body content
  * @return length in bytes of content
@@ -98,7 +99,7 @@ std::string http_code_message(unsigned short code) {
             return "HTTP Version Not Supported";
 
         default:
-            return "Not Implemented";
+            return "Not Implemented & Not 501";
     }
 }
 
@@ -108,9 +109,10 @@ std::string http_code_message(unsigned short code) {
  */
 std::string Ljus::Response::generate() {
     std::stringstream sstream;
-
     sstream << this->http_type << " " << this->code << " " << http_code_message(this->code) << "\r\n\r\n"
-            << "Content-Length: " << this->content_length() << "\r\n\r\n" << this->content;
+            << "Content-Length: " << this->content_length() << "\r\n\r\n"
+            << "X-XSS-Protection: 1; mode=block" << "\r\n\r\n" <<
+            this->content;
     return sstream.str();
 }
 
@@ -118,7 +120,11 @@ std::string Ljus::Response::generate() {
  * @brief Get the cookies attached to this response
  * @return a vector of cookies
  */
-std::vector<Cookie> Ljus::Response::get_cookies() {
+std::vector<Ljus::Cookie> Ljus::Response::get_cookies() {
     return this->cookies;
+}
+void Ljus::Response::set_header(std::string name, std::string value)
+{
+     this->headers[name] = value;
 }
 
