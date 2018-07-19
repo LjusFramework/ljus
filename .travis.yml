@@ -64,6 +64,11 @@ before_install:
   - sudo apt-get install libhttp-parser-dev
   - sudo apt-get install libsodium-dev libuv-dev
   - git submodule update --init --recursive
+  - mkdir $HOME/usr
+  - export PATH="$HOME/usr/bin:$PATH"
+  - wget https://cmake.org/files/v3.12/cmake-3.12.0-Linux-x86_64.sh
+  - chmod +x cmake-3.12.0-Linux-x86_64.sh
+  - ./cmake-3.12.0-Linux-x86_64.sh --prefix=$HOME/usr --exclude-subdir --skip-license
 
 before_script:
   - PARENTDIR=$(pwd)
