@@ -1,7 +1,8 @@
 [<div align="center"><img width="1500" src="https://raw.githubusercontent.com/LjusFramework/ljus/master/ljus-logo.jpg"></div>](https://github.com/LjusFramework/ljus)
 
 
-[![Travis](https://travis-ci.com/LjusFramework/ljus.svg?branch=master)]()
+[![Travis](https://travis-ci.com/LjusFramework/ljus.svg?branch=master)][![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FLjusFramework%2Fljus.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FLjusFramework%2Fljus?ref=badge_shield)
+()
 [![Codacy grade](https://img.shields.io/codacy/grade/9cadf04aee3f4f608796e96cf3bc3e31.svg)]()
 [![Coveralls](https://img.shields.io/coveralls/ErikPartridge/ljus.svg)]()
 [![license](https://img.shields.io/github/license/LjusFramework/ljus.svg)]()
@@ -110,3 +111,7 @@ Password hashing is included as a git submodule from [the Argon2 Ref-Spec](https
 Base64 supported is coupled in the project, and is a lightly modified version of [Base64](https://github.com/tkislan/base64), which is released under the MIT license.
 
 The padding algorithms for encrypting using libsodium are primarily derived from [SodiumPP](https://github.com/rubendv/sodiumpp), although sodiumpp is not included in the project. SodiumPP is under the BSD 2 Clause.
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FLjusFramework%2Fljus.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FLjusFramework%2Fljus?ref=badge_large)
