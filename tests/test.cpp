@@ -16,6 +16,11 @@ TEST_CASE("encryption can be performed", "[crypt]") {
     REQUIRE(foo == dec);
 }
 
+TEST_CASE("encryption can be performed on special characters", "[crypt]"){
+    std::string enc = Crypt::encrypt("ållo?");
+    REQUIRE(Crypt::decrypt(enc) == "ållo?");
+}
+
 
 TEST_CASE("hashes can be computed and checked", "[hash]") {
     std::string passwd = "password";
