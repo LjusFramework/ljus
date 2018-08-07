@@ -66,6 +66,12 @@ TEST_CASE("files can be created", "[filesystem]") {
         REQUIRE((Filesystem::chmod(file) & fs::perms::group_read) != fs::perms::none);
         REQUIRE((Filesystem::chmod(file) & fs::perms::others_exec) == fs::perms::none);
     }
+
+    SECTION("can move file") {
+        Filesystem::move(file, "/tmp/helloiamafile");
+        REQUIRE(Filesystem::exists("/tmp/helloiamafile"));
+        Filesystem::remove("/tmp/helloiamafile");
+    }
 }
 
 TEST_CASE("files can be hashed", "[filesystem"){
