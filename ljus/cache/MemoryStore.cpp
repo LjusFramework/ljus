@@ -16,17 +16,19 @@ bool Ljus::MemoryStore::add(std::string key, std::string value, int minutes) {
     bool empty = this->cache.count(this->get_prefix() + key) == 0;
     if (empty){
         this->put(this->get_prefix() + key, value, minutes);
+        return true;
     } else{
+        return false;
         // Do nothing
     }
-    return !empty;
 }
 
 void Ljus::MemoryStore::increment(std::string key, long long value) {
     std::string v = this->get(this->get_prefix() + key);
     try {
-        long long val = std::stoll(v, nullptr);
+        long long val = atoll(v.c_str());
         val += value;
+        this->forget(this->get_prefix() + key);
         this->forever(this->get_prefix() + key, std::to_string(val));
     } catch (std::invalid_argument &e){
         // Probably should do something more here

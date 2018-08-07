@@ -4,8 +4,7 @@
 [![Travis](https://travis-ci.com/LjusFramework/ljus.svg?branch=master)]()
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FLjusFramework%2Fljus.svg?type=shield)]()
 [![Codacy grade](https://img.shields.io/codacy/grade/9cadf04aee3f4f608796e96cf3bc3e31.svg)]()
-[![Coveralls](https://img.shields.io/coveralls/ErikPartridge/ljus.svg)]()
-[![license](https://img.shields.io/github/license/LjusFramework/ljus.svg)]()
+[![Codecov](https://img.shields.io/codecov/c/github/LjusFramework/ljus.svg)](https://codecov.io/gh/LjusFramework)[![license](https://img.shields.io/github/license/LjusFramework/ljus.svg)]()
 [![stability](https://img.shields.io/badge/stability-experimental-orange.svg)]()
 
 C++ web framework inspired by Laravel - in development - **do not use this in production**.

@@ -147,6 +147,21 @@ TEST_CASE("cache functions properly", "[cache]"){
         store->forget("Hello");
         REQUIRE(!store->has("Hello"));
     }
+    SECTION("Incrementing") {
+        store->forever("integer", "100");
+        store->increment("integer", 1);
+        REQUIRE(atoi(store->get("integer").c_str()) == 101);
+    }
+    SECTION("Existing and non-existent values") {
+        REQUIRE(store->add("exists", "exists", 10));
+        REQUIRE(!store->add("exists", "ex", 10));
+        REQUIRE(store->forget("exists"));
+    }
+    SECTION("Testing the flushing procedure") {
+        store->forever("Hello", "goodbye");
+        store->flush();
+        REQUIRE(!store->has("Hello"));
+    }
     delete store;
 }
 
@@ -156,6 +171,7 @@ TEST_CASE("rendering functions properly", "[view]"){
     REQUIRE(res == "Hello World!");
     delete engine;
 }
+
 /*
 TEST_CASE("routing", "[route]") {
     Route::register_routes();

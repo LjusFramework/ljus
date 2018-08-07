@@ -1,6 +1,7 @@
 # Prerequisites
 *.d
 
+xml/
 # Compiled Object files
 *.slo
 *.lo

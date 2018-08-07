@@ -10,6 +10,7 @@
 #include <unordered_map>
 #include <string>
 #include <stdexcept>      // std::invalid_argument
+#include <stdio.h>
 
 namespace Ljus {
 
