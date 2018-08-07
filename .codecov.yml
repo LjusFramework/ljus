@@ -1,0 +1,10 @@
+ignore:
+  - "path/to/folder"  # ignore folders and all its contents
+  - "test_*.rb"       # wildcards accepted
+  - "**/*.py"         # glob accepted
+  - "[a-z]+/test_.*"  # regexp accepted
+  
+coverage:
+  range: 70..92
+  round: down
+  precision: 2
