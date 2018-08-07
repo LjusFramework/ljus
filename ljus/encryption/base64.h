@@ -62,48 +62,6 @@ public:
         return (enc_len == out->size());
     }
 
-    static bool Encode( const char *input, size_t input_length, char *out, size_t out_length ) {
-        int i = 0, j = 0;
-        char *out_begin = out;
-        unsigned char a3[3];
-        unsigned char a4[4];
-
-        size_t encoded_length = EncodedLength(input_length);
-
-        if ( out_length < encoded_length ) { return false; }
-
-        while ( input_length-- ) {
-            a3[i++] = static_cast<unsigned char>(*input++);
-            if ( i == 3 ) {
-                a3_to_a4(a4, a3);
-
-                for ( i = 0; i < 4; i++ ) {
-                    *out++ = kBase64Alphabet[a4[i]];
-                }
-
-                i = 0;
-            }
-        }
-
-        if ( i ) {
-            for ( j = i; j < 3; j++ ) {
-                a3[j] = '\0';
-            }
-
-            a3_to_a4(a4, a3);
-
-            for ( j = 0; j < i + 1; j++ ) {
-                *out++ = kBase64Alphabet[a4[j]];
-            }
-
-            while ((i++ < 3)) {
-                *out++ = '=';
-            }
-        }
-
-        return (out == (out_begin + encoded_length));
-    }
-
     static bool Decode( const std::string &in, std::string *out ) {
         int i = 0;
         int j = 0;
@@ -156,64 +114,6 @@ public:
         return (dec_len == out->size());
     }
 
-    static bool Decode( const char *input, size_t input_length, char *out, size_t out_length ) {
-        int i = 0, j = 0;
-        char *out_begin = out;
-        unsigned char a3[3];
-        unsigned char a4[4];
-
-        size_t decoded_length = DecodedLength(input, input_length);
-
-        if ( out_length < decoded_length ) { return false; }
-
-        while ( input_length-- ) {
-            if ( *input == '=' ) {
-                break;
-            }
-
-            a4[i++] = *(input++);
-            if ( i == 4 ) {
-                for ( i = 0; i < 4; i++ ) {
-                    a4[i] = b64_lookup(a4[i]);
-                }
-
-                a4_to_a3(a3, a4);
-
-                for ( i = 0; i < 3; i++ ) {
-                    *out++ = a3[i];
-                }
-
-                i = 0;
-            }
-        }
-
-        if ( i ) {
-            for ( j = i; j < 4; j++ ) {
-                a4[j] = '\0';
-            }
-
-            for ( j = 0; j < 4; j++ ) {
-                a4[j] = b64_lookup(a4[j]);
-            }
-
-            a4_to_a3(a3, a4);
-
-            for ( j = 0; j < i - 1; j++ ) {
-                *out++ = a3[j];
-            }
-        }
-
-        return (out == (out_begin + decoded_length));
-    }
-
-    static size_t DecodedLength( const char *in, size_t in_length ) {
-        int numEq = 0;
-
-        const char *in_end = in + in_length;
-        while ( *--in_end == '=' ) { ++numEq; }
-
-        return ((6 * in_length) / 8) - numEq;
-    }
 
     static unsigned long DecodedLength( const std::string &in ) {
         int numEq = 0;
