@@ -1,7 +1,7 @@
 #include <http/BaseController.h>
 #include "test.h"
 #include "../external/json.hpp"
-
+#include <chrono>
 namespace fs = std::experimental::filesystem;
 
 using namespace Ljus;
@@ -45,12 +45,27 @@ TEST_CASE("files can be created", "[filesystem]") {
     SECTION("File contents are hashable and consistent"){
         REQUIRE(Filesystem::hash(file) == Filesystem::hash(file));
     }
-    /*
+
+    SECTION("Files are writable") {
+        REQUIRE(Filesystem::is_writable(file));
+    }
+
+    SECTION("File is readable") {
+        REQUIRE(Filesystem::is_readable(file));
+    }
+
+    SECTION("File was modified before now") {
+        std::chrono::milliseconds ms = std::chrono::duration_cast< std::chrono::milliseconds >(
+                std::chrono::system_clock::now().time_since_epoch()
+        );
+        REQUIRE(Filesystem::modified(file) < ms.count());
+    }
+
     SECTION("gets chmod of 777") {
         Filesystem::chmod(file, fs::perms::group_read);
         REQUIRE((Filesystem::chmod(file) & fs::perms::group_read) != fs::perms::none);
         REQUIRE((Filesystem::chmod(file) & fs::perms::others_exec) == fs::perms::none);
-    }*/
+    }
 }
 
 TEST_CASE("files can be hashed", "[filesystem"){
