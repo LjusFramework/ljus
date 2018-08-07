@@ -24,18 +24,11 @@ namespace Ljus {
 
             virtual std::vector<std::string> many(std::vector<std::string> keys) = 0;
 
-            virtual void putMany(std::vector<std::string> keys, std::vector<std::string> values, int minutes){
-                auto itk = keys.begin();
-                auto itv = values.begin();
-                while(itk != keys.end() || itv != values.end()){
-                    put(*itk, *itv, minutes);
-                    ++itk;
-                    ++itv;
-                }
-            };
+            virtual void putMany(std::vector<std::string> keys, std::vector<std::string> values, int minutes) = 0;
 
             virtual bool add(std::string key, std::string value, int minutes) = 0;
             virtual void increment(std::string key, long long value) = 0;
+
             virtual void decrement(std::string key, long long value){
                 increment(std::move(key), -1 * value);
             }

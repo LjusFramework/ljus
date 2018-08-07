@@ -32,6 +32,16 @@ namespace Ljus {
 
         bool flush() override;
 
+        void putMany(std::vector<std::string> keys, std::vector<std::string> values, int minutes) override;
+
+        void decrement(std::string key, long long value) override;
+
+        void forever(std::string key, std::string value) override;
+
+        std::string get_prefix() override;
+
+        void set_prefix(std::string prefix) override;
+
     private:
         std::unordered_map<std::string, std::string> cache;
     };

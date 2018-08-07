@@ -147,10 +147,25 @@ TEST_CASE("cache functions properly", "[cache]"){
         store->forget("Hello");
         REQUIRE(!store->has("Hello"));
     }
+
     SECTION("Incrementing") {
         store->forever("integer", "100");
         store->increment("integer", 1);
         REQUIRE(atoi(store->get("integer").c_str()) == 101);
+        store->decrement("integer", 1);
+        REQUIRE(atoi(store->get("integer").c_str()) == 100);
+    }
+    store->flush();
+    std::vector<std::string> keys;
+    std::vector<std::string> values;
+    keys.push_back("h");
+    values.push_back("g");
+
+    keys.push_back("b");
+    values.push_back("a");
+    SECTION("Multiple") {
+        store->putMany(keys, values, 10);
+        REQUIRE(store->many(keys).size() > 0);
     }
     SECTION("Existing and non-existent values") {
         REQUIRE(store->add("exists", "exists", 10));
